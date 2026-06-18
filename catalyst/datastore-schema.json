@@ -1,0 +1,65 @@
+{
+  "tables": [
+    {
+      "name": "Cases",
+      "description": "Canonical case records. Field-level classification enforced by the API redactor.",
+      "columns": [
+        { "name": "case_id",        "type": "varchar",  "length": 64,  "primary": true,  "nullable": false },
+        { "name": "crime_type",     "type": "varchar",  "length": 64,  "nullable": false, "indexed": true },
+        { "name": "locality",       "type": "varchar",  "length": 128, "nullable": false, "indexed": true },
+        { "name": "street_address", "type": "varchar",  "length": 255, "nullable": true },
+        { "name": "occurred_on",    "type": "date",                    "nullable": false, "indexed": true },
+        { "name": "status",         "type": "varchar",  "length": 32,  "nullable": false },
+        { "name": "mo_details",     "type": "text",                    "nullable": true },
+        { "name": "victim_names",   "type": "text",                    "nullable": true,  "classification": "PII" },
+        { "name": "suspect_names",  "type": "text",                    "nullable": true,  "classification": "PII" },
+        { "name": "phone_numbers",  "type": "text",                    "nullable": true,  "classification": "PII" },
+        { "name": "narrative",      "type": "text",                    "nullable": true }
+      ]
+    },
+    {
+      "name": "AuditLog",
+      "description": "Append-only access log. Never deleted. Reviewed weekly.",
+      "columns": [
+        { "name": "ts",          "type": "datetime", "nullable": false, "indexed": true },
+        { "name": "actor_id",    "type": "varchar",  "length": 128, "nullable": true,  "indexed": true },
+        { "name": "actor_role",  "type": "varchar",  "length": 32,  "nullable": true },
+        { "name": "method",      "type": "varchar",  "length": 8,   "nullable": false },
+        { "name": "path",        "type": "varchar",  "length": 512, "nullable": false },
+        { "name": "status_code", "type": "int",                       "nullable": false },
+        { "name": "latency_ms",  "type": "double",                    "nullable": false },
+        { "name": "reason",      "type": "text",                      "nullable": true },
+        { "name": "client_ip",   "type": "varchar",  "length": 64,  "nullable": true }
+      ]
+    },
+    {
+      "name": "Conversations",
+      "description": "Chat history. One row per conversation; turns stored as JSON in a single column.",
+      "columns": [
+        { "name": "id",         "type": "varchar",  "length": 64,  "primary": true,  "nullable": false },
+        { "name": "user_id",    "type": "varchar",  "length": 128, "nullable": false, "indexed": true },
+        { "name": "title",      "type": "varchar",  "length": 128, "nullable": true },
+        { "name": "created_at", "type": "datetime",                "nullable": false },
+        { "name": "updated_at", "type": "datetime",                "nullable": false, "indexed": true },
+        { "name": "turns",      "type": "text",                    "nullable": false }
+      ]
+    },
+    {
+      "name": "CaseEmbeddings",
+      "description": "Phase 1 — chunk-level embeddings for RAG. Vector column stored in Qdrant; this table only holds chunk metadata + Qdrant point id.",
+      "columns": [
+        { "name": "chunk_id",   "type": "varchar", "length": 64,  "primary": true, "nullable": false },
+        { "name": "case_id",    "type": "varchar", "length": 64,  "nullable": false, "indexed": true },
+        { "name": "chunk_text", "type": "text",                   "nullable": false },
+        { "name": "qdrant_id",  "type": "varchar", "length": 64,  "nullable": false },
+        { "name": "lang",       "type": "varchar", "length": 8,   "nullable": false }
+      ]
+    }
+  ],
+  "userTypes": [
+    { "name": "public",         "selfSignup": true,  "description": "Citizen — redacted views only" },
+    { "name": "officer",        "selfSignup": false, "description": "KSP officer — full case access, audit-logged" },
+    { "name": "senior_officer", "selfSignup": false, "description": "Senior officer — recidivism scoring access" },
+    { "name": "admin",          "selfSignup": false, "description": "Crime Craft team — config, audit review" }
+  ]
+}

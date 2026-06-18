@@ -1,0 +1,4 @@
+.catalystrc
+.catalyst/
+node_modules/
+*.log

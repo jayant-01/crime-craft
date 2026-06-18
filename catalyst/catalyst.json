@@ -1,0 +1,26 @@
+{
+  "project": {
+    "name": "crime-craft",
+    "id": "REPLACE_WITH_PROJECT_ID_FROM_CONSOLE"
+  },
+  "resources": {
+    "appsail": [
+      {
+        "name": "crime-craft-api",
+        "stack": "python3.11",
+        "source": "../",
+        "config": "app-config.json"
+      }
+    ],
+    "client": [
+      {
+        "name": "crime-craft-web",
+        "source": "../apps/web/dist"
+      }
+    ]
+  },
+  "envVariables": {
+    "APP_ENV": "production",
+    "CATALYST_ENABLED": "true"
+  }
+}

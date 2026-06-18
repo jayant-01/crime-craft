@@ -1,0 +1,15 @@
+{
+  "name": "crime-craft-api",
+  "stack": "python3.11",
+  "command": "uvicorn main:app --host 0.0.0.0 --port $PORT --workers 2",
+  "memory": "1Gi",
+  "instances": {
+    "min": 1,
+    "max": 4
+  },
+  "healthCheck": {
+    "path": "/health",
+    "intervalSeconds": 30,
+    "timeoutSeconds": 5
+  }
+}

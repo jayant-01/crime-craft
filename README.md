@@ -5,7 +5,56 @@
 
 ---
 
-## 1. The Problem We're Solving
+## 🚀 Hackathon Quick Start
+
+> **5-minute setup. Three commands.**
+
+```bash
+make install         # backend deps + npm install for the web app
+make seed            # ingest the sample case corpus (10 fabricated cases)
+make dev             # runs FastAPI on :8000 and Vite on :5173 in parallel
+```
+
+Open **<http://localhost:5173>**, log in as `senior_jayant` (any password — role inferred from username prefix), and you're in.
+
+📋 **Live demo walkthrough:** [DEMO.md](DEMO.md) — exact 5-minute pitch sequence
+🧪 **Run the tests:** `make test` → ~108 tests, no API keys required
+🩺 **Smoke check:** `make smoke` → boots app + hits `/health`
+
+### What's actually built (status snapshot — 2026-06-18)
+
+| Capability | Status | Where |
+|-----------|--------|-------|
+| FastAPI + JWT auth + RBAC | ✅ shipped | [main.py](main.py), [auth/](auth/) |
+| Zoho Catalyst integration (auth, datastore, AppSail, cron) | ✅ wired | [catalyst/](catalyst/), [services/catalyst_client.py](services/catalyst_client.py) |
+| CSV/JSON ingest + PII redaction (regex + names) | ✅ shipped | [services/ingest.py](services/ingest.py), [services/pii.py](services/pii.py) |
+| Audit middleware (every request logged) | ✅ shipped | [middleware/audit.py](middleware/audit.py) |
+| RAG chat with Claude Sonnet 4.6 + prompt caching | ✅ shipped | [services/rag/](services/rag/) |
+| Multi-turn conversations (server-persisted) | ✅ shipped | [services/conversations.py](services/conversations.py) |
+| Analytics — trends / top localities / hotspots | ✅ shipped | [services/analytics.py](services/analytics.py) |
+| Language detection (English / Hindi / Kannada) | ✅ shipped | [services/lang.py](services/lang.py) |
+| PDF export of conversations (with watermark) | ✅ shipped | [services/pdf.py](services/pdf.py) |
+| Recidivism scoring (XGBoost + SHAP, senior-only) | ✅ shipped | [services/predictive/](services/predictive/) |
+| Criminal network graph (Cytoscape.js) | ✅ shipped | [services/network.py](services/network.py), [apps/web/src/pages/NetworkPage.tsx](apps/web/src/pages/NetworkPage.tsx) |
+| Voice — Whisper STT + Indic TTS | ✅ shipped (stub + live paths) | [services/voice/](services/voice/) |
+| React frontend — login / cases / chat / dashboard / network / recidivism | ✅ shipped | [apps/web/](apps/web/) |
+| Tests (~108, all offline) | ✅ shipped | [tests/](tests/), [tests/README.md](tests/README.md) |
+
+### Honest gaps to flag for judges
+
+These are intentional — they need real partner data / credentials before they make sense to switch on.
+
+| Stubbed | What it does today | What it needs |
+|---|---|---|
+| LLM provider | Templated stub answer with citation | `LLM_API_KEY=sk-ant-...` + `RAG_PROVIDER=live` |
+| Embeddings | Deterministic 64-d hash → vectors | `pip install sentence-transformers` + `RAG_PROVIDER=live` |
+| Vector store | In-memory cosine scan | `docker compose up qdrant` + `RAG_PROVIDER=live` |
+| Whisper STT | Placeholder transcript | `pip install openai-whisper` + `VOICE_PROVIDER=live` |
+| Indic TTS | Silent WAV (frontend falls back to browser TTS) | Bhashini / IndicTTS account — `_live_synthesize` to fill |
+| Recidivism labels | Synthetic (prior_count ≥ 2) | Real recidivism labels from KSP |
+| Catalyst Auth iframe | Local-dev JWT login | Production Catalyst project + frontend swap |
+
+---
 
 Today, querying KSP case data means digging through PDFs, FIR portals, and disconnected dashboards. Officers spend hours assembling context that an AI could surface in seconds. Citizens, meanwhile, have almost no easy way to get clear, redacted answers about case status or area-level crime trends.
 
@@ -167,18 +216,20 @@ We are **not training a language model from scratch.** 1100 cases is far too sma
 
 ## 7. Feature Matrix (MVP → v1 → v2)
 
+Hackathon delivery cuts across the original roadmap — most of MVP through v1 and large parts of v2 are working with stubs swapped for production providers via env toggles.
+
 | Feature | MVP (M0–M3) | v1 (M3–M5) | v2 (M5–M6+) |
 |---------|------------|-----------|------------|
-| Auth + RBAC (public / officer / admin) | yes | hardening | SSO with KSP |
-| Case ingestion pipeline + PII redaction | yes | delta sync hourly | streaming |
-| RAG chat (English first) | yes | Hindi + Kannada | voice in/out |
-| Citation of source case IDs | yes | yes | rich card view |
-| Trend & hotspot dashboard | basic charts | maps + filters | predictive trend |
-| Criminal network graph | — | basic | interactive Cytoscape |
-| Recidivism scoring (Track 2) | — | shadow mode | live with audit + SHAP |
-| PDF export of conversation | — | yes | with citations |
-| Audit log explorer (admin) | basic table | filters + alerts | anomaly detection |
-| Explainability UI | minimal | per-answer "why" | full source highlight |
+| Auth + RBAC (public / officer / admin) | ✅ done | ✅ done | SSO with KSP (TBD) |
+| Case ingestion pipeline + PII redaction | ✅ done | ✅ delta sync hourly via Catalyst cron | streaming |
+| RAG chat | ✅ done (with prompt caching) | ✅ Hindi + Kannada (lang detection) | ✅ voice in/out |
+| Citation of source case IDs | ✅ done | ✅ done (chips link to case detail) | rich card view |
+| Trend & hotspot dashboard | ✅ done | ✅ filters | predictive trend |
+| Criminal network graph | ✅ done | ✅ interactive Cytoscape | path-finding queries |
+| Recidivism scoring (Track 2) | ✅ done (stub + live paths) | ✅ live with audit + SHAP | bias audit harness |
+| PDF export of conversation | ✅ done (with watermark) | ✅ done | with citations panel |
+| Audit log explorer (admin) | basic logger | filters + alerts (TBD) | anomaly detection |
+| Explainability UI | ✅ per-citation chips | ✅ SHAP contributions in recidivism | full source highlight |
 
 ---
 

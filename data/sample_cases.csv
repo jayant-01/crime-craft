@@ -1,0 +1,11 @@
+case_id,crime_type,locality,street_address,occurred_on,status,mo_details,victim_names,suspect_names,phone_numbers,narrative
+FIR-2025-1001,theft,HSR Layout,27th Main Sector 2,2025-11-14,under_investigation,forced entry via balcony,Ramesh Kumar,unknown,+91 9845012345,Resident reported jewellery missing. CCTV under review. Victim phone +91 9845012345 on file.
+FIR-2025-1002,burglary,Indiranagar,100ft Road,2025-11-20,open,broke shop shutter at 2am,Anita Sharma,Ravi Kumar|Manoj S,9845098450,Suspect Ravi Kumar earlier booked under FIR-2024-0890. Aadhaar 1234 5678 9012 found at scene.
+FIR-2025-1003,vehicle theft,Koramangala,80ft Road,2025-12-01,under_investigation,bike stolen from parking,Suresh M,unknown,,KA-01-AB-1234 reported stolen at 11pm. Owner contacted on suresh.m@example.com.
+FIR-2025-1004,robbery,Whitefield,ITPL Main Road,2025-12-05,chargesheeted,armed assault on cab driver,Mohammed Ali,Bashir Khan,9845011111,Driver assaulted near tech park. PAN ABCDE1234F recovered from suspect.
+FIR-2025-1005,assault,Jayanagar,4th Block,2025-12-08,open,bar fight escalated,Vikram Rao,unknown,,Domestic dispute spilled outside. Witnesses present.
+FIR-2025-1006,cybercrime,JP Nagar,unknown,2025-12-10,under_investigation,UPI fraud via fake support call,Lakshmi R,unknown,9123456789,Victim transferred 80000 INR after fake bank call. Number used: 9123456789.
+FIR-2025-1007,theft,Rajajinagar,1st Block,2025-12-12,closed,shoplifting,Amit Verma,Pradeep K,,Suspect caught on CCTV. Goods recovered. Case closed with compounding.
+FIR-2025-1008,burglary,BTM Layout,2nd Stage,2025-12-15,open,picked lock during weekday daytime,Deepa Iyer,unknown,9845022222,Neighbour spotted unknown person leaving flat.
+FIR-2025-1009,kidnapping,Banashankari,3rd Stage,2025-12-18,under_investigation,minor lured via social media,REDACTED,Anil G,,Minor recovered safely within 36 hours. Suspect detained.
+FIR-2025-1010,fraud,Yelahanka,New Town,2025-12-20,under_investigation,fake property listing,Sridhar N,Group of 3 unidentified,,Victim paid 250000 INR token amount. Bank trace ongoing.

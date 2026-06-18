@@ -1,0 +1,14 @@
+{
+  "deployment": {
+    "name": "ingest_cron",
+    "type": "Cron",
+    "stack": "python3.11",
+    "memory": "512",
+    "timeout": 300,
+    "description": "Hourly delta ingest from the KSP source bucket into Catalyst Datastore.",
+    "cron": {
+      "expression": "0 * * * *",
+      "timezone": "Asia/Kolkata"
+    }
+  }
+}
