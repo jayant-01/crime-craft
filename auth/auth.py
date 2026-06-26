@@ -61,7 +61,9 @@ async def _local_get_current_user(token: str | None) -> User:
     payload = _decode_local_token(token)
     return User(
         id=payload.sub,
-        email=f"{payload.sub}@local.test",
+        # Synthetic email for the local dev stub. Must be a valid (non-reserved)
+        # domain — EmailStr rejects the .test TLD, which would 500 every request.
+        email=f"{payload.sub}@ksp.gov.in",
         role=payload.role,
     )
 
