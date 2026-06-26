@@ -1,5 +1,6 @@
 import logging
 import tempfile
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import Depends, FastAPI, File, HTTPException, Request, Response, UploadFile
@@ -36,7 +37,23 @@ require_senior_or_admin = require_roles(Role.SENIOR_OFFICER, Role.ADMIN)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
 settings = get_settings()
 
-app = FastAPI(title=settings.app_name, version="0.1.0")
+@asynccontextmanager
+async def _lifespan(app: FastAPI):
+    """Index the in-memory seed corpus into the RAG store so chat works over the
+    demo data on `make dev`. Best-effort and only for the local stub path — under
+    Catalyst the corpus is indexed by the ingest cron, not at boot."""
+    if not settings.catalyst_enabled:
+        try:
+            from services.rag.indexer import reindex_all
+
+            chunks = reindex_all()
+            logging.getLogger("startup").info("indexed seed corpus: %d chunks", chunks)
+        except Exception as e:  # noqa: BLE001 — never block startup on indexing
+            logging.getLogger("startup").warning("seed indexing skipped: %s", e)
+    yield
+
+
+app = FastAPI(title=settings.app_name, version="0.1.0", lifespan=_lifespan)
 app.add_middleware(AuditMiddleware)
 
 

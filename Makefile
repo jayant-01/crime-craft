@@ -40,8 +40,12 @@ install-frontend:  ## install frontend deps only
 # --- data -----------------------------------------------------------------
 
 .PHONY: seed
-seed:  ## load the sample CSV into the in-memory datastore + vector index
-	@$(ACTIVATE) && $(PYTHON) -m services.ingest data/sample_cases.csv
+seed:  ## run the ingest+PII pipeline over the demo corpus (dev server auto-seeds it on boot)
+	@$(ACTIVATE) && $(PYTHON) -m services.ingest data/demo_cases.csv
+
+.PHONY: demo-data
+demo-data:  ## regenerate data/demo_cases.csv (deterministic synthetic corpus)
+	@$(ACTIVATE) && $(PYTHON) data/generate_demo_cases.py
 
 .PHONY: reindex
 reindex:  ## re-embed every case in the datastore (needed after switching to live RAG)

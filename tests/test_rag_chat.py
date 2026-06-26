@@ -51,7 +51,7 @@ def _seed_case(case_id="FIR-2025-1001") -> Case:
 
 
 def _user(role: Role) -> User:
-    return User(id=f"{role.value}_test", email=f"{role.value}@example.test", role=role)
+    return User(id=f"{role.value}_test", email=f"{role.value}@ksp.gov.in", role=role)
 
 
 class TestEndToEnd:

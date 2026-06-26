@@ -11,9 +11,10 @@
 
 ```bash
 make install         # backend deps + npm install for the web app
-make seed            # ingest the sample case corpus (10 fabricated cases)
 make dev             # runs FastAPI on :8000 and Vite on :5173 in parallel
 ```
+
+> `make dev` auto-seeds the demo corpus (65 fabricated cases in `data/demo_cases.csv`) and indexes it for chat on boot — no separate seed step needed. `make seed` still runs the ingest+PII pipeline over that corpus if you want to see the redaction report; `make demo-data` regenerates the CSV.
 
 Open **<http://localhost:5173>**, log in as `senior_jayant` (any password — role inferred from username prefix), and you're in.
 

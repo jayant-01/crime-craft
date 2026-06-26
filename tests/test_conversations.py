@@ -26,7 +26,7 @@ def fresh_state():
 
 
 def _user(role: Role = Role.OFFICER, id_: str = "officer_priya") -> User:
-    return User(id=id_, email=f"{id_}@example.test", role=role)
+    return User(id=id_, email=f"{id_}@ksp.gov.in", role=role)
 
 
 def _seed_case():

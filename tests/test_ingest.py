@@ -57,7 +57,8 @@ def test_scrub_pii_redacts_narrative_phone():
     case = normalize_row(row)
     case, findings = scrub_pii(case)
     assert "9845012345" not in case.narrative
-    assert any(f.kind == "phone" for f in findings)
+    # scrub_pii returns a count of redactions, not the findings themselves.
+    assert findings >= 1
 
 
 def test_scrub_pii_leaves_clean_narrative_alone():

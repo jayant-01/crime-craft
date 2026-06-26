@@ -48,6 +48,32 @@ class AuditRepository(Protocol):
 
 # --- in-memory implementations (local dev / tests) ------------------------
 
+def _load_demo_seed() -> list[Case]:
+    """Load data/demo_cases.csv through the real normalize + scrub pipeline so
+    the dev server boots with a corpus the dashboards can chart. Falls back to
+    the single built-in case if the file is missing or unreadable."""
+    from pathlib import Path
+
+    csv_path = Path(__file__).resolve().parents[1] / "data" / "demo_cases.csv"
+    if not csv_path.exists():
+        return list(InMemoryCaseRepo._SEED)
+    try:
+        # Lazy import: services.ingest imports this module, so importing it at
+        # module load would be circular. By call time everything is loaded.
+        from services.ingest import load_rows, normalize_row, scrub_pii
+
+        out: list[Case] = []
+        for row in load_rows(csv_path):
+            try:
+                case, _ = scrub_pii(normalize_row(row))
+                out.append(case)
+            except Exception:
+                continue  # skip a bad row, keep the rest
+        return out or list(InMemoryCaseRepo._SEED)
+    except Exception:
+        return list(InMemoryCaseRepo._SEED)
+
+
 class InMemoryCaseRepo:
     _SEED: list[Case] = [
         Case(
@@ -66,9 +92,11 @@ class InMemoryCaseRepo:
     ]
 
     def __init__(self, seed: bool = True) -> None:
-        # `seed=True` gives `make dev` something to show before `make seed`
-        # runs; tests pass `seed=False` for a clean slate (see reset_for_tests).
-        self._rows: dict[str, Case] = {c.case_id: c for c in self._SEED} if seed else {}
+        # `seed=True` boots `make dev` with the demo corpus so the dashboards,
+        # network graph and recidivism screens have data to chart; tests pass
+        # `seed=False` for a clean slate (see reset_for_tests).
+        cases = _load_demo_seed() if seed else []
+        self._rows: dict[str, Case] = {c.case_id: c for c in cases}
 
     def list(self, limit: int = 50, offset: int = 0) -> list[Case]:
         return list(self._rows.values())[offset : offset + limit]

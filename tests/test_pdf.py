@@ -30,7 +30,7 @@ def _conv() -> Conversation:
 
 
 def _user() -> User:
-    return User(id="officer_priya", email="priya@ksp.test", role=Role.OFFICER)
+    return User(id="officer_priya", email="priya@ksp.gov.in", role=Role.OFFICER)
 
 
 def test_renders_pdf_bytes():
