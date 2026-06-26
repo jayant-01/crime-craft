@@ -1,5 +1,5 @@
 from enum import Enum
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class RiskBand(str, Enum):
@@ -26,6 +26,10 @@ class RecidivismRequest(BaseModel):
 
 
 class RecidivismResponse(BaseModel):
+    # `model_version` collides with Pydantic v2's protected "model_" namespace;
+    # opt out so the field name (part of our API contract) doesn't emit a warning.
+    model_config = ConfigDict(protected_namespaces=())
+
     subject: str
     score: float                            # 0..1
     band: RiskBand

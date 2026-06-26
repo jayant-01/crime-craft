@@ -65,8 +65,10 @@ class InMemoryCaseRepo:
         ),
     ]
 
-    def __init__(self) -> None:
-        self._rows: dict[str, Case] = {c.case_id: c for c in self._SEED}
+    def __init__(self, seed: bool = True) -> None:
+        # `seed=True` gives `make dev` something to show before `make seed`
+        # runs; tests pass `seed=False` for a clean slate (see reset_for_tests).
+        self._rows: dict[str, Case] = {c.case_id: c for c in self._SEED} if seed else {}
 
     def list(self, limit: int = 50, offset: int = 0) -> list[Case]:
         return list(self._rows.values())[offset : offset + limit]
@@ -180,6 +182,8 @@ def audit_repo() -> AuditRepository:
 
 
 def reset_for_tests() -> None:
+    # Tests assume a clean, empty datastore — bypass the demo seed so
+    # counts/aggregates start from zero. Always in-memory under test.
     global _case_repo, _audit_repo
-    _case_repo = None
-    _audit_repo = None
+    _case_repo = InMemoryCaseRepo(seed=False)
+    _audit_repo = InMemoryAuditRepo()
