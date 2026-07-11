@@ -1,0 +1,19 @@
+# Extra dependencies for LIVE features — NOT needed for the default stub-mode
+# deploy. Install on top of the base set when enabling live RAG / recidivism:
+#     pip install -r requirements-ml.txt
+#
+# (Alternatively, prefer Catalyst-native services — QuickML for RAG, Zia AutoML
+# for recidivism — see docs/KSP_SCHEMA_MAPPING.md §3.)
+
+-r requirements.txt
+
+# Live RAG (self-hosted embeddings + vector store + hosted LLM)
+anthropic==0.40.0
+qdrant-client==1.12.1
+sentence-transformers==3.2.1
+
+# Predictive analytics (recidivism scoring)
+xgboost==2.1.2
+shap==0.46.0
+scikit-learn==1.5.2
+numpy==2.1.3
