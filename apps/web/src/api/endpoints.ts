@@ -16,6 +16,13 @@ import type {
   User,
 } from "./types";
 
+export const healthApi = {
+  // Unauthenticated — tells the frontend whether the backend is in Catalyst mode.
+  get(): Promise<{ status: string; env: string; catalyst: boolean }> {
+    return api.get("/health");
+  },
+};
+
 export const authApi = {
   login(username: string, password: string): Promise<LoginResponse> {
     const form = new FormData();
@@ -69,6 +76,7 @@ export const voiceApi = {
     const token = getToken();
     const res = await fetch("/api/voice/tts", {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
         ...(token ? { Authorization: `Bearer ${token}` } : {}),

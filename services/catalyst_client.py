@@ -56,7 +56,15 @@ def get_catalyst(request_headers: dict[str, str] | None = None) -> Any:
 
     global _app_instance
     if _app_instance is None:
-        _app_instance = zcatalyst_sdk.initialize_with_credentials(_build_admin_credentials())
+        creds = _build_admin_credentials()
+        if creds.get("client_id") and creds.get("refresh_token"):
+            # Explicit self-client credentials — needed only when running OUTSIDE
+            # Catalyst (local admin scripts, external jobs).
+            _app_instance = zcatalyst_sdk.initialize_with_credentials(creds)
+        else:
+            # Inside AppSail/Functions the SDK authenticates automatically from the
+            # platform context — no OAuth tokens required.
+            _app_instance = zcatalyst_sdk.initialize()
     return _app_instance
 
 

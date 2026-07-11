@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import { redirectToCatalystLogin } from "../auth/catalyst";
 
 export default function LoginPage() {
-  const { user, login } = useAuth();
+  const { user, login, catalystMode } = useAuth();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +12,24 @@ export default function LoginPage() {
   const [submitting, setSubmitting] = useState(false);
 
   if (user) return <Navigate to="/" replace />;
+
+  // Production: hand off to the Catalyst-hosted login page.
+  if (catalystMode) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-brand-50">
+        <div className="bg-card shadow rounded-lg p-8 w-full max-w-sm space-y-4 text-center">
+          <h1 className="text-xl font-semibold text-brand-700">Crime Craft</h1>
+          <p className="text-sm text-muted">Sign in with your KSP account to continue.</p>
+          <button
+            onClick={() => redirectToCatalystLogin()}
+            className="w-full rounded bg-brand-600 text-white py-2 font-medium hover:bg-brand-700"
+          >
+            Sign in
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();

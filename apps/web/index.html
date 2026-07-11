@@ -15,6 +15,11 @@
         } catch (e) {}
       })();
     </script>
+    <!-- Catalyst Web SDK — used only in production (CATALYST_ENABLED=true) for
+         hosted login + sign-out. In local dev `/__catalyst/sdk/init.js` 404s
+         harmlessly and all usage is guarded by a window.catalyst check. -->
+    <script src="https://static.zohocdn.com/catalyst/sdk/js/4.0.0/catalystWebSDK.js"></script>
+    <script src="/__catalyst/sdk/init.js"></script>
   </head>
   <body>
     <div id="root"></div>

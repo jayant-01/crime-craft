@@ -27,7 +27,9 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   }
   if (token) headers.set("Authorization", `Bearer ${token}`);
 
-  const res = await fetch(`/api${path}`, { ...init, headers });
+  // `credentials: include` so the Catalyst session cookie (hosted login) is sent
+  // to the API in production; harmless for the dev JWT-header flow.
+  const res = await fetch(`/api${path}`, { ...init, headers, credentials: "include" });
   if (res.status === 401) {
     setToken(null);
     // Soft redirect — page handlers reading auth will route to login.
