@@ -85,11 +85,22 @@ cd catalyst && catalyst deploy
 | Frontend hosting      | Catalyst Client (CDN)         | `apps/web/`                     |
 | Background jobs       | Functions                     | (Phase 1) `functions/`          |
 
-## What Catalyst does NOT give us (and our answer)
+## Native Catalyst services we can use (verified Jul 2026)
 
-| Need                  | Why Catalyst doesn't fit       | Our plan                                  |
-|-----------------------|--------------------------------|-------------------------------------------|
-| Vector search         | No vector primitive            | Self-host Qdrant in same Zoho-region VPC  |
-| GPU model training    | No GPU instances               | We don't train — RAG over hosted LLM      |
-| Geospatial queries    | Datastore has no geo index     | Compute hotspots in app code (ST-DBSCAN) over a paged scan; cache results |
-| LLM inference         | ZIA exists but limited         | Anthropic/OpenAI via API (residency check pending) |
+Earlier notes claimed Catalyst had "no vector primitive." That's outdated — see
+[docs/KSP_SCHEMA_MAPPING.md](../docs/KSP_SCHEMA_MAPPING.md) §3 for the full map.
+
+| Need | Catalyst service | Notes |
+|------|------------------|-------|
+| RAG / vector search / LLM | **QuickML** (Knowledge Base + RAG + LLM Serving) | Qwen 2.5, in-region → resolves residency; Qwen-vs-Claude quality to evaluate |
+| Recidivism (tabular ML) | **Zia AutoML** | keep SHAP-style explanation + audit + bias check |
+| PII redaction | **Zia Text Analytics (NER) + Identity Scanner (Aadhaar)** | replaces the regex-only redactor's blind spots |
+| Voice STT/TTS | **Zia Services** | ⚠️ STT is **English + Hindi only, no Kannada yet** → keep Bhashini/IndicTTS fallback for Kannada |
+| Object storage (docs/photos) | **Catalyst Stratus** | scanned FIRs / evidence |
+| Event-driven indexing | **Catalyst Signals + Event Functions** | auto-embed on Data Store insert |
+| Ingest orchestration | **Catalyst Circuits** | ingest → redact → embed → index |
+| Data residency | **India DC** (Mumbai/Chennai) | pick at project creation; DPDP-aligned |
+
+| Still compute in app code | Why | Our plan |
+|---|---|---|
+| Geospatial hotspots | Data Store has no geo index | ST-DBSCAN/KDE over real `lat/long` (paged scan); cache results |

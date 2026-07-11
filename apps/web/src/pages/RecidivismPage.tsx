@@ -38,27 +38,27 @@ export default function RecidivismPage() {
         with the reason you supply below.
       </p>
 
-      <form onSubmit={submit} className="bg-white shadow rounded p-4 space-y-3">
+      <form onSubmit={submit} className="bg-card shadow rounded p-4 space-y-3">
         <label className="block text-sm">
-          <span className="text-slate-700">Subject (suspect name from a case)</span>
+          <span className="text-ink">Subject (suspect name from a case)</span>
           <input
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             required
             minLength={1}
-            className="mt-1 w-full rounded border-slate-300 border px-2 py-1.5 text-sm"
+            className="mt-1 w-full rounded border-line border px-2 py-1.5 text-sm"
             placeholder="Ravi Kumar"
           />
         </label>
         <label className="block text-sm">
-          <span className="text-slate-700">Reason for this scoring (logged)</span>
+          <span className="text-ink">Reason for this scoring (logged)</span>
           <textarea
             value={reason}
             onChange={(e) => setReason(e.target.value)}
             required
             minLength={4}
             rows={3}
-            className="mt-1 w-full rounded border-slate-300 border px-2 py-1.5 text-sm"
+            className="mt-1 w-full rounded border-line border px-2 py-1.5 text-sm"
             placeholder="Reviewing active investigation in HSR Layout for parole eligibility decision."
           />
         </label>
@@ -73,14 +73,14 @@ export default function RecidivismPage() {
       {error && <p className="text-rose-600 text-sm">{error}</p>}
 
       {resp && (
-        <div className="bg-white shadow rounded p-4 space-y-3">
+        <div className="bg-card shadow rounded p-4 space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="font-semibold">{resp.subject}</h3>
             <span className={`text-xs uppercase border rounded px-2 py-0.5 ${BAND_COLOR[resp.band]}`}>
               {resp.band} · {(resp.score * 100).toFixed(0)}%
             </span>
           </div>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-muted">
             Model: <code>{resp.model_version}</code>
             {resp.is_stub && <span className="ml-2 text-amber-600">(stub — not a trained model)</span>}
             · {resp.case_count} cases linked
@@ -91,8 +91,8 @@ export default function RecidivismPage() {
             <h4 className="text-sm font-semibold mb-2">Top contributing features</h4>
             <ul className="text-sm space-y-2">
               {resp.top_contributions.map((c) => (
-                <li key={c.name} className="border-l-2 border-slate-200 pl-3">
-                  <div className="flex justify-between text-xs text-slate-500">
+                <li key={c.name} className="border-l-2 border-line pl-3">
+                  <div className="flex justify-between text-xs text-muted">
                     <span className="font-mono">{c.name}</span>
                     <span className={c.contribution > 0 ? "text-rose-600" : "text-emerald-600"}>
                       {c.contribution > 0 ? "+" : ""}

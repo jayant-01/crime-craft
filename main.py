@@ -37,11 +37,28 @@ require_senior_or_admin = require_roles(Role.SENIOR_OFFICER, Role.ADMIN)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
 settings = get_settings()
 
+def _is_production() -> bool:
+    return settings.app_env.strip().lower() in {"production", "prod", "staging"}
+
+
 @asynccontextmanager
 async def _lifespan(app: FastAPI):
-    """Index the in-memory seed corpus into the RAG store so chat works over the
-    demo data on `make dev`. Best-effort and only for the local stub path — under
-    Catalyst the corpus is indexed by the ingest cron, not at boot."""
+    # Fail closed: the local JWT login stub assigns roles from the username prefix
+    # with NO password check, so it must never be the auth path in production.
+    if _is_production():
+        if not settings.catalyst_enabled:
+            raise RuntimeError(
+                "Refusing to start: APP_ENV is production but CATALYST_ENABLED is false. "
+                "The local login stub grants roles without a password — enable Catalyst auth."
+            )
+        if settings.jwt_secret == "dev-only-change-me":
+            raise RuntimeError(
+                "Refusing to start: default JWT secret in production. Set a strong JWT_SECRET."
+            )
+
+    # Index the in-memory seed corpus into the RAG store so chat works over the
+    # demo data on `make dev`. Local stub path only — under Catalyst the ingest
+    # cron indexes the corpus, not boot.
     if not settings.catalyst_enabled:
         try:
             from services.rag.indexer import reindex_all
@@ -57,15 +74,6 @@ app = FastAPI(title=settings.app_name, version="0.1.0", lifespan=_lifespan)
 app.add_middleware(AuditMiddleware)
 
 
-@app.middleware("http")
-async def attach_user_to_state(request: Request, call_next):
-    """Audit middleware reads `request.state.user`. We populate it here after
-    the auth dependency has run for any route that asks for it. For unauthed
-    routes (e.g. /health, /auth/login) `user` stays None."""
-    response = await call_next(request)
-    return response
-
-
 @app.get("/health")
 def health():
     return {"status": "ok", "env": settings.app_env, "catalyst": settings.catalyst_enabled}
@@ -79,6 +87,13 @@ def login(form: OAuth2PasswordRequestForm = Depends()):
         raise HTTPException(
             status_code=400,
             detail="catalyst is enabled — log in via the Catalyst hosted flow",
+        )
+    if _is_production():
+        # Defense in depth (startup already refuses this combo): never issue
+        # stub tokens in production.
+        raise HTTPException(
+            status_code=503,
+            detail="local login is disabled in production; use Catalyst SSO",
         )
     if not form.password:
         raise HTTPException(status_code=400, detail="password required")
@@ -349,19 +364,12 @@ def predictive_recidivism(
     and admins. Every call is audit-logged with the requester's stated reason —
     a score view with no reason is treated as a bug, not a feature."""
     request.state.user = user
-    from services.predictive import score_subject
+    # Persist the subject + stated reason into the durable audit record (the
+    # AuditLog `reason` column) via the audit middleware. A recidivism score
+    # with no logged reason is treated as a bug, not a feature.
+    request.state.audit_reason = f"recidivism subject={req.subject!r}: {req.reason}"
 
-    # The audit middleware logs the route + actor; the reason joins the structured
-    # record via an explicit logger entry so it persists alongside.
-    import logging
-    logging.getLogger("audit.predictive").info(
-        "recidivism scored",
-        extra={
-            "actor_id": user.id,
-            "subject": req.subject,
-            "reason": req.reason,
-        },
-    )
+    from services.predictive import score_subject
     return score_subject(req.subject)
 
 

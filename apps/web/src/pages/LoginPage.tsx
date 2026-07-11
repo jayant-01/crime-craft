@@ -28,29 +28,29 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-brand-50">
-      <form onSubmit={onSubmit} className="bg-white shadow rounded-lg p-8 w-full max-w-sm space-y-4">
+      <form onSubmit={onSubmit} className="bg-card shadow rounded-lg p-8 w-full max-w-sm space-y-4">
         <div>
           <h1 className="text-xl font-semibold text-brand-700">Crime Craft</h1>
-          <p className="text-sm text-slate-500">Sign in to continue.</p>
+          <p className="text-sm text-muted">Sign in to continue.</p>
         </div>
         <label className="block text-sm">
-          <span className="text-slate-700">Username</span>
+          <span className="text-ink">Username</span>
           <input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
             autoFocus
-            className="mt-1 w-full rounded border-slate-300 border px-2 py-1.5"
+            className="mt-1 w-full rounded border-line border px-2 py-1.5"
           />
         </label>
         <label className="block text-sm">
-          <span className="text-slate-700">Password</span>
+          <span className="text-ink">Password</span>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="mt-1 w-full rounded border-slate-300 border px-2 py-1.5"
+            className="mt-1 w-full rounded border-line border px-2 py-1.5"
           />
         </label>
         {error && <div className="text-sm text-rose-600">{error}</div>}
@@ -60,7 +60,7 @@ export default function LoginPage() {
         >
           {submitting ? "Signing in…" : "Sign in"}
         </button>
-        <p className="text-xs text-slate-400 leading-snug">
+        <p className="text-xs text-subtle leading-snug">
           Local-dev login stub. Try <code>officer_priya</code>, <code>admin_jayant</code>, or any other
           username — role is inferred from the prefix.
         </p>

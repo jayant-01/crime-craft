@@ -1,42 +1,262 @@
 {
+  "_comment": "Catalyst Data Store schema modelled on the real KSP FIR ER (Police_FIR_ER_Diagram.pdf). Catalyst Data Store has no enforced foreign keys; FK intent is documented in column descriptions and enforced in application code. Column-level `classification` (OPEN | SENSITIVE | PII) drives the role-based redactor: PUBLIC sees OPEN only; officers see OPEN+SENSITIVE; PII is officer-only and audit-logged. Columns with no `classification` are OPEN. See docs/KSP_SCHEMA_MAPPING.md.",
+  "classificationLegend": {
+    "OPEN": "Public-safe: crime head, category, coarse locality (district), status, dates.",
+    "SENSITIVE": "Officer-only: BriefFacts, MO, exact geo/time, charges, arrest details.",
+    "PII": "Officer-only + audit-logged: names, Aadhaar/phone, DOB, caste/religion/occupation, exact address, officer KGID."
+  },
   "tables": [
     {
-      "name": "Cases",
-      "description": "Canonical case records. Field-level classification enforced by the API redactor.",
+      "name": "CaseMaster",
+      "description": "The FIR/case record. One row per FIR.",
       "columns": [
-        { "name": "case_id",        "type": "varchar",  "length": 64,  "primary": true,  "nullable": false },
-        { "name": "crime_type",     "type": "varchar",  "length": 64,  "nullable": false, "indexed": true },
-        { "name": "locality",       "type": "varchar",  "length": 128, "nullable": false, "indexed": true },
-        { "name": "street_address", "type": "varchar",  "length": 255, "nullable": true },
-        { "name": "occurred_on",    "type": "date",                    "nullable": false, "indexed": true },
-        { "name": "status",         "type": "varchar",  "length": 32,  "nullable": false },
-        { "name": "mo_details",     "type": "text",                    "nullable": true },
-        { "name": "victim_names",   "type": "text",                    "nullable": true,  "classification": "PII" },
-        { "name": "suspect_names",  "type": "text",                    "nullable": true,  "classification": "PII" },
-        { "name": "phone_numbers",  "type": "text",                    "nullable": true,  "classification": "PII" },
-        { "name": "narrative",      "type": "text",                    "nullable": true }
+        { "name": "CaseMasterID",       "type": "bigint",  "primary": true, "nullable": false, "description": "PK" },
+        { "name": "CrimeNo",            "type": "varchar", "length": 20,  "nullable": false, "indexed": true, "description": "18-digit structured crime number (1 category + 4 district + 4 station + 4 year + 5 serial)" },
+        { "name": "CaseNo",             "type": "varchar", "length": 16,  "nullable": true,  "description": "YYYY + 5-digit serial (last 9 of CrimeNo)" },
+        { "name": "CrimeRegisteredDate","type": "date",                   "nullable": false, "indexed": true, "description": "FIR registration date" },
+        { "name": "PolicePersonID",     "type": "bigint",  "nullable": true,  "classification": "SENSITIVE", "description": "FK -> Employee.EmployeeID (registering officer)" },
+        { "name": "PoliceStationID",    "type": "bigint",  "nullable": false, "indexed": true, "description": "FK -> Unit.UnitID (station)" },
+        { "name": "CaseCategoryID",     "type": "int",     "nullable": false, "description": "FK -> CaseCategory.CaseCategoryID" },
+        { "name": "GravityOffenceID",   "type": "int",     "nullable": true,  "description": "FK -> GravityOffence.GravityOffenceID" },
+        { "name": "CrimeMajorHeadID",   "type": "int",     "nullable": true,  "indexed": true, "description": "FK -> CrimeHead.CrimeHeadID" },
+        { "name": "CrimeMinorHeadID",   "type": "int",     "nullable": true,  "indexed": true, "description": "FK -> CrimeSubHead.CrimeSubHeadID" },
+        { "name": "CaseStatusID",       "type": "int",     "nullable": false, "description": "FK -> CaseStatusMaster.CaseStatusID" },
+        { "name": "CourtID",            "type": "bigint",  "nullable": true,  "description": "FK -> Court.CourtID" },
+        { "name": "IncidentFromDate",   "type": "datetime","nullable": true,  "classification": "SENSITIVE", "description": "Incident start" },
+        { "name": "IncidentToDate",     "type": "datetime","nullable": true,  "classification": "SENSITIVE", "description": "Incident end" },
+        { "name": "InfoReceivedPSDate", "type": "datetime","nullable": true,  "classification": "SENSITIVE", "description": "When the station received info" },
+        { "name": "latitude",           "type": "double",  "nullable": true,  "classification": "SENSITIVE", "description": "Incident GPS latitude (street-level)" },
+        { "name": "longitude",          "type": "double",  "nullable": true,  "classification": "SENSITIVE", "description": "Incident GPS longitude (street-level)" },
+        { "name": "BriefFacts",         "type": "text",                    "nullable": true, "classification": "SENSITIVE", "description": "Case summary / narrative" }
       ]
     },
     {
+      "name": "ComplainantDetails",
+      "description": "Complainant(s) of an FIR. Demographic fields are DPDP-sensitive PII.",
+      "columns": [
+        { "name": "ComplainantID",  "type": "bigint",  "primary": true, "nullable": false, "description": "PK" },
+        { "name": "CaseMasterID",   "type": "bigint",  "nullable": false, "indexed": true, "description": "FK -> CaseMaster.CaseMasterID" },
+        { "name": "ComplainantName","type": "varchar", "length": 200, "nullable": true, "classification": "PII", "description": "Full name" },
+        { "name": "AgeYear",        "type": "int",                    "nullable": true, "classification": "SENSITIVE", "description": "Age" },
+        { "name": "OccupationID",   "type": "int",     "nullable": true, "classification": "PII", "description": "FK -> OccupationMaster.OccupationID" },
+        { "name": "ReligionID",     "type": "int",     "nullable": true, "classification": "PII", "description": "FK -> ReligionMaster.ReligionID" },
+        { "name": "CasteID",        "type": "int",     "nullable": true, "classification": "PII", "description": "FK -> CasteMaster.caste_master_id" },
+        { "name": "GenderID",       "type": "int",     "nullable": true, "classification": "SENSITIVE", "description": "Gender lookup" }
+      ]
+    },
+    {
+      "name": "Victim",
+      "description": "Victim(s) of an FIR.",
+      "columns": [
+        { "name": "VictimMasterID", "type": "bigint",  "primary": true, "nullable": false, "description": "PK" },
+        { "name": "CaseMasterID",   "type": "bigint",  "nullable": false, "indexed": true, "description": "FK -> CaseMaster.CaseMasterID" },
+        { "name": "VictimName",     "type": "varchar", "length": 200, "nullable": true, "classification": "PII", "description": "Full name" },
+        { "name": "AgeYear",        "type": "int",                    "nullable": true, "classification": "SENSITIVE", "description": "Age" },
+        { "name": "GenderID",       "type": "int",                    "nullable": true, "classification": "SENSITIVE", "description": "Gender (m/f/t)" },
+        { "name": "VictimPolice",   "type": "boolean",                "nullable": true, "classification": "SENSITIVE", "description": "1 if victim is police" }
+      ]
+    },
+    {
+      "name": "Accused",
+      "description": "Accused person(s) of an FIR. PersonID (A1, A2...) links across arrest/chargesheet.",
+      "columns": [
+        { "name": "AccusedMasterID","type": "bigint",  "primary": true, "nullable": false, "description": "PK" },
+        { "name": "CaseMasterID",   "type": "bigint",  "nullable": false, "indexed": true, "description": "FK -> CaseMaster.CaseMasterID" },
+        { "name": "AccusedName",    "type": "varchar", "length": 200, "nullable": true, "classification": "PII", "description": "Full name" },
+        { "name": "AgeYear",        "type": "int",                    "nullable": true, "classification": "SENSITIVE", "description": "Age" },
+        { "name": "GenderID",       "type": "int",                    "nullable": true, "classification": "SENSITIVE", "description": "Gender (M/F/T)" },
+        { "name": "PersonID",       "type": "varchar", "length": 8,   "nullable": true, "description": "Accused sort key (A1, A2, A3...)" }
+      ]
+    },
+    {
+      "name": "ArrestSurrender",
+      "description": "Arrest or voluntary-surrender events for a case.",
+      "columns": [
+        { "name": "ArrestSurrenderID",     "type": "bigint",  "primary": true, "nullable": false, "description": "PK" },
+        { "name": "CaseMasterID",          "type": "bigint",  "nullable": false, "indexed": true, "classification": "SENSITIVE", "description": "FK -> CaseMaster.CaseMasterID" },
+        { "name": "ArrestSurrenderTypeID", "type": "int",     "nullable": true, "classification": "SENSITIVE", "description": "arrest | surrender (lookup)" },
+        { "name": "ArrestSurrenderDate",   "type": "date",                    "nullable": true, "classification": "SENSITIVE", "description": "Event date" },
+        { "name": "ArrestSurrenderStateId","type": "int",     "nullable": true, "description": "FK -> State.StateID" },
+        { "name": "ArrestSurrenderDistrictId","type": "int",  "nullable": true, "description": "FK -> District.DistrictID" },
+        { "name": "PoliceStationID",       "type": "bigint",  "nullable": true, "description": "FK -> Unit.UnitID" },
+        { "name": "IOID",                  "type": "bigint",  "nullable": true, "classification": "SENSITIVE", "description": "FK -> Employee.EmployeeID (investigating officer)" },
+        { "name": "CourtID",               "type": "bigint",  "nullable": true, "description": "FK -> Court.CourtID" },
+        { "name": "AccusedMasterID",       "type": "bigint",  "nullable": true, "indexed": true, "description": "FK -> Accused.AccusedMasterID" },
+        { "name": "IsAccused",             "type": "boolean",                 "nullable": true, "classification": "SENSITIVE", "description": "Primary accused flag" },
+        { "name": "IsComplainantAccused",  "type": "boolean",                 "nullable": true, "classification": "SENSITIVE", "description": "Complainant also accused" }
+      ]
+    },
+    {
+      "name": "ActSectionAssociation",
+      "description": "Legal act+section charges invoked in a case (many per FIR).",
+      "columns": [
+        { "name": "CaseMasterID",  "type": "bigint",  "nullable": false, "indexed": true, "classification": "SENSITIVE", "description": "FK -> CaseMaster.CaseMasterID" },
+        { "name": "ActID",         "type": "varchar", "length": 32, "nullable": false, "description": "FK -> Act.ActCode" },
+        { "name": "SectionID",     "type": "varchar", "length": 32, "nullable": false, "description": "FK -> Section.SectionCode" },
+        { "name": "ActOrderID",    "type": "int",                   "nullable": true, "description": "Print order of act" },
+        { "name": "SectionOrderID","type": "int",                   "nullable": true, "description": "Print order of section" }
+      ]
+    },
+    {
+      "name": "ChargesheetDetails",
+      "description": "Final report / chargesheet for a case.",
+      "columns": [
+        { "name": "CSID",          "type": "bigint",  "primary": true, "nullable": false, "description": "PK" },
+        { "name": "CaseMasterID",  "type": "bigint",  "nullable": false, "indexed": true, "classification": "SENSITIVE", "description": "FK -> CaseMaster.CaseMasterID" },
+        { "name": "csdate",        "type": "datetime",                "nullable": true, "classification": "SENSITIVE", "description": "Chargesheet date" },
+        { "name": "cstype",        "type": "varchar", "length": 1,   "nullable": true, "classification": "SENSITIVE", "description": "A=Chargesheet, B=False, C=Undetected" },
+        { "name": "PolicePersonID","type": "bigint",  "nullable": true, "classification": "SENSITIVE", "description": "FK -> Employee.EmployeeID" }
+      ]
+    },
+    { "name": "Act", "description": "Legal acts (IPC, NDPS...).", "columns": [
+      { "name": "ActCode", "type": "varchar", "length": 32, "primary": true, "nullable": false, "description": "PK" },
+      { "name": "ActDescription", "type": "varchar", "length": 255, "nullable": true },
+      { "name": "ShortName", "type": "varchar", "length": 64, "nullable": true },
+      { "name": "Active", "type": "boolean", "nullable": false }
+    ]},
+    { "name": "Section", "description": "Sections within an act (302, 307...).", "columns": [
+      { "name": "ActCode", "type": "varchar", "length": 32, "nullable": false, "indexed": true, "description": "FK -> Act.ActCode" },
+      { "name": "SectionCode", "type": "varchar", "length": 32, "primary": true, "nullable": false },
+      { "name": "SectionDescription", "type": "varchar", "length": 255, "nullable": true },
+      { "name": "Active", "type": "boolean", "nullable": false }
+    ]},
+    { "name": "CrimeHead", "description": "Major crime head (e.g. Crimes Against Body).", "columns": [
+      { "name": "CrimeHeadID", "type": "int", "primary": true, "nullable": false },
+      { "name": "CrimeGroupName", "type": "varchar", "length": 128, "nullable": false },
+      { "name": "Active", "type": "boolean", "nullable": false }
+    ]},
+    { "name": "CrimeSubHead", "description": "Crime sub-head (Murder, Robbery...).", "columns": [
+      { "name": "CrimeSubHeadID", "type": "int", "primary": true, "nullable": false },
+      { "name": "CrimeHeadID", "type": "int", "nullable": false, "indexed": true, "description": "FK -> CrimeHead.CrimeHeadID" },
+      { "name": "CrimeHeadName", "type": "varchar", "length": 128, "nullable": false },
+      { "name": "SeqID", "type": "int", "nullable": true }
+    ]},
+    { "name": "CrimeHeadActSection", "description": "Maps a crime head to applicable act+section.", "columns": [
+      { "name": "CrimeHeadID", "type": "int", "nullable": false, "indexed": true, "description": "FK -> CrimeHead.CrimeHeadID" },
+      { "name": "ActCode", "type": "varchar", "length": 32, "nullable": false, "description": "FK -> Act.ActCode" },
+      { "name": "SectionCode", "type": "varchar", "length": 32, "nullable": true }
+    ]},
+    { "name": "CaseCategory", "description": "FIR / UDR / PAR / Zero-FIR.", "columns": [
+      { "name": "CaseCategoryID", "type": "int", "primary": true, "nullable": false },
+      { "name": "LookupValue", "type": "varchar", "length": 32, "nullable": false }
+    ]},
+    { "name": "GravityOffence", "description": "Heinous / Non-Heinous.", "columns": [
+      { "name": "GravityOffenceID", "type": "int", "primary": true, "nullable": false },
+      { "name": "LookupValue", "type": "varchar", "length": 32, "nullable": false }
+    ]},
+    { "name": "CaseStatusMaster", "description": "Under Investigation / Charge Sheeted / Closed.", "columns": [
+      { "name": "CaseStatusID", "type": "int", "primary": true, "nullable": false },
+      { "name": "CaseStatusName", "type": "varchar", "length": 64, "nullable": false }
+    ]},
+    { "name": "CasteMaster", "description": "Caste lookup (referenced by ComplainantDetails). Reference data; individual linkage is PII.", "columns": [
+      { "name": "caste_master_id", "type": "int", "primary": true, "nullable": false },
+      { "name": "caste_master_name", "type": "varchar", "length": 128, "nullable": false }
+    ]},
+    { "name": "ReligionMaster", "description": "Religion lookup.", "columns": [
+      { "name": "ReligionID", "type": "int", "primary": true, "nullable": false },
+      { "name": "ReligionName", "type": "varchar", "length": 64, "nullable": false }
+    ]},
+    { "name": "OccupationMaster", "description": "Occupation lookup.", "columns": [
+      { "name": "OccupationID", "type": "int", "primary": true, "nullable": false },
+      { "name": "OccupationName", "type": "varchar", "length": 128, "nullable": false }
+    ]},
+    { "name": "Court", "description": "Courts.", "columns": [
+      { "name": "CourtID", "type": "bigint", "primary": true, "nullable": false },
+      { "name": "CourtName", "type": "varchar", "length": 200, "nullable": false },
+      { "name": "DistrictID", "type": "int", "nullable": true, "description": "FK -> District.DistrictID" },
+      { "name": "StateID", "type": "int", "nullable": true, "description": "FK -> State.StateID" },
+      { "name": "Active", "type": "boolean", "nullable": false }
+    ]},
+    { "name": "District", "description": "Districts.", "columns": [
+      { "name": "DistrictID", "type": "int", "primary": true, "nullable": false },
+      { "name": "DistrictName", "type": "varchar", "length": 128, "nullable": false, "indexed": true },
+      { "name": "StateID", "type": "int", "nullable": false, "description": "FK -> State.StateID" },
+      { "name": "Active", "type": "boolean", "nullable": false }
+    ]},
+    { "name": "State", "description": "States.", "columns": [
+      { "name": "StateID", "type": "int", "primary": true, "nullable": false },
+      { "name": "StateName", "type": "varchar", "length": 128, "nullable": false },
+      { "name": "NationalityID", "type": "int", "nullable": true },
+      { "name": "Active", "type": "boolean", "nullable": false }
+    ]},
+    { "name": "Unit", "description": "Police units / stations (self-referential hierarchy).", "columns": [
+      { "name": "UnitID", "type": "bigint", "primary": true, "nullable": false },
+      { "name": "UnitName", "type": "varchar", "length": 200, "nullable": false, "indexed": true },
+      { "name": "TypeID", "type": "int", "nullable": true, "description": "FK -> UnitType.UnitTypeID" },
+      { "name": "ParentUnit", "type": "bigint", "nullable": true, "description": "Self FK -> Unit.UnitID" },
+      { "name": "NationalityID", "type": "int", "nullable": true },
+      { "name": "StateID", "type": "int", "nullable": true, "description": "FK -> State.StateID" },
+      { "name": "DistrictID", "type": "int", "nullable": true, "indexed": true, "description": "FK -> District.DistrictID" },
+      { "name": "Active", "type": "boolean", "nullable": false }
+    ]},
+    { "name": "UnitType", "description": "Police Station / Circle Office...", "columns": [
+      { "name": "UnitTypeID", "type": "int", "primary": true, "nullable": false },
+      { "name": "UnitTypeName", "type": "varchar", "length": 128, "nullable": false },
+      { "name": "CityDistState", "type": "varchar", "length": 32, "nullable": true },
+      { "name": "Hierarchy", "type": "int", "nullable": true },
+      { "name": "Active", "type": "boolean", "nullable": false }
+    ]},
+    { "name": "Rank", "description": "Police ranks.", "columns": [
+      { "name": "RankID", "type": "int", "primary": true, "nullable": false },
+      { "name": "RankName", "type": "varchar", "length": 64, "nullable": false },
+      { "name": "Hierarchy", "type": "int", "nullable": true },
+      { "name": "Active", "type": "boolean", "nullable": false }
+    ]},
+    { "name": "Designation", "description": "Police designations (IO, SHO...).", "columns": [
+      { "name": "DesignationID", "type": "int", "primary": true, "nullable": false },
+      { "name": "DesignationName", "type": "varchar", "length": 128, "nullable": false },
+      { "name": "Active", "type": "boolean", "nullable": false },
+      { "name": "SortOrder", "type": "int", "nullable": true }
+    ]},
+    {
+      "name": "Employee",
+      "description": "Police employees. Names / KGID / DOB are PII (officer identity).",
+      "columns": [
+        { "name": "EmployeeID",  "type": "bigint",  "primary": true, "nullable": false, "description": "PK" },
+        { "name": "DistrictID",  "type": "int",     "nullable": true, "description": "FK -> District.DistrictID" },
+        { "name": "UnitID",      "type": "bigint",  "nullable": true, "description": "FK -> Unit.UnitID" },
+        { "name": "RankID",      "type": "int",     "nullable": true, "description": "FK -> Rank.RankID" },
+        { "name": "DesignationID","type": "int",    "nullable": true, "description": "FK -> Designation.DesignationID" },
+        { "name": "KGID",        "type": "varchar", "length": 32, "nullable": true, "classification": "PII", "description": "Karnataka Govt ID" },
+        { "name": "FirstName",   "type": "varchar", "length": 128,"nullable": true, "classification": "PII", "description": "Officer name" },
+        { "name": "EmployeeDOB", "type": "date",                 "nullable": true, "classification": "PII", "description": "DOB" },
+        { "name": "GenderID",    "type": "int",     "nullable": true, "classification": "SENSITIVE" },
+        { "name": "BloodGroupID","type": "int",     "nullable": true, "classification": "PII" },
+        { "name": "PhysicallyChallenged","type": "boolean","nullable": true, "classification": "SENSITIVE" },
+        { "name": "AppointmentDate","type": "date",              "nullable": true }
+      ]
+    },
+    {
+      "name": "inv_arrestsurrenderaccused",
+      "description": "Junction: links an ArrestSurrender event to multiple Accused.",
+      "columns": [
+        { "name": "ArrestSurrenderID", "type": "bigint", "nullable": false, "indexed": true, "description": "FK -> ArrestSurrender.ArrestSurrenderID" },
+        { "name": "AccusedMasterID",   "type": "bigint", "nullable": false, "indexed": true, "description": "FK -> Accused.AccusedMasterID" }
+      ]
+    },
+
+    { "_section": "--- Crime Craft application tables (not part of the KSP source schema) ---" },
+
+    {
       "name": "AuditLog",
-      "description": "Append-only access log. Never deleted. Reviewed weekly.",
+      "description": "Append-only access log. Never deleted. Every PII access + every recidivism score is recorded here with actor + reason.",
       "columns": [
         { "name": "ts",          "type": "datetime", "nullable": false, "indexed": true },
-        { "name": "actor_id",    "type": "varchar",  "length": 128, "nullable": true,  "indexed": true },
+        { "name": "actor_id",    "type": "varchar",  "length": 128, "nullable": true, "indexed": true },
         { "name": "actor_role",  "type": "varchar",  "length": 32,  "nullable": true },
         { "name": "method",      "type": "varchar",  "length": 8,   "nullable": false },
         { "name": "path",        "type": "varchar",  "length": 512, "nullable": false },
-        { "name": "status_code", "type": "int",                       "nullable": false },
-        { "name": "latency_ms",  "type": "double",                    "nullable": false },
-        { "name": "reason",      "type": "text",                      "nullable": true },
+        { "name": "status_code", "type": "int",                     "nullable": false },
+        { "name": "latency_ms",  "type": "double",                  "nullable": false },
+        { "name": "reason",      "type": "text",                    "nullable": true, "description": "Stated reason (e.g. recidivism scoring justification)" },
         { "name": "client_ip",   "type": "varchar",  "length": 64,  "nullable": true }
       ]
     },
     {
       "name": "Conversations",
-      "description": "Chat history. One row per conversation; turns stored as JSON in a single column.",
+      "description": "Chat history. One row per conversation; turns stored as JSON.",
       "columns": [
-        { "name": "id",         "type": "varchar",  "length": 64,  "primary": true,  "nullable": false },
+        { "name": "id",         "type": "varchar",  "length": 64,  "primary": true, "nullable": false },
         { "name": "user_id",    "type": "varchar",  "length": 128, "nullable": false, "indexed": true },
         { "name": "title",      "type": "varchar",  "length": 128, "nullable": true },
         { "name": "created_at", "type": "datetime",                "nullable": false },
@@ -46,19 +266,20 @@
     },
     {
       "name": "CaseEmbeddings",
-      "description": "Phase 1 — chunk-level embeddings for RAG. Vector column stored in Qdrant; this table only holds chunk metadata + Qdrant point id.",
+      "description": "RAG chunk metadata. Vector lives in QuickML Knowledge Base / Qdrant; this row holds chunk text + external point id + classification so retrieval stays role-aware.",
       "columns": [
-        { "name": "chunk_id",   "type": "varchar", "length": 64,  "primary": true, "nullable": false },
-        { "name": "case_id",    "type": "varchar", "length": 64,  "nullable": false, "indexed": true },
-        { "name": "chunk_text", "type": "text",                   "nullable": false },
-        { "name": "qdrant_id",  "type": "varchar", "length": 64,  "nullable": false },
-        { "name": "lang",       "type": "varchar", "length": 8,   "nullable": false }
+        { "name": "chunk_id",       "type": "varchar", "length": 64,  "primary": true, "nullable": false },
+        { "name": "CaseMasterID",   "type": "bigint",  "nullable": false, "indexed": true, "description": "FK -> CaseMaster.CaseMasterID" },
+        { "name": "chunk_text",     "type": "text",                   "nullable": false },
+        { "name": "classification", "type": "varchar", "length": 16,  "nullable": false, "description": "OPEN | SENSITIVE — retrieval filters on this by role" },
+        { "name": "external_point_id","type": "varchar","length": 64, "nullable": false, "description": "QuickML KB / Qdrant point id" },
+        { "name": "lang",           "type": "varchar", "length": 8,   "nullable": false }
       ]
     }
   ],
   "userTypes": [
-    { "name": "public",         "selfSignup": true,  "description": "Citizen — redacted views only" },
-    { "name": "officer",        "selfSignup": false, "description": "KSP officer — full case access, audit-logged" },
+    { "name": "public",         "selfSignup": true,  "description": "Citizen — redacted (OPEN) views only" },
+    { "name": "officer",        "selfSignup": false, "description": "KSP officer — OPEN+SENSITIVE+PII, audit-logged; custom attribute officer_id / KGID" },
     { "name": "senior_officer", "selfSignup": false, "description": "Senior officer — recidivism scoring access" },
     { "name": "admin",          "selfSignup": false, "description": "Crime Craft team — config, audit review" }
   ]

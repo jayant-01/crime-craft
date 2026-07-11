@@ -111,7 +111,7 @@ export default function NetworkPage() {
     <div className="space-y-4">
       <h2 className="text-lg font-semibold">Criminal network</h2>
       <form
-        className="flex flex-wrap gap-2 items-center bg-white shadow rounded p-3"
+        className="flex flex-wrap gap-2 items-center bg-card shadow rounded p-3"
         onSubmit={(e) => {
           e.preventDefault();
           void load();
@@ -120,7 +120,7 @@ export default function NetworkPage() {
         <select
           value={mode}
           onChange={(e) => setMode(e.target.value as Mode)}
-          className="rounded border-slate-300 border px-2 py-1 text-sm"
+          className="rounded border-line border px-2 py-1 text-sm"
         >
           <option value="case">By case</option>
           <option value="suspect">By suspect</option>
@@ -129,9 +129,9 @@ export default function NetworkPage() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={mode === "case" ? "FIR-2025-1001" : "Ravi Kumar"}
-          className="flex-1 min-w-[14rem] rounded border-slate-300 border px-2 py-1 text-sm"
+          className="flex-1 min-w-[14rem] rounded border-line border px-2 py-1 text-sm"
         />
-        <label className="text-sm text-slate-600 flex items-center gap-1">
+        <label className="text-sm text-muted flex items-center gap-1">
           depth
           <input
             type="number"
@@ -139,7 +139,7 @@ export default function NetworkPage() {
             max={3}
             value={depth}
             onChange={(e) => setDepth(Number(e.target.value))}
-            className="w-14 rounded border-slate-300 border px-2 py-1 text-sm"
+            className="w-14 rounded border-line border px-2 py-1 text-sm"
           />
         </label>
         <button className="bg-brand-600 text-white rounded px-3 py-1 text-sm hover:bg-brand-700">
@@ -149,16 +149,16 @@ export default function NetworkPage() {
 
       {error && <p className="text-rose-600 text-sm">{error}</p>}
 
-      <div className="bg-white shadow rounded p-2">
-        <div ref={containerRef} className="w-full h-[28rem] bg-slate-50 rounded" />
+      <div className="bg-card shadow rounded p-2">
+        <div ref={containerRef} className="w-full h-[28rem] bg-surface rounded" />
         {data && (
-          <p className="text-xs text-slate-400 mt-2">
+          <p className="text-xs text-subtle mt-2">
             {data.nodes.length} nodes · {data.edges.length} edges · depth {data.depth}
           </p>
         )}
       </div>
 
-      <div className="text-xs text-slate-500">
+      <div className="text-xs text-muted">
         Legend: <span className="text-brand-700">■ case</span> ·
         <span className="text-rose-700 ml-1">● suspect</span> ·
         solid arrow = mentions · <span className="text-rose-600">dashed</span> = co-suspect.

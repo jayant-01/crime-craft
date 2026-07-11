@@ -32,7 +32,9 @@ def retrieve(
     extra_filters: dict[str, Any] | None = None,
 ) -> list[ScoredPoint]:
     query_vec = get_embedder().embed([query])[0]
-    filters: dict[str, Any] = {"classification": _allowed_classifications(role)}
-    if extra_filters:
-        filters.update(extra_filters)
+    # Start from any caller-supplied filters, then stamp the role's classification
+    # filter LAST so a caller can never override it (e.g. a public user asking for
+    # "sensitive" chunks). The role guard must always win.
+    filters: dict[str, Any] = dict(extra_filters or {})
+    filters["classification"] = _allowed_classifications(role)
     return get_vector_store().search(query_vec, top_k=top_k, filters=filters)

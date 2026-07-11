@@ -93,6 +93,14 @@ class InMemoryConversationRepo:
 
 # --- Catalyst implementation ----------------------------------------------
 
+def _zcql_literal(value: str) -> str:
+    """Escape a value for safe interpolation inside a single-quoted ZCQL string
+    literal: strip control chars and double any single quotes. Without this,
+    user-controlled ids/user_ids allow ZCQL injection (cross-user read/delete)."""
+    cleaned = "".join(ch for ch in str(value) if ch >= " " and ch != "\x7f")
+    return cleaned.replace("'", "''")
+
+
 class CatalystConversationRepo:
     """One row per conversation; turns serialized as JSON in a single column.
     Acceptable for the 6-month MVP — conversations are small (~50 turns max)."""
@@ -112,7 +120,8 @@ class CatalystConversationRepo:
     def get(self, conversation_id: str, user_id: str) -> Conversation | None:
         ds = get_catalyst().datastore()
         rows = ds.execute_zcql_query(
-            f"SELECT * FROM {self.TABLE} WHERE id = '{conversation_id}' AND user_id = '{user_id}'"
+            f"SELECT * FROM {self.TABLE} WHERE id = '{_zcql_literal(conversation_id)}' "
+            f"AND user_id = '{_zcql_literal(user_id)}'"
         )
         if not rows:
             return None
@@ -122,7 +131,7 @@ class CatalystConversationRepo:
         ds = get_catalyst().datastore()
         rows = ds.execute_zcql_query(
             f"SELECT id, title, created_at, updated_at, turns FROM {self.TABLE} "
-            f"WHERE user_id = '{user_id}' ORDER BY updated_at DESC LIMIT {int(limit)}"
+            f"WHERE user_id = '{_zcql_literal(user_id)}' ORDER BY updated_at DESC LIMIT {int(limit)}"
         )
         out: list[ConversationSummary] = []
         for r in rows:
@@ -156,7 +165,10 @@ class CatalystConversationRepo:
         # safe path is delete + insert. Atomicity isn't critical for chat history.
         try:
             ds = get_catalyst().datastore()
-            ds.execute_zcql_query(f"DELETE FROM {self.TABLE} WHERE id = '{conversation_id}'")
+            ds.execute_zcql_query(
+            f"DELETE FROM {self.TABLE} WHERE id = '{_zcql_literal(conversation_id)}' "
+            f"AND user_id = '{_zcql_literal(user_id)}'"
+        )
             self._table().insert_row(self._to_row(updated))
         except Exception:
             import logging
@@ -169,7 +181,10 @@ class CatalystConversationRepo:
         if existing is None:
             return False
         ds = get_catalyst().datastore()
-        ds.execute_zcql_query(f"DELETE FROM {self.TABLE} WHERE id = '{conversation_id}'")
+        ds.execute_zcql_query(
+            f"DELETE FROM {self.TABLE} WHERE id = '{_zcql_literal(conversation_id)}' "
+            f"AND user_id = '{_zcql_literal(user_id)}'"
+        )
         return True
 
     @staticmethod

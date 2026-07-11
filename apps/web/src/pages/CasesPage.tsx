@@ -12,10 +12,10 @@ export default function CasesPage() {
   }, []);
 
   if (error) return <p className="text-rose-600">{error}</p>;
-  if (!cases) return <p className="text-slate-500">Loading cases…</p>;
+  if (!cases) return <p className="text-muted">Loading cases…</p>;
   if (cases.length === 0) {
     return (
-      <div className="rounded border border-dashed border-slate-300 p-6 text-slate-500">
+      <div className="rounded border border-dashed border-line p-6 text-muted">
         No cases yet. Ingest a CSV via <code>/admin/ingest</code> or{" "}
         <code>python -m services.ingest data/sample_cases.csv</code>.
       </div>
@@ -25,9 +25,9 @@ export default function CasesPage() {
   return (
     <div className="space-y-3">
       <h2 className="text-lg font-semibold">Cases</h2>
-      <div className="bg-white shadow rounded overflow-hidden">
+      <div className="bg-card shadow rounded overflow-hidden">
         <table className="w-full text-sm">
-          <thead className="bg-slate-50 text-slate-600">
+          <thead className="bg-surface text-muted">
             <tr>
               <Th>Case ID</Th>
               <Th>Type</Th>
@@ -38,7 +38,7 @@ export default function CasesPage() {
           </thead>
           <tbody>
             {cases.map((c) => (
-              <tr key={c.case_id} className="border-t hover:bg-slate-50">
+              <tr key={c.case_id} className="border-t hover:bg-surface">
                 <Td>
                   <Link to={`/cases/${c.case_id}`} className="text-brand-600 hover:underline">
                     {c.case_id}

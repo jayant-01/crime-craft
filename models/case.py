@@ -28,9 +28,28 @@ class Case(BaseModel):
     status: CaseStatus  # OPEN
     mo_details: str | None = None  # SENSITIVE
     victim_names: list[str] = []  # PII
-    suspect_names: list[str] = []  # PII
+    suspect_names: list[str] = []  # PII  (KSP: Accused.AccusedName)
     phone_numbers: list[str] = []  # PII
-    narrative: str | None = None  # SENSITIVE (post-redaction)
+    narrative: str | None = None  # SENSITIVE (post-redaction)  (KSP: BriefFacts)
+
+    # --- Real KSP schema fields (optional; populated by the normalized-source
+    # ingest — see docs/KSP_SCHEMA_MAPPING.md and catalyst/datastore-schema.json.
+    # Additive so the flat demo projection + existing services/tests are unaffected). ---
+    crime_no: str | None = None            # CaseMaster.CrimeNo (18-digit structured)
+    case_no: str | None = None             # CaseMaster.CaseNo
+    crime_head: str | None = None          # CrimeHead.CrimeGroupName (major)     OPEN
+    crime_subhead: str | None = None       # CrimeSubHead.CrimeHeadName (minor)   OPEN
+    category: str | None = None            # CaseCategory.LookupValue (FIR/UDR/PAR)
+    gravity: str | None = None             # GravityOffence.LookupValue (Heinous/…)
+    district: str | None = None            # District.DistrictName                OPEN
+    police_station: str | None = None      # Unit.UnitName                        SENSITIVE
+    registered_on: date | None = None      # CaseMaster.CrimeRegisteredDate       OPEN
+    latitude: float | None = None          # CaseMaster.latitude                  SENSITIVE
+    longitude: float | None = None         # CaseMaster.longitude                 SENSITIVE
+    complainant_names: list[str] = []      # ComplainantDetails.ComplainantName   PII
+    acts_sections: list[str] = []          # ActSectionAssociation → "IPC 302"    SENSITIVE
+    chargesheet_type: str | None = None    # ChargesheetDetails.cstype (A/B/C)    SENSITIVE
+    investigating_officer_id: str | None = None  # Employee.KGID via IOID          PII
 
 
 class PublicCaseView(BaseModel):

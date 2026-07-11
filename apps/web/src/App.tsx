@@ -12,7 +12,7 @@ import { useAuth } from "./auth/AuthContext";
 
 export default function App() {
   const { loading } = useAuth();
-  if (loading) return <div className="p-8 text-slate-500">Loading…</div>;
+  if (loading) return <div className="p-8 text-muted">Loading…</div>;
 
   return (
     <Routes>
