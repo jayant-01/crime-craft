@@ -9,7 +9,7 @@ python-multipart==0.0.12
 python-dotenv==1.0.1
 
 # Zoho Catalyst
-zcatalyst-sdk-python==1.2.0
+# zcatalyst-sdk-python==1.2.0
 
 # RAG (only needed when RAG_PROVIDER=live; safe to install for dev too)
 anthropic==0.40.0
