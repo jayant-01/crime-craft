@@ -17,8 +17,9 @@ python-multipart==0.0.12
 python-dotenv==1.0.1
 reportlab==4.2.5                   # PDF export
 
-# Zoho Catalyst SDK — REQUIRED in production (CATALYST_ENABLED=true)
-zcatalyst-sdk-python==1.2.0
+# Zoho Catalyst SDK — REQUIRED in production (CATALYST_ENABLED=true).
+# PyPI package is `zcatalyst-sdk` (NOT `zcatalyst-sdk-python`); provides `import zcatalyst_sdk`.
+zcatalyst-sdk==1.2.0
 
 # Dev / tests
 pytest==8.3.3
