@@ -231,3 +231,22 @@ PS C:\jayant\crime-craft> catalyst deploy
 
 × HTTP Error: 400, environment_variables must not contain reserved keywords
 PS C:\jayant\crime-craft>
+
+
+
+the web error 
+
+CRIME-CRAFT STARTUP FAILED
+
+python: 3.13.9
+cwd: /catalyst
+listen_port: 9000
+files: .env.example, .git, .gitignore, DEMO.md, Makefile, Police_FIR_ER_Diagram.pdf, README.md, __pycache__, apps, appsail_47968000000046434.zip, auth, catalyst, config, crime-craft-appsail.zip, dashboard, data, docker-compose.yml, docs, errors.txt, functions, lost+found, main.py, middleware, models, pytest.ini, requirements-ml.txt, requirements.txt, run.py, services, tests
+config: APP_ENV='production' USE_CATALYST='true' JWT_SECRET=<set,len=86>
+
+Traceback (most recent call last):
+  File "/catalyst/run.py", line 64, in <module>
+    import main
+  File "/catalyst/main.py", line 6, in <module>
+    from fastapi import Depends, FastAPI, File, HTTPException, Request, Response, UploadFile
+ModuleNotFoundError: No module named 'fastapi'
