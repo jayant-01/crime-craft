@@ -1,0 +1,1304 @@
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:23:162 IST	stdout	INFO:     10.220.57.168:59192 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	2026-07-18 18:39:23,162 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.62, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	2026-07-18 18:39:23,161 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:23.161870', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.62, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:23:162 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:23:161 IST	stderr	2026-07-18 18:39:23,161 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:22:975 IST	stdout	INFO:     10.220.57.168:59176 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	2026-07-18 18:39:22,974 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:22.974743', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.47, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:22:975 IST	stderr	2026-07-18 18:39:22,975 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.47, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	2026-07-18 18:39:22,012 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:22.012558', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.6, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:22:013 IST	stdout	INFO:     10.220.57.168:59162 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	2026-07-18 18:39:22,013 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.6, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:22:013 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:22:012 IST	stderr	2026-07-18 18:39:22,012 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	2026-07-18 18:39:21,822 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.49, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	2026-07-18 18:39:21,822 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:21.822013', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.49, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:21:822 IST	stdout	INFO:     10.220.57.168:59158 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:21:822 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:20:580 IST	stdout	INFO:     10.220.57.168:59154 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	2026-07-18 18:39:20,579 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:20.579857', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.62, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	2026-07-18 18:39:20,580 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.62, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:20:580 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:20:579 IST	stderr	2026-07-18 18:39:20,579 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:20:255 IST	stdout	INFO:     10.220.57.168:59152 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	2026-07-18 18:39:20,255 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.52, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	2026-07-18 18:39:20,254 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:20.254498', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.52, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:20:255 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:18:843 IST	stdout	INFO:     10.220.57.168:59144 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	2026-07-18 18:39:18,842 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:18.842579', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.88, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	2026-07-18 18:39:18,843 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.88, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:18:843 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	2026-07-18 18:39:18,588 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:18:589 IST	stdout	INFO:     10.220.57.168:59138 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	2026-07-18 18:39:18,589 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:18.589147', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	2026-07-18 18:39:18,589 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:18:589 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:17:910 IST	stdout	INFO:     10.220.57.168:50200 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	2026-07-18 18:39:17,909 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:17.909554', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	2026-07-18 18:39:17,910 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:17:910 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:17:332 IST	stdout	INFO:     10.220.57.168:50198 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	2026-07-18 18:39:17,332 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:17.332317', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.97, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	2026-07-18 18:39:17,332 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.97, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:17:332 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	2026-07-18 18:39:17,101 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:17.101216', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-CZwfvweq.css', 'status_code': 200, 'latency_ms': 2.39, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:17:101 IST	stdout	INFO:     10.220.57.168:50180 - "GET /assets/index-CZwfvweq.css HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:17:101 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	2026-07-18 18:39:17,100 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 1.49, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	2026-07-18 18:39:17,100 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:17.100205', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 1.49, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:17:100 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:17:100 IST	stdout	INFO:     10.220.57.168:50182 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	2026-07-18 18:39:16,954 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:16.954218', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.7, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:16:954 IST	stdout	INFO:     10.220.57.168:50174 - "GET / HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	2026-07-18 18:39:16,954 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.7, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:16:954 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:11:205 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:11:205 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:11:205 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:11:205 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:11:205 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:11:205 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:11:205 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:11:205 IST	stderr	2026-07-18 18:39:11,204 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:11:205 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:11:205 IST	stdout	INFO:     10.220.57.168:50166 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:09:11:204 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:11:204 IST	stderr	2026-07-18 18:39:11,204 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:11.204495', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:11:204 IST	stderr	2026-07-18 18:39:11,204 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:11:204 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:11:204 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	2026-07-18 18:39:11,021 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.44, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:11:021 IST	stdout	INFO:     10.220.57.168:50160 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	2026-07-18 18:39:11,020 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:11.020665', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.44, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:11:021 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	2026-07-18 18:39:10,032 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:10.032576', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.52, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:10:033 IST	stdout	INFO:     10.220.57.168:50148 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	2026-07-18 18:39:10,033 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.52, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:10:033 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:10:032 IST	stderr	2026-07-18 18:39:10,032 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	2026-07-18 18:39:09,850 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.59, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:09:850 IST	stdout	INFO:     10.220.57.168:50134 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	2026-07-18 18:39:09,849 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:09.849482', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.59, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:09:850 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:08:749 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:08:749 IST	stdout	INFO:     10.220.57.168:50132 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:09:08:749 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:08:749 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:08:749 IST	stderr	2026-07-18 18:39:08,748 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	2026-07-18 18:39:08,748 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:08.748452', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	2026-07-18 18:39:08,748 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:08:748 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	2026-07-18 18:39:08,528 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	2026-07-18 18:39:08,527 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:08.527543', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:08:528 IST	stdout	INFO:     10.220.57.168:50116 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:08:528 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:07:303 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:07:303 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:07:303 IST	stdout	INFO:     10.220.57.168:33796 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:09:07:303 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:07:303 IST	stderr	2026-07-18 18:39:07,302 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.6, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:07:303 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:07:303 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:07:302 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:07:302 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:07:302 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:07:302 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:07:302 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:07:302 IST	stderr	2026-07-18 18:39:07,302 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:07.302417', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.6, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:07:302 IST	stderr	2026-07-18 18:39:07,302 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:07:302 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	2026-07-18 18:39:07,067 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.46, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:07:067 IST	stdout	INFO:     10.220.57.168:33784 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	2026-07-18 18:39:07,066 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:07.066671', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.46, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:07:067 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:04:939 IST	stdout	INFO:     10.220.57.168:33774 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	2026-07-18 18:39:04,939 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.51, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	2026-07-18 18:39:04,938 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:04.938753', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.51, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:04:939 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:04:938 IST	stderr	2026-07-18 18:39:04,938 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:04:225 IST	stdout	INFO:     10.220.57.168:33766 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	2026-07-18 18:39:04,224 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.56, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	2026-07-18 18:39:04,224 ERROR audit audit write failed: {'ts': '2026-07-18T18:39:04.224233', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.56, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	    )
+crime-craft-api	19-07-2026 00:09:04:224 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	2026-07-18 18:38:54,588 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:54.588662', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.5, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	2026-07-18 18:38:54,589 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.5, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:54:589 IST	stdout	INFO:     10.220.57.168:41796 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:54:589 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:54:588 IST	stderr	2026-07-18 18:38:54,588 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	2026-07-18 18:38:54,377 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:54.377750', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.5, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	2026-07-18 18:38:54,378 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.5, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:54:378 IST	stdout	INFO:     10.220.57.168:41788 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:54:378 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:51:638 IST	stdout	INFO:     10.220.57.168:41782 - "GET / HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	2026-07-18 18:38:51,637 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:51.637427', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.7, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:51:637 IST	stderr	2026-07-18 18:38:51,637 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.7, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	2026-07-18 18:38:51,580 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:51.580078', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.59, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	2026-07-18 18:38:51,580 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.59, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:51:580 IST	stdout	INFO:     10.220.57.168:41770 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:51:580 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:51:579 IST	stderr	2026-07-18 18:38:51,579 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	2026-07-18 18:38:51,358 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.43, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	2026-07-18 18:38:51,357 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:51.357883', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.43, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:51:358 IST	stdout	INFO:     10.220.57.168:41754 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:51:358 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	2026-07-18 18:38:49,935 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	2026-07-18 18:38:49,936 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:49.936213', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:49:936 IST	stdout	INFO:     10.220.57.168:41750 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:49:936 IST	stderr	2026-07-18 18:38:49,936 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:49:759 IST	stdout	INFO:     10.220.57.168:41734 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	2026-07-18 18:38:49,759 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:49.759069', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.43, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:49:759 IST	stderr	2026-07-18 18:38:49,759 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.43, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:49:517 IST	stdout	INFO:     10.220.57.168:41724 - "GET /login HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	2026-07-18 18:38:49,516 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:49.516242', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/login', 'status_code': 200, 'latency_ms': 0.76, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	2026-07-18 18:38:49,516 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/login', 'status_code': 200, 'latency_ms': 0.76, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:49:516 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	2026-07-18 18:38:47,167 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.62, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:47:167 IST	stdout	INFO:     10.220.57.168:36052 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:47:167 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:47:166 IST	stderr	2026-07-18 18:38:47,166 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	2026-07-18 18:38:46,937 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:46.937809', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.47, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	2026-07-18 18:38:46,938 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.47, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:46:938 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:46:938 IST	stdout	INFO:     10.220.57.168:36048 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	2026-07-18 18:38:41,694 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:41.694135', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	2026-07-18 18:38:41,694 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:41:694 IST	stdout	INFO:     10.220.57.168:36036 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:41:694 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:41:693 IST	stderr	2026-07-18 18:38:41,693 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	2026-07-18 18:38:41,378 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.54, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:41:378 IST	stdout	INFO:     10.220.57.168:36026 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:41:378 IST	stderr	2026-07-18 18:38:41,378 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:41.378065', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.54, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:40:282 IST	stdout	INFO:     10.220.57.168:36010 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:40:282 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:40:282 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:40:282 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:40:282 IST	stderr	2026-07-18 18:38:40,281 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.58, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:40:282 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:40:281 IST	stderr	2026-07-18 18:38:40,281 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:40.281452', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.58, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:40:281 IST	stderr	2026-07-18 18:38:40,281 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:40:281 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:40:281 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:40:281 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:40:281 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:40:281 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:40:281 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:40:281 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	2026-07-18 18:38:40,112 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:40.112788', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	2026-07-18 18:38:40,113 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.53, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:40:113 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:40:113 IST	stdout	INFO:     10.220.57.168:36008 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:38:953 IST	stdout	INFO:     10.220.57.168:36000 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	2026-07-18 18:38:38,952 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	2026-07-18 18:38:38,952 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.55, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:38:952 IST	stderr	2026-07-18 18:38:38,952 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:38.952326', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.55, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:38:763 IST	stdout	INFO:     10.220.57.168:35998 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	2026-07-18 18:38:38,762 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.56, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	2026-07-18 18:38:38,762 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:38.762214', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.56, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:38:762 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:36:683 IST	stdout	INFO:     10.220.57.168:60334 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	2026-07-18 18:38:36,683 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:36.683012', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.6, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	2026-07-18 18:38:36,683 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.6, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:36:683 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:36:682 IST	stderr	2026-07-18 18:38:36,682 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:36:435 IST	stdout	INFO:     10.220.57.168:60320 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	2026-07-18 18:38:36,434 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:36.434735', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.48, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	2026-07-18 18:38:36,435 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.48, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:36:435 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:35:280 IST	stdout	INFO:     10.220.57.168:60308 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:35:280 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:35:280 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:35:280 IST	stderr	2026-07-18 18:38:35,279 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.55, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:35:280 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:35:280 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:35:280 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:35:280 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:35:280 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:35:280 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:35:279 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:35:279 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:35:279 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:35:279 IST	stderr	2026-07-18 18:38:35,278 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:35.278959', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.55, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:35:278 IST	stderr	2026-07-18 18:38:35,278 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:35:019 IST	stdout	INFO:     10.220.57.168:60302 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	2026-07-18 18:38:35,018 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:35.018858', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.47, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	2026-07-18 18:38:35,019 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.47, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:35:019 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	2026-07-18 18:38:33,608 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:33.607993', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.52, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	2026-07-18 18:38:33,608 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.52, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:33:608 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:33:608 IST	stdout	INFO:     10.220.57.168:60286 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:33:607 IST	stderr	2026-07-18 18:38:33,607 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	2026-07-18 18:38:33,330 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:33.329954', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.47, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:33:330 IST	stdout	INFO:     10.220.57.168:60280 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:33:330 IST	stderr	2026-07-18 18:38:33,330 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.47, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	2026-07-18 18:38:30,612 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.6, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	2026-07-18 18:38:30,612 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:30.612010', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.6, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:30:612 IST	stdout	INFO:     10.220.57.168:60274 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:30:612 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:30:611 IST	stderr	2026-07-18 18:38:30,611 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	2026-07-18 18:38:30,378 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.54, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:30:378 IST	stdout	INFO:     10.220.57.168:60260 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:30:378 IST	stderr	2026-07-18 18:38:30,378 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:30.378274', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.54, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:27:927 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:27:927 IST	stdout	INFO:     10.220.57.168:53056 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:27:927 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:27:927 IST	stderr	2026-07-18 18:38:27,926 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.7, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	2026-07-18 18:38:27,926 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:27.926342', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.7, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	2026-07-18 18:38:27,926 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:27:926 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:27:749 IST	stdout	INFO:     10.220.57.168:53050 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	2026-07-18 18:38:27,748 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.5, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:27:749 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:27:748 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:27:748 IST	stderr	2026-07-18 18:38:27,748 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:27.748418', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.5, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:27:748 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	2026-07-18 18:38:25,899 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.81, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	2026-07-18 18:38:25,899 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:25.898956', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.81, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:25:899 IST	stdout	INFO:     10.220.57.168:53038 - "GET / HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:25:899 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	2026-07-18 18:38:25,784 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:25.784612', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.86, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:25:785 IST	stdout	INFO:     10.220.57.168:53032 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	2026-07-18 18:38:25,785 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.86, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:25:785 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:25:068 IST	stdout	INFO:     10.220.57.168:53030 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:25:068 IST	stderr	2026-07-18 18:38:25,067 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:25:067 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:25:067 IST	stderr	2026-07-18 18:38:25,067 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:25:067 IST	stderr	2026-07-18 18:38:25,067 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:25.067535', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 0.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	2026-07-18 18:38:24,899 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:24.899801', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.43, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	2026-07-18 18:38:24,900 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.43, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:900 IST	stdout	INFO:     10.220.57.168:53014 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:24:900 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:24:807 IST	stdout	INFO:     10.220.57.168:53004 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:24:807 IST	stderr	2026-07-18 18:38:24,806 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.69, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	2026-07-18 18:38:24,806 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:24.806218', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.69, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:24:806 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:24:611 IST	stdout	INFO:     10.220.57.168:52996 - "GET /assets/index-CZwfvweq.css HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	2026-07-18 18:38:24,611 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-CZwfvweq.css', 'status_code': 200, 'latency_ms': 0.73, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	2026-07-18 18:38:24,610 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:24.610905', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-CZwfvweq.css', 'status_code': 200, 'latency_ms': 0.73, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:611 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	2026-07-18 18:38:24,551 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.72, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	2026-07-18 18:38:24,550 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:24.550690', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.72, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:551 IST	stdout	INFO:     10.220.57.168:52986 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:24:551 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:08:24:314 IST	stdout	INFO:     10.220.57.168:52982 - "GET / HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	2026-07-18 18:38:24,314 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.77, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	2026-07-18 18:38:24,313 ERROR audit audit write failed: {'ts': '2026-07-18T18:38:24.313774', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.77, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	    )
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:08:24:314 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:07:06:711 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:07:06:711 IST	stderr	    )
+crime-craft-api	19-07-2026 00:07:06:711 IST	stderr	2026-07-18 18:37:06,710 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/favicon.ico', 'status_code': 200, 'latency_ms': 0.89, 'reason': None, 'client_ip': '10.241.48.197'}
+crime-craft-api	19-07-2026 00:07:06:711 IST	stdout	INFO:     10.241.48.197:54088 - "GET /favicon.ico HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:07:06:711 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:07:06:710 IST	stderr	2026-07-18 18:37:06,710 ERROR audit audit write failed: {'ts': '2026-07-18T18:37:06.710236', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/favicon.ico', 'status_code': 200, 'latency_ms': 0.89, 'reason': None, 'client_ip': '10.241.48.197'}
+crime-craft-api	19-07-2026 00:07:06:710 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:07:06:710 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:07:06:710 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:07:06:710 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:07:06:710 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:07:06:710 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:07:06:710 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:07:06:710 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	2026-07-18 18:35:29,243 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 1.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:29:243 IST	stdout	INFO:     10.220.57.168:34178 - "GET /api/me HTTP/1.1" 401 Unauthorized
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	2026-07-18 18:35:29,243 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:29.243198', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/me', 'status_code': 401, 'latency_ms': 1.57, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	2026-07-18 18:35:29,242 WARNING auth.catalyst catalyst auth failed: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:29:243 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	2026-07-18 18:35:28,943 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:28.943005', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.82, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	2026-07-18 18:35:28,943 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.82, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:28:943 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:28:943 IST	stdout	INFO:     10.220.57.168:34166 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	2026-07-18 18:35:28,677 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:28.677489', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.52, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:678 IST	stdout	INFO:     10.220.57.168:34160 - "GET /api/health HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	2026-07-18 18:35:28,678 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/api/health', 'status_code': 200, 'latency_ms': 0.52, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:28:678 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	2026-07-18 18:35:28,156 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:28.156158', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.5, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:156 IST	stdout	INFO:     10.220.57.168:60592 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	2026-07-18 18:35:28,156 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.5, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:05:28:156 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	2026-07-18 18:35:28,115 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.75, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:28:115 IST	stdout	INFO:     10.220.57.168:60578 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	2026-07-18 18:35:28,114 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:28.114595', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.75, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	2026-07-18 18:35:28,114 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:28.114595', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.75, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:28:115 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	2026-07-18 18:35:28,062 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:28.062310', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-CZwfvweq.css', 'status_code': 200, 'latency_ms': 0.74, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	2026-07-18 18:35:28,062 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-CZwfvweq.css', 'status_code': 200, 'latency_ms': 0.74, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:28:062 IST	stdout	INFO:     10.220.57.168:60566 - "GET /assets/index-CZwfvweq.css HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:28:062 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:27:918 IST	stdout	INFO:     10.220.57.168:60550 - "GET /assets/index-CZwfvweq.css HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	2026-07-18 18:35:27,918 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-CZwfvweq.css', 'status_code': 200, 'latency_ms': 0.66, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	2026-07-18 18:35:27,917 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:27.917666', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-CZwfvweq.css', 'status_code': 200, 'latency_ms': 0.66, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:05:27:918 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	2026-07-18 18:35:27,871 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:27.871473', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.89, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:27:872 IST	stdout	INFO:     10.220.57.168:60548 - "GET /assets/index-H0Rt60I3.js HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	2026-07-18 18:35:27,871 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/assets/index-H0Rt60I3.js', 'status_code': 200, 'latency_ms': 0.89, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:27:872 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:27:760 IST	stdout	INFO:     10.220.57.168:60540 - "GET / HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	2026-07-18 18:35:27,760 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.9, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:27:760 IST	stderr	2026-07-18 18:35:27,760 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:27.760070', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 0.9, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	2026-07-18 18:35:27,404 ERROR audit audit write failed: {'ts': '2026-07-18T18:35:27.316900', 'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 3.3, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	    _app_instance = zcatalyst_sdk.initialize()
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	  File "/catalyst/services/catalyst_client.py", line 67, in get_catalyst
+crime-craft-api	19-07-2026 00:05:27:405 IST	stdout	INFO:     10.220.57.168:60526 - "GET / HTTP/1.1" 200 OK
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	    ...<2 lines>...
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	    raise CatalystAppError(
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	Traceback (most recent call last):
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	  File "/catalyst/services/datastore.py", line 261, in record
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	    get_catalyst().datastore().table(self.TABLE).insert_row(row)
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	  File "/catalyst/.deps/zcatalyst_sdk/__init__.py", line 66, in initialize
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	zcatalyst_sdk.exceptions.CatalystAppError: {'code': 'FATAL ERROR', 'message': 'Catalyst headers are empty'}
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	    ~~~~~~~~~~~~^^
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	2026-07-18 18:35:27,405 INFO audit audit {'actor_id': None, 'actor_role': None, 'method': 'GET', 'path': '/', 'status_code': 200, 'latency_ms': 3.3, 'reason': None, 'client_ip': '10.220.57.168'}
+crime-craft-api	19-07-2026 00:05:27:405 IST	stderr	    )
+crime-craft-api	19-07-2026 00:05:27:381 IST	stderr	  warnings.warn(
+crime-craft-api	19-07-2026 00:05:27:381 IST	stderr	/catalyst/.deps/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.7.0) or chardet (7.4.3)/charset_normalizer (3.4.9) doesn't match a supported version!
+crime-craft-api	19-07-2026 00:05:27:213 IST	stderr	INFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)
+crime-craft-api	19-07-2026 00:05:27:211 IST	stderr	INFO:     Waiting for application startup.
+crime-craft-api	19-07-2026 00:05:27:211 IST	stderr	INFO:     Started server process [256]
+crime-craft-api	19-07-2026 00:05:27:211 IST	stderr	INFO:     Application startup complete.
+crime-craft-api	19-07-2026 00:05:26:075 IST	stderr	[notice] A new release of pip is available: 25.2 -> 26.1.2
+crime-craft-api	19-07-2026 00:05:26:075 IST	stderr	
+crime-craft-api	19-07-2026 00:05:26:075 IST	stderr	[notice] To update, run: pip3 install --upgrade pip
+crime-craft-api	19-07-2026 00:05:25:426 IST	stdout	Successfully installed annotated-types-0.7.0 anyio-4.14.2 bcrypt-5.0.0 certifi-2026.6.17 cffi-2.1.0 chardet-7.4.3 charset_normalizer-3.4.9 click-8.4.2 cryptography-49.0.0 dnspython-2.8.0 ecdsa-0.19.2 email-validator-2.2.0 fastapi-0.115.0 h11-0.16.0 httpcore-1.0.9 httptools-0.8.0 httpx-0.27.2 idna-3.18 iniconfig-2.3.0 packaging-26.2 passlib-1.7.4 pillow-12.3.0 pluggy-1.6.0 pyasn1-0.6.4 pycparser-3.0 pydantic-2.9.2 pydantic-core-2.23.4 pydantic-settings-2.6.0 pytest-8.3.3 python-dotenv-1.0.1 python-jose-3.3.0 python-multipart-0.0.12 pyyaml-6.0.3 reportlab-4.2.5 requests-2.32.5 rsa-4.9.1 six-1.17.0 sniffio-1.3.1 starlette-0.38.6 typing-extensions-4.12.2 urllib3-2.7.0 uvicorn-0.32.0 uvloop-0.22.1 watchfiles-1.2.0 websockets-16.1.1 zcatalyst-sdk-1.2.0
+crime-craft-api	19-07-2026 00:05:25:422 IST	stdout	
+crime-craft-api	19-07-2026 00:05:22:603 IST	stdout	Installing collected packages: passlib, websockets, uvloop, urllib3, typing-extensions, sniffio, six, pyyaml, python-multipart, python-dotenv, pycparser, pyasn1, pluggy, pillow, packaging, iniconfig, idna, httptools, h11, dnspython, click, charset_normalizer, chardet, certifi, bcrypt, annotated-types, uvicorn, rsa, requests, reportlab, pytest, pydantic-core, httpcore, email-validator, ecdsa, cffi, anyio, zcatalyst-sdk, watchfiles, starlette, python-jose, pydantic, httpx, cryptography, pydantic-settings, fastapi
+crime-craft-api	19-07-2026 00:05:22:498 IST	stdout	Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+crime-craft-api	19-07-2026 00:05:22:494 IST	stdout	Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+crime-craft-api	19-07-2026 00:05:22:490 IST	stdout	Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+crime-craft-api	19-07-2026 00:05:22:486 IST	stdout	Downloading pyasn1-0.6.4-py3-none-any.whl (84 kB)
+crime-craft-api	19-07-2026 00:05:22:482 IST	stdout	Downloading packaging-26.2-py3-none-any.whl (100 kB)
+crime-craft-api	19-07-2026 00:05:22:478 IST	stdout	Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+crime-craft-api	19-07-2026 00:05:22:474 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 887.4/887.4 kB 84.9 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:22:462 IST	stdout	Downloading chardet-7.4.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (887 kB)
+crime-craft-api	19-07-2026 00:05:22:456 IST	stdout	Downloading websockets-16.1.1-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (187 kB)
+crime-craft-api	19-07-2026 00:05:22:445 IST	stdout	Downloading watchfiles-1.2.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (454 kB)
+crime-craft-api	19-07-2026 00:05:22:440 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 76.1 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:22:381 IST	stdout	Downloading uvloop-0.22.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.4 MB)
+crime-craft-api	19-07-2026 00:05:22:377 IST	stdout	Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+crime-craft-api	19-07-2026 00:05:22:373 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 801.6/801.6 kB 74.3 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:22:361 IST	stdout	Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+crime-craft-api	19-07-2026 00:05:22:356 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 65.5 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:22:248 IST	stdout	Downloading pillow-12.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+crime-craft-api	19-07-2026 00:05:22:236 IST	stdout	Downloading httptools-0.8.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (486 kB)
+crime-craft-api	19-07-2026 00:05:22:231 IST	stdout	Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+crime-craft-api	19-07-2026 00:05:22:226 IST	stdout	Downloading ecdsa-0.19.2-py2.py3-none-any.whl (150 kB)
+crime-craft-api	19-07-2026 00:05:22:217 IST	stdout	Downloading dnspython-2.8.0-py3-none-any.whl (331 kB)
+crime-craft-api	19-07-2026 00:05:22:210 IST	stdout	Downloading cffi-2.1.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+crime-craft-api	19-07-2026 00:05:22:206 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 52.5 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:22:113 IST	stdout	Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+crime-craft-api	19-07-2026 00:05:22:108 IST	stdout	Downloading click-8.4.2-py3-none-any.whl (119 kB)
+crime-craft-api	19-07-2026 00:05:22:102 IST	stdout	Downloading certifi-2026.6.17-py3-none-any.whl (133 kB)
+crime-craft-api	19-07-2026 00:05:22:093 IST	stdout	Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_x86_64.whl (278 kB)
+crime-craft-api	19-07-2026 00:05:22:089 IST	stdout	Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+crime-craft-api	19-07-2026 00:05:22:084 IST	stdout	Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+crime-craft-api	19-07-2026 00:05:22:080 IST	stdout	Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+crime-craft-api	19-07-2026 00:05:22:075 IST	stdout	Downloading anyio-4.14.2-py3-none-any.whl (125 kB)
+crime-craft-api	19-07-2026 00:05:22:070 IST	stdout	Downloading starlette-0.38.6-py3-none-any.whl (71 kB)
+crime-craft-api	19-07-2026 00:05:22:066 IST	stdout	Downloading idna-3.18-py3-none-any.whl (65 kB)
+crime-craft-api	19-07-2026 00:05:22:058 IST	stdout	Downloading charset_normalizer-3.4.9-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (223 kB)
+crime-craft-api	19-07-2026 00:05:22:054 IST	stdout	Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+crime-craft-api	19-07-2026 00:05:22:050 IST	stdout	Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+crime-craft-api	19-07-2026 00:05:22:035 IST	stdout	Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+crime-craft-api	19-07-2026 00:05:22:031 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 44.2 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:21:983 IST	stdout	Downloading pydantic_core-2.23.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+crime-craft-api	19-07-2026 00:05:21:976 IST	stdout	Downloading httpx-0.27.2-py3-none-any.whl (76 kB)
+crime-craft-api	19-07-2026 00:05:21:966 IST	stdout	Downloading pytest-8.3.3-py3-none-any.whl (342 kB)
+crime-craft-api	19-07-2026 00:05:21:961 IST	stdout	Downloading zcatalyst_sdk-1.2.0-py3-none-any.whl (78 kB)
+crime-craft-api	19-07-2026 00:05:21:956 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 38.8 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:21:905 IST	stdout	Downloading reportlab-4.2.5-py3-none-any.whl (1.9 MB)
+crime-craft-api	19-07-2026 00:05:21:899 IST	stdout	Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+crime-craft-api	19-07-2026 00:05:21:895 IST	stdout	Downloading python_multipart-0.0.12-py3-none-any.whl (23 kB)
+crime-craft-api	19-07-2026 00:05:21:891 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 525.6/525.6 kB 40.2 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:21:876 IST	stdout	Downloading passlib-1.7.4-py2.py3-none-any.whl (525 kB)
+crime-craft-api	19-07-2026 00:05:21:872 IST	stdout	Downloading python_jose-3.3.0-py2.py3-none-any.whl (33 kB)
+crime-craft-api	19-07-2026 00:05:21:868 IST	stdout	Downloading pydantic_settings-2.6.0-py3-none-any.whl (28 kB)
+crime-craft-api	19-07-2026 00:05:21:863 IST	stdout	Downloading email_validator-2.2.0-py3-none-any.whl (33 kB)
+crime-craft-api	19-07-2026 00:05:21:859 IST	stdout	Downloading uvicorn-0.32.0-py3-none-any.whl (63 kB)
+crime-craft-api	19-07-2026 00:05:21:843 IST	stdout	Downloading pydantic-2.9.2-py3-none-any.whl (434 kB)
+crime-craft-api	19-07-2026 00:05:21:837 IST	stdout	Downloading fastapi-0.115.0-py3-none-any.whl (94 kB)
+crime-craft-api	19-07-2026 00:05:21:807 IST	stdout	  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+crime-craft-api	19-07-2026 00:05:21:803 IST	stdout	Collecting six>=1.9.0 (from ecdsa!=0.15->python-jose==3.3.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:21:793 IST	stdout	  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+crime-craft-api	19-07-2026 00:05:21:789 IST	stdout	Collecting pycparser (from cffi>=2.0.0->cryptography>=3.4.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:21:782 IST	stdout	  Downloading cffi-2.1.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+crime-craft-api	19-07-2026 00:05:21:778 IST	stdout	Collecting cffi>=2.0.0 (from cryptography>=3.4.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:21:669 IST	stdout	  Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+crime-craft-api	19-07-2026 00:05:21:665 IST	stdout	Collecting urllib3<3,>=1.21.1 (from requests~=2.32.3->zcatalyst-sdk==1.2.0->-r /catalyst/requirements.txt (line 22))
+crime-craft-api	19-07-2026 00:05:21:641 IST	stdout	  Downloading charset_normalizer-3.4.9-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (41 kB)
+crime-craft-api	19-07-2026 00:05:21:636 IST	stdout	Collecting charset_normalizer<4,>=2 (from requests~=2.32.3->zcatalyst-sdk==1.2.0->-r /catalyst/requirements.txt (line 22))
+crime-craft-api	19-07-2026 00:05:21:542 IST	stdout	  Downloading websockets-16.1.1-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+crime-craft-api	19-07-2026 00:05:21:538 IST	stdout	Collecting websockets>=10.4 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:21:458 IST	stdout	  Downloading watchfiles-1.2.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+crime-craft-api	19-07-2026 00:05:21:453 IST	stdout	Collecting watchfiles>=0.13 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:21:388 IST	stdout	  Downloading uvloop-0.22.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+crime-craft-api	19-07-2026 00:05:21:383 IST	stdout	Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:21:352 IST	stdout	  Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+crime-craft-api	19-07-2026 00:05:21:348 IST	stdout	Collecting pyyaml>=5.1 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:21:318 IST	stdout	  Downloading httptools-0.8.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+crime-craft-api	19-07-2026 00:05:21:313 IST	stdout	Collecting httptools>=0.5.0 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:21:289 IST	stdout	  Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+crime-craft-api	19-07-2026 00:05:21:284 IST	stdout	Collecting cryptography>=3.4.0 (from python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:21:110 IST	stdout	  Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (10 kB)
+crime-craft-api	19-07-2026 00:05:21:106 IST	stdout	Collecting bcrypt>=3.1.0 (from passlib[bcrypt]==1.7.4->-r /catalyst/requirements.txt (line 15))
+crime-craft-api	19-07-2026 00:05:21:073 IST	stdout	  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+crime-craft-api	19-07-2026 00:05:21:069 IST	stdout	Collecting sniffio (from httpx==0.27.2->-r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:21:063 IST	stdout	  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+crime-craft-api	19-07-2026 00:05:21:059 IST	stdout	Collecting httpcore==1.* (from httpx==0.27.2->-r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:21:047 IST	stdout	  Downloading certifi-2026.6.17-py3-none-any.whl.metadata (2.5 kB)
+crime-craft-api	19-07-2026 00:05:21:043 IST	stdout	Collecting certifi (from httpx==0.27.2->-r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:21:029 IST	stdout	  Downloading anyio-4.14.2-py3-none-any.whl.metadata (4.6 kB)
+crime-craft-api	19-07-2026 00:05:21:025 IST	stdout	Collecting anyio (from httpx==0.27.2->-r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:21:011 IST	stdout	  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+crime-craft-api	19-07-2026 00:05:21:008 IST	stdout	Collecting pluggy<2,>=1.5 (from pytest==8.3.3->-r /catalyst/requirements.txt (line 25))
+crime-craft-api	19-07-2026 00:05:21:000 IST	stdout	  Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+crime-craft-api	19-07-2026 00:05:20:996 IST	stdout	Collecting packaging (from pytest==8.3.3->-r /catalyst/requirements.txt (line 25))
+crime-craft-api	19-07-2026 00:05:20:985 IST	stdout	  Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+crime-craft-api	19-07-2026 00:05:20:981 IST	stdout	Collecting iniconfig (from pytest==8.3.3->-r /catalyst/requirements.txt (line 25))
+crime-craft-api	19-07-2026 00:05:20:975 IST	stdout	  Downloading typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+crime-craft-api	19-07-2026 00:05:20:971 IST	stdout	Collecting typing-extensions>=4.8.0 (from fastapi==0.115.0->-r /catalyst/requirements.txt (line 9))
+crime-craft-api	19-07-2026 00:05:20:966 IST	stdout	  Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+crime-craft-api	19-07-2026 00:05:20:963 IST	stdout	Collecting requests~=2.32.3 (from zcatalyst-sdk==1.2.0->-r /catalyst/requirements.txt (line 22))
+crime-craft-api	19-07-2026 00:05:20:943 IST	stdout	  Downloading chardet-7.4.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.4 kB)
+crime-craft-api	19-07-2026 00:05:20:939 IST	stdout	Collecting chardet (from reportlab==4.2.5->-r /catalyst/requirements.txt (line 18))
+crime-craft-api	19-07-2026 00:05:20:886 IST	stdout	  Downloading pillow-12.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+crime-craft-api	19-07-2026 00:05:20:881 IST	stdout	Collecting pillow>=9.0.0 (from reportlab==4.2.5->-r /catalyst/requirements.txt (line 18))
+crime-craft-api	19-07-2026 00:05:20:741 IST	stdout	  Downloading pyasn1-0.6.4-py3-none-any.whl.metadata (8.4 kB)
+crime-craft-api	19-07-2026 00:05:20:737 IST	stdout	Collecting pyasn1 (from python-jose==3.3.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:20:723 IST	stdout	  Downloading rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+crime-craft-api	19-07-2026 00:05:20:720 IST	stdout	Collecting rsa (from python-jose==3.3.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:20:710 IST	stdout	  Downloading ecdsa-0.19.2-py2.py3-none-any.whl.metadata (29 kB)
+crime-craft-api	19-07-2026 00:05:20:706 IST	stdout	Collecting ecdsa!=0.15 (from python-jose==3.3.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:20:685 IST	stdout	  Downloading idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+crime-craft-api	19-07-2026 00:05:20:681 IST	stdout	Collecting idna>=2.0.0 (from email-validator==2.2.0->-r /catalyst/requirements.txt (line 12))
+crime-craft-api	19-07-2026 00:05:20:670 IST	stdout	  Downloading dnspython-2.8.0-py3-none-any.whl.metadata (5.7 kB)
+crime-craft-api	19-07-2026 00:05:20:666 IST	stdout	Collecting dnspython>=2.0.0 (from email-validator==2.2.0->-r /catalyst/requirements.txt (line 12))
+crime-craft-api	19-07-2026 00:05:20:657 IST	stdout	  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+crime-craft-api	19-07-2026 00:05:20:653 IST	stdout	Collecting h11>=0.8 (from uvicorn==0.32.0->uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:20:647 IST	stdout	  Downloading click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+crime-craft-api	19-07-2026 00:05:20:643 IST	stdout	Collecting click>=7.0 (from uvicorn==0.32.0->uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:20:627 IST	stdout	  Downloading pydantic_core-2.23.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+crime-craft-api	19-07-2026 00:05:20:622 IST	stdout	Collecting pydantic-core==2.23.4 (from pydantic==2.9.2->-r /catalyst/requirements.txt (line 11))
+crime-craft-api	19-07-2026 00:05:20:015 IST	stdout	  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+crime-craft-api	19-07-2026 00:05:20:011 IST	stdout	Collecting annotated-types>=0.6.0 (from pydantic==2.9.2->-r /catalyst/requirements.txt (line 11))
+crime-craft-api	19-07-2026 00:05:20:004 IST	stdout	  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+crime-craft-api	19-07-2026 00:05:20:000 IST	stdout	Collecting typing-extensions>=4.8.0 (from fastapi==0.115.0->-r /catalyst/requirements.txt (line 9))
+crime-craft-api	19-07-2026 00:05:19:977 IST	stdout	  Downloading starlette-0.38.6-py3-none-any.whl.metadata (6.0 kB)
+crime-craft-api	19-07-2026 00:05:19:973 IST	stdout	Collecting starlette<0.39.0,>=0.37.2 (from fastapi==0.115.0->-r /catalyst/requirements.txt (line 9))
+crime-craft-api	19-07-2026 00:05:19:951 IST	stdout	  Downloading httpx-0.27.2-py3-none-any.whl.metadata (7.1 kB)
+crime-craft-api	19-07-2026 00:05:19:948 IST	stdout	Collecting httpx==0.27.2 (from -r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:19:935 IST	stdout	  Downloading pytest-8.3.3-py3-none-any.whl.metadata (7.5 kB)
+crime-craft-api	19-07-2026 00:05:19:930 IST	stdout	Collecting pytest==8.3.3 (from -r /catalyst/requirements.txt (line 25))
+crime-craft-api	19-07-2026 00:05:19:908 IST	stdout	  Downloading zcatalyst_sdk-1.2.0-py3-none-any.whl.metadata (2.2 kB)
+crime-craft-api	19-07-2026 00:05:19:904 IST	stdout	Collecting zcatalyst-sdk==1.2.0 (from -r /catalyst/requirements.txt (line 22))
+crime-craft-api	19-07-2026 00:05:19:896 IST	stdout	  Downloading reportlab-4.2.5-py3-none-any.whl.metadata (1.5 kB)
+crime-craft-api	19-07-2026 00:05:19:892 IST	stdout	Collecting reportlab==4.2.5 (from -r /catalyst/requirements.txt (line 18))
+crime-craft-api	19-07-2026 00:05:19:801 IST	stdout	  Downloading python_dotenv-1.0.1-py3-none-any.whl.metadata (23 kB)
+crime-craft-api	19-07-2026 00:05:19:797 IST	stdout	Collecting python-dotenv==1.0.1 (from -r /catalyst/requirements.txt (line 17))
+crime-craft-api	19-07-2026 00:05:19:788 IST	stdout	  Downloading python_multipart-0.0.12-py3-none-any.whl.metadata (1.9 kB)
+crime-craft-api	19-07-2026 00:05:19:783 IST	stdout	Collecting python-multipart==0.0.12 (from -r /catalyst/requirements.txt (line 16))
+crime-craft-api	19-07-2026 00:05:19:775 IST	stdout	  Downloading passlib-1.7.4-py2.py3-none-any.whl.metadata (1.7 kB)
+crime-craft-api	19-07-2026 00:05:19:771 IST	stdout	Collecting passlib==1.7.4 (from passlib[bcrypt]==1.7.4->-r /catalyst/requirements.txt (line 15))
+crime-craft-api	19-07-2026 00:05:19:764 IST	stdout	  Downloading python_jose-3.3.0-py2.py3-none-any.whl.metadata (5.4 kB)
+crime-craft-api	19-07-2026 00:05:19:760 IST	stdout	Collecting python-jose==3.3.0 (from python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:19:752 IST	stdout	  Downloading pydantic_settings-2.6.0-py3-none-any.whl.metadata (3.5 kB)
+crime-craft-api	19-07-2026 00:05:19:748 IST	stdout	Collecting pydantic-settings==2.6.0 (from -r /catalyst/requirements.txt (line 13))
+crime-craft-api	19-07-2026 00:05:19:737 IST	stdout	  Downloading email_validator-2.2.0-py3-none-any.whl.metadata (25 kB)
+crime-craft-api	19-07-2026 00:05:19:733 IST	stdout	Collecting email-validator==2.2.0 (from -r /catalyst/requirements.txt (line 12))
+crime-craft-api	19-07-2026 00:05:19:710 IST	stdout	  Downloading pydantic-2.9.2-py3-none-any.whl.metadata (149 kB)
+crime-craft-api	19-07-2026 00:05:19:706 IST	stdout	Collecting pydantic==2.9.2 (from -r /catalyst/requirements.txt (line 11))
+crime-craft-api	19-07-2026 00:05:19:603 IST	stdout	  Downloading uvicorn-0.32.0-py3-none-any.whl.metadata (6.6 kB)
+crime-craft-api	19-07-2026 00:05:19:598 IST	stdout	Collecting uvicorn==0.32.0 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:19:568 IST	stdout	  Downloading fastapi-0.115.0-py3-none-any.whl.metadata (27 kB)
+crime-craft-api	19-07-2026 00:05:19:539 IST	stdout	Collecting fastapi==0.115.0 (from -r /catalyst/requirements.txt (line 9))
+crime-craft-api	19-07-2026 00:05:18:405 IST	stdout	listen_port: 9000
+crime-craft-api	19-07-2026 00:05:18:405 IST	stdout	=== crime-craft startup ===
+crime-craft-api	19-07-2026 00:05:18:405 IST	stdout	deps_ok: False
+crime-craft-api	19-07-2026 00:05:18:405 IST	stdout	
+crime-craft-api	19-07-2026 00:05:18:405 IST	stdout	files: .env.example, .git, .gitignore, DEMO.md, Makefile, Police_FIR_ER_Diagram.pdf, README.md, apps, appsail_47968000000046434.zip, auth, catalyst, config, crime-craft-appsail.zip, dashboard, data, docker-compose.yml, docs, errors.txt, functions, lost+found, main.py, middleware, models, pytest.ini, requirements-ml.txt, requirements.txt, run.py, services, tests, zoho supported feature 1.png
+crime-craft-api	19-07-2026 00:05:18:405 IST	stdout	config: APP_ENV='production' USE_CATALYST='true' JWT_SECRET=<set,len=86>
+crime-craft-api	19-07-2026 00:05:18:405 IST	stdout	run.py: installing dependencies into .deps (managed runtime doesn't) ...
+crime-craft-api	19-07-2026 00:05:18:405 IST	stdout	cwd: /catalyst
+crime-craft-api	19-07-2026 00:05:18:405 IST	stdout	python: 3.13.9
+crime-craft-api	19-07-2026 00:05:15:462 IST	stdout	Successfully installed annotated-types-0.7.0 anyio-4.14.2 bcrypt-5.0.0 certifi-2026.6.17 cffi-2.1.0 chardet-7.4.3 charset_normalizer-3.4.9 click-8.4.2 cryptography-49.0.0 dnspython-2.8.0 ecdsa-0.19.2 email-validator-2.2.0 fastapi-0.115.0 h11-0.16.0 httpcore-1.0.9 httptools-0.8.0 httpx-0.27.2 idna-3.18 iniconfig-2.3.0 packaging-26.2 passlib-1.7.4 pillow-12.3.0 pluggy-1.6.0 pyasn1-0.6.4 pycparser-3.0 pydantic-2.9.2 pydantic-core-2.23.4 pydantic-settings-2.6.0 pytest-8.3.3 python-dotenv-1.0.1 python-jose-3.3.0 python-multipart-0.0.12 pyyaml-6.0.3 reportlab-4.2.5 requests-2.32.5 rsa-4.9.1 six-1.17.0 sniffio-1.3.1 starlette-0.38.6 typing-extensions-4.12.2 urllib3-2.7.0 uvicorn-0.32.0 uvloop-0.22.1 watchfiles-1.2.0 websockets-16.1.1 zcatalyst-sdk-1.2.0
+crime-craft-api	19-07-2026 00:05:15:454 IST	stdout	
+crime-craft-api	19-07-2026 00:05:11:260 IST	stdout	Installing collected packages: passlib, websockets, uvloop, urllib3, typing-extensions, sniffio, six, pyyaml, python-multipart, python-dotenv, pycparser, pyasn1, pluggy, pillow, packaging, iniconfig, idna, httptools, h11, dnspython, click, charset_normalizer, chardet, certifi, bcrypt, annotated-types, uvicorn, rsa, requests, reportlab, pytest, pydantic-core, httpcore, email-validator, ecdsa, cffi, anyio, zcatalyst-sdk, watchfiles, starlette, python-jose, pydantic, httpx, cryptography, pydantic-settings, fastapi
+crime-craft-api	19-07-2026 00:05:11:050 IST	stdout	Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+crime-craft-api	19-07-2026 00:05:11:045 IST	stdout	Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+crime-craft-api	19-07-2026 00:05:11:041 IST	stdout	Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+crime-craft-api	19-07-2026 00:05:11:036 IST	stdout	Downloading pyasn1-0.6.4-py3-none-any.whl (84 kB)
+crime-craft-api	19-07-2026 00:05:11:032 IST	stdout	Downloading packaging-26.2-py3-none-any.whl (100 kB)
+crime-craft-api	19-07-2026 00:05:11:027 IST	stdout	Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+crime-craft-api	19-07-2026 00:05:11:023 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 887.4/887.4 kB 378.1 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:11:018 IST	stdout	Downloading chardet-7.4.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (887 kB)
+crime-craft-api	19-07-2026 00:05:11:010 IST	stdout	Downloading websockets-16.1.1-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (187 kB)
+crime-craft-api	19-07-2026 00:05:11:003 IST	stdout	Downloading watchfiles-1.2.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (454 kB)
+crime-craft-api	19-07-2026 00:05:10:999 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 275.9 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:10:980 IST	stdout	Downloading uvloop-0.22.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.4 MB)
+crime-craft-api	19-07-2026 00:05:10:976 IST	stdout	Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+crime-craft-api	19-07-2026 00:05:10:972 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 801.6/801.6 kB 340.2 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:10:967 IST	stdout	Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+crime-craft-api	19-07-2026 00:05:10:962 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 238.5 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:10:931 IST	stdout	Downloading pillow-12.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+crime-craft-api	19-07-2026 00:05:10:924 IST	stdout	Downloading httptools-0.8.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (486 kB)
+crime-craft-api	19-07-2026 00:05:10:920 IST	stdout	Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+crime-craft-api	19-07-2026 00:05:10:915 IST	stdout	Downloading ecdsa-0.19.2-py2.py3-none-any.whl (150 kB)
+crime-craft-api	19-07-2026 00:05:10:910 IST	stdout	Downloading dnspython-2.8.0-py3-none-any.whl (331 kB)
+crime-craft-api	19-07-2026 00:05:10:904 IST	stdout	Downloading cffi-2.1.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+crime-craft-api	19-07-2026 00:05:10:900 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 152.6 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:10:867 IST	stdout	Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+crime-craft-api	19-07-2026 00:05:10:863 IST	stdout	Downloading click-8.4.2-py3-none-any.whl (119 kB)
+crime-craft-api	19-07-2026 00:05:10:858 IST	stdout	Downloading certifi-2026.6.17-py3-none-any.whl (133 kB)
+crime-craft-api	19-07-2026 00:05:10:851 IST	stdout	Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_x86_64.whl (278 kB)
+crime-craft-api	19-07-2026 00:05:10:847 IST	stdout	Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+crime-craft-api	19-07-2026 00:05:10:842 IST	stdout	Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+crime-craft-api	19-07-2026 00:05:10:837 IST	stdout	Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+crime-craft-api	19-07-2026 00:05:10:833 IST	stdout	Downloading anyio-4.14.2-py3-none-any.whl (125 kB)
+crime-craft-api	19-07-2026 00:05:10:828 IST	stdout	Downloading starlette-0.38.6-py3-none-any.whl (71 kB)
+crime-craft-api	19-07-2026 00:05:10:823 IST	stdout	Downloading idna-3.18-py3-none-any.whl (65 kB)
+crime-craft-api	19-07-2026 00:05:10:818 IST	stdout	Downloading charset_normalizer-3.4.9-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (223 kB)
+crime-craft-api	19-07-2026 00:05:10:813 IST	stdout	Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+crime-craft-api	19-07-2026 00:05:10:809 IST	stdout	Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+crime-craft-api	19-07-2026 00:05:10:804 IST	stdout	Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+crime-craft-api	19-07-2026 00:05:10:800 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 94.3 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:10:775 IST	stdout	Downloading pydantic_core-2.23.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+crime-craft-api	19-07-2026 00:05:10:769 IST	stdout	Downloading httpx-0.27.2-py3-none-any.whl (76 kB)
+crime-craft-api	19-07-2026 00:05:10:761 IST	stdout	Downloading pytest-8.3.3-py3-none-any.whl (342 kB)
+crime-craft-api	19-07-2026 00:05:10:756 IST	stdout	Downloading zcatalyst_sdk-1.2.0-py3-none-any.whl (78 kB)
+crime-craft-api	19-07-2026 00:05:10:751 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 51.2 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:10:711 IST	stdout	Downloading reportlab-4.2.5-py3-none-any.whl (1.9 MB)
+crime-craft-api	19-07-2026 00:05:10:705 IST	stdout	Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+crime-craft-api	19-07-2026 00:05:10:700 IST	stdout	Downloading python_multipart-0.0.12-py3-none-any.whl (23 kB)
+crime-craft-api	19-07-2026 00:05:10:695 IST	stdout	   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 525.6/525.6 kB 37.7 MB/s  0:00:00
+crime-craft-api	19-07-2026 00:05:10:677 IST	stdout	Downloading passlib-1.7.4-py2.py3-none-any.whl (525 kB)
+crime-craft-api	19-07-2026 00:05:10:672 IST	stdout	Downloading python_jose-3.3.0-py2.py3-none-any.whl (33 kB)
+crime-craft-api	19-07-2026 00:05:10:668 IST	stdout	Downloading pydantic_settings-2.6.0-py3-none-any.whl (28 kB)
+crime-craft-api	19-07-2026 00:05:10:663 IST	stdout	Downloading email_validator-2.2.0-py3-none-any.whl (33 kB)
+crime-craft-api	19-07-2026 00:05:10:657 IST	stdout	Downloading uvicorn-0.32.0-py3-none-any.whl (63 kB)
+crime-craft-api	19-07-2026 00:05:10:634 IST	stdout	Downloading pydantic-2.9.2-py3-none-any.whl (434 kB)
+crime-craft-api	19-07-2026 00:05:10:626 IST	stdout	Downloading fastapi-0.115.0-py3-none-any.whl (94 kB)
+crime-craft-api	19-07-2026 00:05:10:582 IST	stdout	  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+crime-craft-api	19-07-2026 00:05:10:577 IST	stdout	Collecting six>=1.9.0 (from ecdsa!=0.15->python-jose==3.3.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:10:564 IST	stdout	  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+crime-craft-api	19-07-2026 00:05:10:559 IST	stdout	Collecting pycparser (from cffi>=2.0.0->cryptography>=3.4.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:10:546 IST	stdout	  Downloading cffi-2.1.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+crime-craft-api	19-07-2026 00:05:10:536 IST	stdout	Collecting cffi>=2.0.0 (from cryptography>=3.4.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:10:369 IST	stdout	  Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+crime-craft-api	19-07-2026 00:05:10:364 IST	stdout	Collecting urllib3<3,>=1.21.1 (from requests~=2.32.3->zcatalyst-sdk==1.2.0->-r /catalyst/requirements.txt (line 22))
+crime-craft-api	19-07-2026 00:05:10:332 IST	stdout	  Downloading charset_normalizer-3.4.9-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (41 kB)
+crime-craft-api	19-07-2026 00:05:10:327 IST	stdout	Collecting charset_normalizer<4,>=2 (from requests~=2.32.3->zcatalyst-sdk==1.2.0->-r /catalyst/requirements.txt (line 22))
+crime-craft-api	19-07-2026 00:05:10:207 IST	stdout	  Downloading websockets-16.1.1-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+crime-craft-api	19-07-2026 00:05:10:201 IST	stdout	Collecting websockets>=10.4 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:10:096 IST	stdout	  Downloading watchfiles-1.2.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+crime-craft-api	19-07-2026 00:05:10:090 IST	stdout	Collecting watchfiles>=0.13 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:09:999 IST	stdout	  Downloading uvloop-0.22.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+crime-craft-api	19-07-2026 00:05:09:994 IST	stdout	Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:09:953 IST	stdout	  Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+crime-craft-api	19-07-2026 00:05:09:947 IST	stdout	Collecting pyyaml>=5.1 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:09:901 IST	stdout	  Downloading httptools-0.8.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+crime-craft-api	19-07-2026 00:05:09:895 IST	stdout	Collecting httptools>=0.5.0 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:09:862 IST	stdout	  Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+crime-craft-api	19-07-2026 00:05:09:857 IST	stdout	Collecting cryptography>=3.4.0 (from python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:09:593 IST	stdout	  Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (10 kB)
+crime-craft-api	19-07-2026 00:05:09:588 IST	stdout	Collecting bcrypt>=3.1.0 (from passlib[bcrypt]==1.7.4->-r /catalyst/requirements.txt (line 15))
+crime-craft-api	19-07-2026 00:05:09:545 IST	stdout	  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+crime-craft-api	19-07-2026 00:05:09:541 IST	stdout	Collecting sniffio (from httpx==0.27.2->-r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:09:532 IST	stdout	  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+crime-craft-api	19-07-2026 00:05:09:528 IST	stdout	Collecting httpcore==1.* (from httpx==0.27.2->-r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:09:513 IST	stdout	  Downloading certifi-2026.6.17-py3-none-any.whl.metadata (2.5 kB)
+crime-craft-api	19-07-2026 00:05:09:508 IST	stdout	Collecting certifi (from httpx==0.27.2->-r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:09:490 IST	stdout	  Downloading anyio-4.14.2-py3-none-any.whl.metadata (4.6 kB)
+crime-craft-api	19-07-2026 00:05:09:485 IST	stdout	Collecting anyio (from httpx==0.27.2->-r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:09:466 IST	stdout	  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+crime-craft-api	19-07-2026 00:05:09:461 IST	stdout	Collecting pluggy<2,>=1.5 (from pytest==8.3.3->-r /catalyst/requirements.txt (line 25))
+crime-craft-api	19-07-2026 00:05:09:449 IST	stdout	  Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+crime-craft-api	19-07-2026 00:05:09:441 IST	stdout	Collecting packaging (from pytest==8.3.3->-r /catalyst/requirements.txt (line 25))
+crime-craft-api	19-07-2026 00:05:09:414 IST	stdout	  Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+crime-craft-api	19-07-2026 00:05:09:410 IST	stdout	Collecting iniconfig (from pytest==8.3.3->-r /catalyst/requirements.txt (line 25))
+crime-craft-api	19-07-2026 00:05:09:402 IST	stdout	  Downloading typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+crime-craft-api	19-07-2026 00:05:09:397 IST	stdout	Collecting typing-extensions>=4.8.0 (from fastapi==0.115.0->-r /catalyst/requirements.txt (line 9))
+crime-craft-api	19-07-2026 00:05:09:391 IST	stdout	  Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+crime-craft-api	19-07-2026 00:05:09:385 IST	stdout	Collecting requests~=2.32.3 (from zcatalyst-sdk==1.2.0->-r /catalyst/requirements.txt (line 22))
+crime-craft-api	19-07-2026 00:05:09:359 IST	stdout	  Downloading chardet-7.4.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.4 kB)
+crime-craft-api	19-07-2026 00:05:09:353 IST	stdout	Collecting chardet (from reportlab==4.2.5->-r /catalyst/requirements.txt (line 18))
+crime-craft-api	19-07-2026 00:05:09:232 IST	stdout	  Downloading pillow-12.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+crime-craft-api	19-07-2026 00:05:09:225 IST	stdout	Collecting pillow>=9.0.0 (from reportlab==4.2.5->-r /catalyst/requirements.txt (line 18))
+crime-craft-api	19-07-2026 00:05:08:989 IST	stdout	  Downloading pyasn1-0.6.4-py3-none-any.whl.metadata (8.4 kB)
+crime-craft-api	19-07-2026 00:05:08:984 IST	stdout	Collecting pyasn1 (from python-jose==3.3.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:08:966 IST	stdout	  Downloading rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+crime-craft-api	19-07-2026 00:05:08:961 IST	stdout	Collecting rsa (from python-jose==3.3.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:08:948 IST	stdout	  Downloading ecdsa-0.19.2-py2.py3-none-any.whl.metadata (29 kB)
+crime-craft-api	19-07-2026 00:05:08:943 IST	stdout	Collecting ecdsa!=0.15 (from python-jose==3.3.0->python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:08:897 IST	stdout	  Downloading idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+crime-craft-api	19-07-2026 00:05:08:892 IST	stdout	Collecting idna>=2.0.0 (from email-validator==2.2.0->-r /catalyst/requirements.txt (line 12))
+crime-craft-api	19-07-2026 00:05:08:876 IST	stdout	  Downloading dnspython-2.8.0-py3-none-any.whl.metadata (5.7 kB)
+crime-craft-api	19-07-2026 00:05:08:872 IST	stdout	Collecting dnspython>=2.0.0 (from email-validator==2.2.0->-r /catalyst/requirements.txt (line 12))
+crime-craft-api	19-07-2026 00:05:08:859 IST	stdout	  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+crime-craft-api	19-07-2026 00:05:08:854 IST	stdout	Collecting h11>=0.8 (from uvicorn==0.32.0->uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:08:845 IST	stdout	  Downloading click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+crime-craft-api	19-07-2026 00:05:08:840 IST	stdout	Collecting click>=7.0 (from uvicorn==0.32.0->uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:08:816 IST	stdout	  Downloading pydantic_core-2.23.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+crime-craft-api	19-07-2026 00:05:08:810 IST	stdout	Collecting pydantic-core==2.23.4 (from pydantic==2.9.2->-r /catalyst/requirements.txt (line 11))
+crime-craft-api	19-07-2026 00:05:08:011 IST	stdout	  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+crime-craft-api	19-07-2026 00:05:08:007 IST	stdout	Collecting annotated-types>=0.6.0 (from pydantic==2.9.2->-r /catalyst/requirements.txt (line 11))
+crime-craft-api	19-07-2026 00:05:07:998 IST	stdout	  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+crime-craft-api	19-07-2026 00:05:07:994 IST	stdout	Collecting typing-extensions>=4.8.0 (from fastapi==0.115.0->-r /catalyst/requirements.txt (line 9))
+crime-craft-api	19-07-2026 00:05:07:950 IST	stdout	  Downloading starlette-0.38.6-py3-none-any.whl.metadata (6.0 kB)
+crime-craft-api	19-07-2026 00:05:07:945 IST	stdout	Collecting starlette<0.39.0,>=0.37.2 (from fastapi==0.115.0->-r /catalyst/requirements.txt (line 9))
+crime-craft-api	19-07-2026 00:05:07:913 IST	stdout	  Downloading httpx-0.27.2-py3-none-any.whl.metadata (7.1 kB)
+crime-craft-api	19-07-2026 00:05:07:908 IST	stdout	Collecting httpx==0.27.2 (from -r /catalyst/requirements.txt (line 26))
+crime-craft-api	19-07-2026 00:05:07:890 IST	stdout	  Downloading pytest-8.3.3-py3-none-any.whl.metadata (7.5 kB)
+crime-craft-api	19-07-2026 00:05:07:884 IST	stdout	Collecting pytest==8.3.3 (from -r /catalyst/requirements.txt (line 25))
+crime-craft-api	19-07-2026 00:05:07:850 IST	stdout	  Downloading zcatalyst_sdk-1.2.0-py3-none-any.whl.metadata (2.2 kB)
+crime-craft-api	19-07-2026 00:05:07:844 IST	stdout	Collecting zcatalyst-sdk==1.2.0 (from -r /catalyst/requirements.txt (line 22))
+crime-craft-api	19-07-2026 00:05:07:823 IST	stdout	  Downloading reportlab-4.2.5-py3-none-any.whl.metadata (1.5 kB)
+crime-craft-api	19-07-2026 00:05:07:817 IST	stdout	Collecting reportlab==4.2.5 (from -r /catalyst/requirements.txt (line 18))
+crime-craft-api	19-07-2026 00:05:07:689 IST	stdout	  Downloading python_dotenv-1.0.1-py3-none-any.whl.metadata (23 kB)
+crime-craft-api	19-07-2026 00:05:07:684 IST	stdout	Collecting python-dotenv==1.0.1 (from -r /catalyst/requirements.txt (line 17))
+crime-craft-api	19-07-2026 00:05:07:671 IST	stdout	  Downloading python_multipart-0.0.12-py3-none-any.whl.metadata (1.9 kB)
+crime-craft-api	19-07-2026 00:05:07:666 IST	stdout	Collecting python-multipart==0.0.12 (from -r /catalyst/requirements.txt (line 16))
+crime-craft-api	19-07-2026 00:05:07:655 IST	stdout	  Downloading passlib-1.7.4-py2.py3-none-any.whl.metadata (1.7 kB)
+crime-craft-api	19-07-2026 00:05:07:651 IST	stdout	Collecting passlib==1.7.4 (from passlib[bcrypt]==1.7.4->-r /catalyst/requirements.txt (line 15))
+crime-craft-api	19-07-2026 00:05:07:641 IST	stdout	  Downloading python_jose-3.3.0-py2.py3-none-any.whl.metadata (5.4 kB)
+crime-craft-api	19-07-2026 00:05:07:637 IST	stdout	Collecting python-jose==3.3.0 (from python-jose[cryptography]==3.3.0->-r /catalyst/requirements.txt (line 14))
+crime-craft-api	19-07-2026 00:05:07:626 IST	stdout	  Downloading pydantic_settings-2.6.0-py3-none-any.whl.metadata (3.5 kB)
+crime-craft-api	19-07-2026 00:05:07:621 IST	stdout	Collecting pydantic-settings==2.6.0 (from -r /catalyst/requirements.txt (line 13))
+crime-craft-api	19-07-2026 00:05:07:606 IST	stdout	  Downloading email_validator-2.2.0-py3-none-any.whl.metadata (25 kB)
+crime-craft-api	19-07-2026 00:05:07:600 IST	stdout	Collecting email-validator==2.2.0 (from -r /catalyst/requirements.txt (line 12))
+crime-craft-api	19-07-2026 00:05:07:566 IST	stdout	  Downloading pydantic-2.9.2-py3-none-any.whl.metadata (149 kB)
+crime-craft-api	19-07-2026 00:05:07:561 IST	stdout	Collecting pydantic==2.9.2 (from -r /catalyst/requirements.txt (line 11))
+crime-craft-api	19-07-2026 00:05:07:436 IST	stdout	  Downloading uvicorn-0.32.0-py3-none-any.whl.metadata (6.6 kB)
+crime-craft-api	19-07-2026 00:05:07:430 IST	stdout	Collecting uvicorn==0.32.0 (from uvicorn[standard]==0.32.0->-r /catalyst/requirements.txt (line 10))
+crime-craft-api	19-07-2026 00:05:07:392 IST	stdout	  Downloading fastapi-0.115.0-py3-none-any.whl.metadata (27 kB)
+crime-craft-api	19-07-2026 00:05:07:347 IST	stdout	Collecting fastapi==0.115.0 (from -r /catalyst/requirements.txt (line 9))
+crime-craft-api	19-07-2026 00:05:05:683 IST	stdout	=== crime-craft startup ===
+crime-craft-api	19-07-2026 00:05:05:683 IST	stdout	
+crime-craft-api	19-07-2026 00:05:05:683 IST	stdout	config: APP_ENV='production' USE_CATALYST='true' JWT_SECRET=<set,len=86>
+crime-craft-api	19-07-2026 00:05:05:683 IST	stdout	run.py: installing dependencies into .deps (managed runtime doesn't) ...
+crime-craft-api	19-07-2026 00:05:05:683 IST	stdout	python: 3.13.9
+crime-craft-api	19-07-2026 00:05:05:683 IST	stdout	files: .env.example, .git, .gitignore, DEMO.md, Makefile, Police_FIR_ER_Diagram.pdf, README.md, apps, appsail_47968000000046434.zip, auth, catalyst, config, crime-craft-appsail.zip, dashboard, data, docker-compose.yml, docs, errors.txt, functions, lost+found, main.py, middleware, models, pytest.ini, requirements-ml.txt, requirements.txt, run.py, services, tests, zoho supported feature 1.png
+crime-craft-api	19-07-2026 00:05:05:683 IST	stdout	deps_ok: False
+crime-craft-api	19-07-2026 00:05:05:683 IST	stdout	listen_port: 9000
+crime-craft-api	19-07-2026 00:05:05:683 IST	stdout	cwd: /catalyst
