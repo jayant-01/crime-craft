@@ -207,4 +207,27 @@ i APPSAIL URL          : https://crime-craft-api-50043858253.development.catalys
 
 √ Catalyst deploy complete!
 
+PS C:\jayant\crime-craft> git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 1.33 KiB | 52.00 KiB/s, done.
+From https://github.com/jayant-01/crime-craft
+   d622a9d..567b4cd  main       -> origin/main
+Updating d622a9d..567b4cd
+Fast-forward
+ app-config.json | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+PS C:\jayant\crime-craft> catalyst deploy
+(node:20084) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+√ AppSail[crime-craft-api] uploaded in 4 seconds
+‼ Deploy of AppSail [crime-craft-api] was unsuccessful since HTTP Error: 400, environment_variables must not contain reserved keywords
+
+× appsail: deploy skipped
+
+× No components deployed!
+
+× HTTP Error: 400, environment_variables must not contain reserved keywords
 PS C:\jayant\crime-craft>
