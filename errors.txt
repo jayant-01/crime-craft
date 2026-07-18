@@ -175,4 +175,36 @@ PS C:\jayant\crime-craft\catalyst> catalyst deploy
 × Error: Could not understand the targets.
 
 Please ensure that the desired features are initialised in the catalyst.json file.
-PS C:\jayant\crime-craft\catalyst>
+PS C:\jayant\crime-craft\catalyst> cd ..
+PS C:\jayant\crime-craft> catalyst appsail:add
+
+=> Configure AppSail
+Please select the runtime type for your AppSail to continue: Catalyst-Managed Runtime
+Do you want to initialize an AppSail in this directory? Yes
+Please provide the name for your AppSail:  crime-craft-01
+Please provide the build path of your AppSail: (./)
+PS C:\jayant\crime-craft> catalyst appsail:add
+
+=> Configure AppSail
+Please select the runtime type for your AppSail to continue: Catalyst-Managed Runtime
+Do you want to initialize an AppSail in this directory? Yes
+Please provide the name for your AppSail:  crime-craft-api
+Please provide the build path of your AppSail: ./
+Please choose a stack for your AppSail:  Python 3.13
+i catalyst.json file has been successfully updated with appsail details.
+
+√ AppSail successfully linked
+PS C:\jayant\crime-craft> catalyst deploy
+(node:22412) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+√ AppSail[crime-craft-api] uploaded in 4 seconds
+
+
+ >>>>>>>>>>>>>>> AppSail <<<<<<<<<<<<<
+
+√ DEPLOYMENT SUCCESSFUL: crime-craft-api
+i APPSAIL URL          : https://crime-craft-api-50043858253.development.catalystappsail.in
+
+√ Catalyst deploy complete!
+
+PS C:\jayant\crime-craft>
