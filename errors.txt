@@ -1,5 +1,3 @@
-all the error that will come from windows system will be shown here 
-
 PS C:\jayant\crime-craft\apps\web> npm install
 
 added 140 packages, and audited 141 packages in 36s
@@ -37,3 +35,144 @@ PS C:\jayant\crime-craft\catalyst> catalyst deploy
 × Error: Could not understand the targets.
 
 Please ensure that the desired features are initialised in the catalyst.json file.
+PS C:\jayant\crime-craft\catalyst> c ..
+c : The term 'c' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a
+path was included, verify that the path is correct and try again.
+At line:1 char:1
++ c ..
++ ~
+    + CategoryInfo          : ObjectNotFound: (c:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\jayant\crime-craft\catalyst> cd ..
+PS C:\jayant\crime-craft> git add .\errors.txt
+warning: in the working copy of 'errors.txt', LF will be replaced by CRLF the next time Git touches it
+PS C:\jayant\crime-craft> git commit -m "errors file"
+[main dc14db3] errors file
+ 1 file changed, 39 insertions(+)
+ create mode 100644 errors.txt
+PS C:\jayant\crime-craft> git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.06 KiB | 1.06 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/jayant-01/crime-craft.git
+   47ab291..dc14db3  main -> main
+PS C:\jayant\crime-craft> git add .
+warning: in the working copy of 'apps/web/src/App.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/api/client.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/api/endpoints.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/api/types.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/auth/AuthContext.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/auth/catalyst.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/components/Layout.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/components/ProtectedRoute.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/main.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/pages/CaseDetailPage.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/pages/CasesPage.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/pages/ChatPage.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/pages/DashboardPage.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/pages/LoginPage.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/pages/NetworkPage.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/pages/RecidivismPage.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/theme/ThemeContext.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/voice/speak.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/web/src/voice/useMicRecorder.js', LF will be replaced by CRLF the next time Git touches it
+PS C:\jayant\crime-craft> git commit -m "errors file"
+[main 9edfa0a] errors file
+ 20 files changed, 780 insertions(+)
+ create mode 100644 apps/web/src/App.js
+ create mode 100644 apps/web/src/api/client.js
+ create mode 100644 apps/web/src/api/endpoints.js
+ create mode 100644 apps/web/src/api/types.js
+ create mode 100644 apps/web/src/auth/AuthContext.js
+ create mode 100644 apps/web/src/auth/catalyst.js
+ create mode 100644 apps/web/src/components/Layout.js
+ create mode 100644 apps/web/src/components/ProtectedRoute.js
+ create mode 100644 apps/web/src/main.js
+ create mode 100644 apps/web/src/pages/CaseDetailPage.js
+ create mode 100644 apps/web/src/pages/CasesPage.js
+ create mode 100644 apps/web/src/pages/ChatPage.js
+ create mode 100644 apps/web/src/pages/DashboardPage.js
+ create mode 100644 apps/web/src/pages/LoginPage.js
+ create mode 100644 apps/web/src/pages/NetworkPage.js
+ create mode 100644 apps/web/src/pages/RecidivismPage.js
+ create mode 100644 apps/web/src/theme/ThemeContext.js
+ create mode 100644 apps/web/src/voice/speak.js
+ create mode 100644 apps/web/src/voice/useMicRecorder.js
+ create mode 100644 apps/web/tsconfig.tsbuildinfo
+PS C:\jayant\crime-craft> git push origin main
+Enumerating objects: 41, done.
+Counting objects: 100% (41/41), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (30/30), done.
+Writing objects: 100% (31/31), 18.94 KiB | 2.71 MiB/s, done.
+Total 31 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/jayant-01/crime-craft.git
+   dc14db3..9edfa0a  main -> main
+PS C:\jayant\crime-craft> git pull origin main
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 5 (delta 3), reused 5 (delta 3), pack-reused 0 (from 0)
+Unpacking objects: 100% (5/5), 1.39 KiB | 59.00 KiB/s, done.
+From https://github.com/jayant-01/crime-craft
+ * branch            main       -> FETCH_HEAD
+   9edfa0a..d6283e4  main       -> origin/main
+Updating 9edfa0a..d6283e4
+Fast-forward
+ apps/web/index.html | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+PS C:\jayant\crime-craft> catalyst appsail:add
+
+× Error: Oops!!! It looks like you're not inside a Catalyst app directory because we are unable to locate the .catalystrc file.
+
+Please run the catalyst init command to initialize or specify a valid project with the --project option.
+
+REF: https://docs.catalyst.zoho.com/en/cli/v1/initialize-resources/introduction/#Initialize_Alll
+PS C:\jayant\crime-craft> catalyst init
+
+      ___
+      \  \     ____           _             _                 _
+   ___ \  \   / ___|   __ _  | |_    __ _  | |  _   _   ___  | |_
+  /  / /  /  | |      / _` | | __|  / _` | | | | | | | / __| | __|
+ /  / /__/   | |___  | (_| | | |_  | (_| | | | | |_| | \__ \ | |_
+ \  \         \____|  \__,_|  \__|  \__,_| |_|  \__, | |___/  \__|
+  \__\                                          |___/
+
+You're about to initialize a Catalyst project in this directory:
+
+  C:\jayant\crime-craft
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+Select a default Catalyst project for this directory:  crime-craft-cloud-scale
+
+i Setting up a new default project for this folder
+i .catalystrc file has be successfully created with project details.
+
+Which are the features you want to setup for this folder?
+ This step is optional! Press <return> to proceed.
+
+i No features selected for setup. Exiting...
+
+√ Catalyst initialization complete!
+PS C:\jayant\crime-craft> catalyst deploy
+
+× Error: Not in a Catalyst app directory. Could not find the catalyst.json file.
+
+Initialise a project using the catalyst init command to make this directory(C:\jayant\crime-craft) a Catalyst app directory.
+
+REF: https://www.zoho.com/catalyst/help/cli-init.html
+PS C:\jayant\crime-craft> cd .\catalyst\
+PS C:\jayant\crime-craft\catalyst> catalyst deploy
+
+× Error: Could not understand the targets.
+
+Please ensure that the desired features are initialised in the catalyst.json file.
+PS C:\jayant\crime-craft\catalyst>
