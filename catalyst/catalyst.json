@@ -1,7 +1,7 @@
 {
   "project": {
-    "name": "crime-craft",
-    "id": "REPLACE_WITH_PROJECT_ID_FROM_CONSOLE"
+    "name": "crime-craft-cloud-scale",
+    "id": "47968000000046028"
   },
   "resources": {
     "appsail": [
