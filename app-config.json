@@ -1,8 +1,13 @@
 {
-	"command": "echo Please specify the start-up command in the app-config.json file under the key command for AppSail $X_ZC_RESOURCE_NAME",
+	"command": "python3 -u run.py",
 	"build_path": "./",
 	"stack": "python_3_13",
-	"env_variables": {},
-	"memory": 256,
+	"env_variables": {
+		"APP_ENV": "production",
+		"CATALYST_ENABLED": "true",
+		"JWT_SECRET": "kExXKLttwCWuD-kjahTGzWc16yu_d_GLC1o3jUNd9ZF92850coMWnJY3FkrTg_3Au6_G1PHh-e3qX3Vpf89_qg",
+		"CATALYST_ENVIRONMENT": "production"
+	},
+	"memory": 512,
 	"scripts": {}
 }
