@@ -1,0 +1,39 @@
+all the error that will come from windows system will be shown here 
+
+PS C:\jayant\crime-craft\apps\web> npm install
+
+added 140 packages, and audited 141 packages in 36s
+
+25 packages are looking for funding
+  run `npm fund` for details
+
+2 vulnerabilities (1 moderate, 1 high)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+PS C:\jayant\crime-craft\apps\web> npm run build
+
+> crime-craft-web@0.1.0 build
+> tsc -b && vite build
+
+vite v5.4.21 building for production...
+<script src="/__catalyst/sdk/init.js"> in "/index.html" can't be bundled without type="module" attribute
+✓ 51 modules transformed.
+dist/index.html                   1.21 kB │ gzip:   0.68 kB
+dist/assets/index-DKehMvHH.css   14.24 kB │ gzip:   3.55 kB
+dist/assets/index-UHdDFz2I.js   638.85 kB │ gzip: 205.57 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.54s
+PS C:\jayant\crime-craft\apps\web> cd ../..
+PS C:\jayant\crime-craft> cd .\catalyst\
+PS C:\jayant\crime-craft\catalyst> catalyst deploy
+
+× Error: Could not understand the targets.
+
+Please ensure that the desired features are initialised in the catalyst.json file.
