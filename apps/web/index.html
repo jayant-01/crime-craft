@@ -15,11 +15,10 @@
         } catch (e) {}
       })();
     </script>
-    <!-- Catalyst Web SDK — used only in production (CATALYST_ENABLED=true) for
-         hosted login + sign-out. In local dev `/__catalyst/sdk/init.js` 404s
-         harmlessly and all usage is guarded by a window.catalyst check. -->
-    <script src="https://static.zohocdn.com/catalyst/sdk/js/4.0.0/catalystWebSDK.js"></script>
-    <script src="/__catalyst/sdk/init.js"></script>
+    <!-- Catalyst's web hosting auto-injects its SDK (/__catalyst/sdk/init.js) on
+         the deployed site, so we don't include it here (that broke the vite
+         build). Our login is a redirect to the hosted login page; sign-out uses
+         window.catalyst if present, else falls back to a plain redirect. -->
   </head>
   <body>
     <div id="root"></div>
