@@ -1,4 +1,5 @@
 from functools import lru_cache
+from pydantic import AliasChoices, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -7,7 +8,12 @@ class Settings(BaseSettings):
     app_name: str = "crime-craft"
 
     # Catalyst toggle — when off, stubs are used so the app runs without Zoho creds.
-    catalyst_enabled: bool = False
+    # AppSail reserves CATALYST_* env-var names, so production sets USE_CATALYST;
+    # CATALYST_ENABLED still works for local dev / tests.
+    catalyst_enabled: bool = Field(
+        default=False,
+        validation_alias=AliasChoices("USE_CATALYST", "CATALYST_ENABLED", "catalyst_enabled"),
+    )
 
     # Catalyst credentials (required when catalyst_enabled=true)
     catalyst_project_id: str = ""

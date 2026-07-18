@@ -4,9 +4,8 @@
 	"stack": "python_3_13",
 	"env_variables": {
 		"APP_ENV": "production",
-		"CATALYST_ENABLED": "true",
-		"JWT_SECRET": "kExXKLttwCWuD-kjahTGzWc16yu_d_GLC1o3jUNd9ZF92850coMWnJY3FkrTg_3Au6_G1PHh-e3qX3Vpf89_qg",
-		"CATALYST_ENVIRONMENT": "production"
+		"USE_CATALYST": "true",
+		"JWT_SECRET": "kExXKLttwCWuD-kjahTGzWc16yu_d_GLC1o3jUNd9ZF92850coMWnJY3FkrTg_3Au6_G1PHh-e3qX3Vpf89_qg"
 	},
 	"memory": 512,
 	"scripts": {}
