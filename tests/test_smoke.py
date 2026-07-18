@@ -12,7 +12,7 @@ from main import app
 def test_app_boots_and_health_is_ok():
     """If imports break or middleware mis-wires, this is the first thing to fail."""
     client = TestClient(app)
-    res = client.get("/health")
+    res = client.get("/api/health")
     assert res.status_code == 200
     body = res.json()
     assert body["status"] == "ok"
@@ -28,6 +28,8 @@ def test_openapi_schema_renders():
     assert res.status_code == 200
     schema = res.json()
     paths = schema.get("paths", {})
-    # Spot-check that the headline endpoints from the demo script all registered.
-    for required in ("/chat", "/cases", "/analytics/trends", "/predictive/recidivism", "/network/case/{case_id}"):
+    # Spot-check that the headline endpoints from the demo script all registered
+    # (now under the /api prefix — the SPA owns the root paths).
+    for required in ("/api/chat", "/api/cases", "/api/analytics/trends",
+                     "/api/predictive/recidivism", "/api/network/case/{case_id}"):
         assert required in paths, f"missing route in OpenAPI: {required}"

@@ -3,7 +3,8 @@ import tempfile
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, File, HTTPException, Request, Response, UploadFile
+from fastapi import APIRouter, Depends, FastAPI, File, HTTPException, Request, Response, UploadFile
+from fastapi.responses import FileResponse
 from fastapi.security import OAuth2PasswordRequestForm
 
 from datetime import date as _date
@@ -73,13 +74,17 @@ async def _lifespan(app: FastAPI):
 app = FastAPI(title=settings.app_name, version="0.1.0", lifespan=_lifespan)
 app.add_middleware(AuditMiddleware)
 
+# All API routes live under /api so the React SPA can own the root paths
+# (/cases, /chat, ...) without colliding with the API. Included at the bottom.
+api = APIRouter()
 
-@app.get("/health")
+
+@api.get("/health")
 def health():
     return {"status": "ok", "env": settings.app_env, "catalyst": settings.catalyst_enabled}
 
 
-@app.post("/auth/login")
+@api.post("/auth/login")
 def login(form: OAuth2PasswordRequestForm = Depends()):
     """Local-dev login stub. When CATALYST_ENABLED=true the frontend talks
     directly to Catalyst's hosted login flow, not this endpoint."""
@@ -112,19 +117,19 @@ def login(form: OAuth2PasswordRequestForm = Depends()):
     return {"access_token": token, "token_type": "bearer", "role": role.value}
 
 
-@app.get("/me")
+@api.get("/me")
 def me(request: Request, user: User = Depends(get_current_user)):
     request.state.user = user
     return user
 
 
-@app.get("/cases")
+@api.get("/cases")
 def cases_list(request: Request, user: User = Depends(get_current_user)):
     request.state.user = user
     return list_cases(user.role)
 
 
-@app.get("/cases/{case_id}")
+@api.get("/cases/{case_id}")
 def case_detail(case_id: str, request: Request, user: User = Depends(get_current_user)):
     request.state.user = user
     case = get_case(case_id, user.role)
@@ -133,13 +138,13 @@ def case_detail(case_id: str, request: Request, user: User = Depends(get_current
     return case
 
 
-@app.get("/officer/dashboard")
+@api.get("/officer/dashboard")
 def officer_dashboard(request: Request, user: User = Depends(require_officer)):
     request.state.user = user
     return {"message": f"hello {user.id}", "role": user.role}
 
 
-@app.get("/analytics/trends", response_model=TrendsResponse)
+@api.get("/analytics/trends", response_model=TrendsResponse)
 def analytics_trends(
     request: Request,
     granularity: str = "week",
@@ -162,7 +167,7 @@ def analytics_trends(
     )
 
 
-@app.get("/analytics/top-localities", response_model=TopLocalitiesResponse)
+@api.get("/analytics/top-localities", response_model=TopLocalitiesResponse)
 def analytics_top_localities(
     request: Request,
     limit: int = 10,
@@ -173,7 +178,7 @@ def analytics_top_localities(
     return top_localities(limit=limit)
 
 
-@app.get("/analytics/hotspots", response_model=HotspotsResponse)
+@api.get("/analytics/hotspots", response_model=HotspotsResponse)
 def analytics_hotspots(
     request: Request,
     limit: int = 10,
@@ -186,7 +191,7 @@ def analytics_hotspots(
     return hotspots(limit=limit, window_days=window_days)
 
 
-@app.post("/chat", response_model=ChatResponse)
+@api.post("/chat", response_model=ChatResponse)
 def chat(
     req: ChatRequest,
     request: Request,
@@ -201,13 +206,13 @@ def chat(
     return rag_ask(req, user)
 
 
-@app.post("/conversations", response_model=Conversation)
+@api.post("/conversations", response_model=Conversation)
 def create_conversation(request: Request, user: User = Depends(get_current_user)) -> Conversation:
     request.state.user = user
     return conversation_repo().create(user.id)
 
 
-@app.get("/conversations", response_model=list[ConversationSummary])
+@api.get("/conversations", response_model=list[ConversationSummary])
 def list_conversations(
     request: Request,
     limit: int = 50,
@@ -218,7 +223,7 @@ def list_conversations(
     return conversation_repo().list_for_user(user.id, limit=limit)
 
 
-@app.get("/conversations/{conversation_id}", response_model=Conversation)
+@api.get("/conversations/{conversation_id}", response_model=Conversation)
 def get_conversation(
     conversation_id: str,
     request: Request,
@@ -231,7 +236,7 @@ def get_conversation(
     return conv
 
 
-@app.get("/conversations/{conversation_id}/export.pdf")
+@api.get("/conversations/{conversation_id}/export.pdf")
 def export_conversation_pdf(
     conversation_id: str,
     request: Request,
@@ -257,7 +262,7 @@ def export_conversation_pdf(
     )
 
 
-@app.delete("/conversations/{conversation_id}")
+@api.delete("/conversations/{conversation_id}")
 def delete_conversation(
     conversation_id: str,
     request: Request,
@@ -269,7 +274,7 @@ def delete_conversation(
     return {"deleted": conversation_id}
 
 
-@app.post("/voice/transcribe")
+@api.post("/voice/transcribe")
 async def voice_transcribe(
     request: Request,
     file: UploadFile = File(...),
@@ -292,7 +297,7 @@ async def voice_transcribe(
     }
 
 
-@app.post("/voice/tts")
+@api.post("/voice/tts")
 def voice_tts(
     body: dict,
     request: Request,
@@ -318,7 +323,7 @@ def voice_tts(
     )
 
 
-@app.get("/network/case/{case_id}", response_model=NetworkResponse)
+@api.get("/network/case/{case_id}", response_model=NetworkResponse)
 def network_for_case(
     case_id: str,
     request: Request,
@@ -336,7 +341,7 @@ def network_for_case(
     return g
 
 
-@app.get("/network/suspect/{name}", response_model=NetworkResponse)
+@api.get("/network/suspect/{name}", response_model=NetworkResponse)
 def network_for_suspect(
     name: str,
     request: Request,
@@ -354,7 +359,7 @@ def network_for_suspect(
     return g
 
 
-@app.post("/predictive/recidivism", response_model=RecidivismResponse)
+@api.post("/predictive/recidivism", response_model=RecidivismResponse)
 def predictive_recidivism(
     req: RecidivismRequest,
     request: Request,
@@ -373,7 +378,7 @@ def predictive_recidivism(
     return score_subject(req.subject)
 
 
-@app.post("/admin/ingest")
+@api.post("/admin/ingest")
 async def admin_ingest(
     request: Request,
     file: UploadFile = File(...),
@@ -395,3 +400,22 @@ async def admin_ingest(
     finally:
         Path(tmp_path).unlink(missing_ok=True)
     return report.as_dict()
+
+
+# Mount every API route under /api.
+app.include_router(api, prefix="/api")
+
+
+# --- serve the built React SPA so the whole app (UI + API) lives on one URL ---
+# API is under /api; everything else serves the SPA (static asset if it exists,
+# else index.html for client-side routes like /cases, /dashboard).
+_DIST = Path(__file__).resolve().parent / "apps" / "web" / "dist"
+if _DIST.is_dir():
+    @app.get("/{full_path:path}", include_in_schema=False)
+    def _spa(full_path: str):
+        if full_path.startswith("api/"):
+            raise HTTPException(status_code=404, detail="not found")
+        candidate = _DIST / full_path
+        if full_path and candidate.is_file():
+            return FileResponse(candidate)
+        return FileResponse(_DIST / "index.html")

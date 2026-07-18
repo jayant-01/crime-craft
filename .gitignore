@@ -17,5 +17,5 @@ __pycache__/
 
 # Frontend (added in Phase 1)
 apps/web/node_modules/
-apps/web/dist/
 package-lock.json
+# NOTE: apps/web/dist IS committed — the backend serves it (single-domain deploy).
