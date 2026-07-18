@@ -24,6 +24,11 @@ def is_enabled() -> bool:
     return _settings.catalyst_enabled
 
 
+def datastore_enabled() -> bool:
+    """Whether the DATA layer (cases/audit) uses Catalyst vs the in-memory stub."""
+    return _settings.catalyst_datastore
+
+
 def _build_admin_credentials() -> dict[str, str]:
     """Credentials used when initializing outside of an AppSail request context
     (e.g. background jobs, the ingest cron, local admin scripts)."""
@@ -38,21 +43,22 @@ def _build_admin_credentials() -> dict[str, str]:
     }
 
 
-def get_catalyst(request_headers: dict[str, str] | None = None) -> Any:
+def get_catalyst(request: Any | None = None) -> Any:
     """Returns an initialized Catalyst app instance.
 
-    When called from a FastAPI route, pass `request_headers` so the SDK can pick
-    up the caller's auth context (`Authorization`, `x-zc-*` cookies). When called
-    from a job or CLI, headers are omitted and admin credentials are used.
+    When called from a route, pass the incoming **request object** so the SDK can
+    read the caller's session (AppSail requires `initialize(req=request)` — a plain
+    headers dict yields "Catalyst headers are empty"). Jobs/CLI omit it and use
+    admin credentials.
     """
     if not is_enabled():
         raise RuntimeError("catalyst is disabled (CATALYST_ENABLED=false)")
 
     import zcatalyst_sdk  # imported lazily so local dev doesn't require the package
 
-    if request_headers:
-        # Request-scoped: the SDK reads identity from headers.
-        return zcatalyst_sdk.initialize(request_headers)
+    if request is not None:
+        # Request-scoped: AppSail SDK reads identity from the request object.
+        return zcatalyst_sdk.initialize(req=request)
 
     global _app_instance
     if _app_instance is None:

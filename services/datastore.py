@@ -24,7 +24,7 @@ from typing import Any, Protocol
 
 from config import get_settings
 from models import Case, CaseStatus
-from services.catalyst_client import get_catalyst, is_enabled as catalyst_enabled
+from services.catalyst_client import get_catalyst, datastore_enabled
 from services.ksp_mapping import KspCaseBundle, Lookups, project_case
 
 _settings = get_settings()
@@ -274,14 +274,14 @@ _audit_repo: AuditRepository | None = None
 def case_repo() -> CaseRepository:
     global _case_repo
     if _case_repo is None:
-        _case_repo = CatalystCaseRepo() if catalyst_enabled() else InMemoryCaseRepo()
+        _case_repo = CatalystCaseRepo() if datastore_enabled() else InMemoryCaseRepo()
     return _case_repo
 
 
 def audit_repo() -> AuditRepository:
     global _audit_repo
     if _audit_repo is None:
-        _audit_repo = CatalystAuditRepo() if catalyst_enabled() else InMemoryAuditRepo()
+        _audit_repo = CatalystAuditRepo() if datastore_enabled() else InMemoryAuditRepo()
     return _audit_repo
 
 

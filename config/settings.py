@@ -15,6 +15,14 @@ class Settings(BaseSettings):
         validation_alias=AliasChoices("USE_CATALYST", "CATALYST_ENABLED", "catalyst_enabled"),
     )
 
+    # Separately toggle the DATA layer. When false, cases/audit use the in-memory
+    # stub (demo data) even while Catalyst handles auth — useful before KSP seed
+    # their real data. Defaults to catalyst_enabled unless set explicitly.
+    catalyst_datastore: bool = Field(
+        default=False,
+        validation_alias=AliasChoices("USE_CATALYST_DATASTORE", "CATALYST_DATASTORE", "catalyst_datastore"),
+    )
+
     # Catalyst credentials (required when catalyst_enabled=true)
     catalyst_project_id: str = ""
     catalyst_project_domain: str = ""

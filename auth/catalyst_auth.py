@@ -53,7 +53,7 @@ async def get_user_from_catalyst(request: Request) -> User:
     # Hosted login rides on a Catalyst session COOKIE (not a Bearer header), so we
     # forward all inbound headers to the SDK and let it validate the session.
     try:
-        app = get_catalyst(request_headers=dict(request.headers))
+        app = get_catalyst(request=request)
         current = app.user_management().get_current_user()
     except Exception as e:
         # Log the detail server-side; return a generic message to the client so

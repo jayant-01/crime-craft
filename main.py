@@ -58,9 +58,8 @@ async def _lifespan(app: FastAPI):
             )
 
     # Index the in-memory seed corpus into the RAG store so chat works over the
-    # demo data on `make dev`. Local stub path only — under Catalyst the ingest
-    # cron indexes the corpus, not boot.
-    if not settings.catalyst_enabled:
+    # demo data. Only when the DATA layer is in-memory (not the Catalyst datastore).
+    if not settings.catalyst_datastore:
         try:
             from services.rag.indexer import reindex_all
 
