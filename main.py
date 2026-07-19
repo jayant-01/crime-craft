@@ -19,6 +19,8 @@ from models import (
     ConversationSummary,
     HotspotsResponse,
     NetworkResponse,
+    MapResponse,
+    PersonDossier,
     RecidivismRequest,
     RecidivismResponse,
     Role,
@@ -375,6 +377,29 @@ def predictive_recidivism(
 
     from services.predictive import score_subject
     return score_subject(req.subject)
+
+
+@api.get("/analytics/map", response_model=MapResponse)
+def analytics_map(request: Request, user: User = Depends(require_officer)) -> MapResponse:
+    """Every case as a geo point for the Crime Map. Officer+ only (locations are
+    SENSITIVE) — audit-logged."""
+    request.state.user = user
+    from services.insights import build_map
+
+    return build_map()
+
+
+@api.get("/person/{name}", response_model=PersonDossier)
+def person_dossier(name: str, request: Request, user: User = Depends(require_officer)) -> PersonDossier:
+    """One-page dossier for a suspect: their cases, co-accused, and recidivism.
+    Officer+ only — audit-logged."""
+    request.state.user = user
+    from services.insights import build_dossier
+
+    dossier = build_dossier(name)
+    if dossier is None:
+        raise HTTPException(status_code=404, detail="no cases found for this person")
+    return dossier
 
 
 @api.post("/admin/ingest")

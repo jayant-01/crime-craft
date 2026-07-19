@@ -174,3 +174,39 @@ export interface HotspotsResponse {
   window_days: number;
   hotspots: Hotspot[];
 }
+
+export interface MapPoint {
+  case_id: string;
+  crime_type: string;
+  locality: string;
+  status: string;
+  occurred_on: string;
+  lat: number;
+  lng: number;
+}
+
+export interface MapResponse {
+  points: MapPoint[];
+  total: number;
+}
+
+export interface DossierCase {
+  case_id: string;
+  crime_type: string;
+  locality: string;
+  occurred_on: string;
+  status: string;
+}
+
+export interface PersonDossier {
+  name: string;
+  case_count: number;
+  localities: string[];
+  crime_types: string[];
+  co_accused: string[];
+  first_seen: string | null;
+  last_seen: string | null;
+  recidivism_band: RiskBand | null;
+  recidivism_score: number | null;
+  cases: DossierCase[];
+}

@@ -14,111 +14,125 @@ export default function DashboardPage() {
       analyticsApi.topLocalities(10),
       analyticsApi.hotspots(10, 30),
     ])
-      .then(([t, l, h]) => {
-        setTrends(t);
-        setLocs(l);
-        setHots(h);
-      })
+      .then(([t, l, h]) => { setTrends(t); setLocs(l); setHots(h); })
       .catch((e) => setError(e.message));
   }, []);
 
   if (error) return <p className="text-rose-600">{error}</p>;
 
+  const recent = hots?.hotspots.reduce((s, h) => s + h.recent_count, 0);
+  const peakWeek = trends ? Math.max(0, ...trends.buckets.map((b) => b.count)) : undefined;
+
   return (
     <div className="space-y-6">
-      <h2 className="text-lg font-semibold">Officer dashboard</h2>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <Stat label="Total cases" value={locs?.total_cases} />
+        <Stat label={`Recent (${hots?.window_days ?? 30}d)`} value={recent} accent="saffron" />
+        <Stat label="Localities" value={locs?.localities.length} />
+        <Stat label="Peak week" value={peakWeek} accent="green" />
+      </div>
 
-      <Card title="Crime trend — weekly">
-        {trends ? (
-          <TrendChart data={trends} />
-        ) : (
-          <Loading />
-        )}
-      </Card>
+      <div className="card card-pad">
+        <CardTitle>Crime trend — weekly</CardTitle>
+        {trends ? <TrendChart data={trends} /> : <ChartSkeleton />}
+      </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <Card title="Top localities">
-          {locs ? (
-            <ol className="text-sm space-y-1">
-              {locs.localities.map((l, i) => (
-                <li key={l.locality} className="flex justify-between">
-                  <span>
-                    <span className="text-subtle mr-2">{i + 1}.</span>
-                    {l.locality}
-                    {l.top_crime_types.length > 0 && (
-                      <span className="ml-2 text-xs text-muted">
-                        ({l.top_crime_types.join(", ")})
-                      </span>
-                    )}
-                  </span>
-                  <span className="font-mono">{l.count}</span>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <Loading />
-          )}
-        </Card>
-
-        <Card title={`Hotspots (last ${hots?.window_days ?? 30} days)`}>
+        <div className="card card-pad">
+          <CardTitle>Top localities</CardTitle>
+          {locs ? <RankedBars items={locs.localities.map((l) => ({ label: l.locality, value: l.count, sub: l.top_crime_types.join(", ") }))} /> : <ListSkeleton />}
+        </div>
+        <div className="card card-pad">
+          <CardTitle>Hotspots · last {hots?.window_days ?? 30} days</CardTitle>
           {hots ? (
-            <ol className="text-sm space-y-1">
+            <ol className="space-y-2.5">
               {hots.hotspots.map((h, i) => (
-                <li key={h.locality} className="flex justify-between">
-                  <span>
-                    <span className="text-subtle mr-2">{i + 1}.</span>
-                    {h.locality}
-                    {h.crime_type && (
-                      <span className="ml-2 text-xs text-muted">({h.crime_type})</span>
-                    )}
+                <li key={h.locality} className="flex items-center justify-between text-sm">
+                  <span className="flex items-center gap-2 min-w-0">
+                    <span className="text-subtle w-4 text-right tabular-nums">{i + 1}</span>
+                    <span className="truncate text-ink">{h.locality}</span>
+                    {h.crime_type && <span className="chip">{h.crime_type}</span>}
                   </span>
-                  <span className="font-mono">
-                    <span className="text-rose-600">{h.recent_count}</span>
-                    <span className="text-subtle"> / {h.count}</span>
+                  <span className="tabular-nums shrink-0">
+                    <span className="badge bg-saffron/15 text-saffron">▲ {h.recent_count}</span>
+                    <span className="text-subtle ml-2">/ {h.count}</span>
                   </span>
                 </li>
               ))}
             </ol>
-          ) : (
-            <Loading />
-          )}
-        </Card>
+          ) : <ListSkeleton />}
+        </div>
       </div>
     </div>
   );
 }
 
-function Card({ title, children }: { title: string; children: React.ReactNode }) {
+function Stat({ label, value, accent }: { label: string; value?: number; accent?: "saffron" | "green" }) {
+  const color = accent === "saffron" ? "text-saffron" : accent === "green" ? "text-flaggreen" : "text-ink";
   return (
-    <div className="bg-card shadow rounded p-4">
-      <h3 className="text-sm font-semibold text-ink mb-3">{title}</h3>
-      {children}
+    <div className="stat">
+      <div className="stat-label">{label}</div>
+      <div className={`stat-value ${color}`}>
+        {value === undefined ? <span className="skeleton inline-block h-7 w-12 align-middle" /> : value}
+      </div>
     </div>
   );
 }
 
-function Loading() {
-  return <p className="text-sm text-subtle">Loading…</p>;
-}
+const CardTitle = ({ children }: { children: React.ReactNode }) => (
+  <h3 className="mb-4 text-sm font-semibold text-ink">{children}</h3>
+);
 
 function TrendChart({ data }: { data: TrendsResponse }) {
-  if (data.buckets.length === 0) {
-    return <p className="text-sm text-subtle">No data yet.</p>;
-  }
+  if (data.buckets.length === 0) return <p className="text-sm text-subtle">No data yet.</p>;
   const max = Math.max(...data.buckets.map((b) => b.count));
   return (
-    <div className="flex items-end gap-1 h-32">
+    <div className="flex items-end gap-1.5 h-40">
       {data.buckets.map((b) => {
         const h = max ? (b.count / max) * 100 : 0;
         return (
-          <div key={b.bucket_start} className="flex-1 flex flex-col items-center justify-end" title={`${b.bucket_start}: ${b.count}`}>
-            <div className="w-full bg-brand-500 rounded-t" style={{ height: `${h}%` }} />
-            <div className="text-[10px] text-subtle mt-1 truncate w-full text-center">
-              {b.bucket_start.slice(5)}
-            </div>
+          <div key={b.bucket_start} className="group flex-1 flex flex-col items-center justify-end gap-1" title={`${b.bucket_start}: ${b.count}`}>
+            <span className="text-[10px] text-subtle opacity-0 group-hover:opacity-100 transition tabular-nums">{b.count}</span>
+            <div className="w-full rounded-t-md bg-gradient-to-t from-brand-500 to-brand-500/60 group-hover:from-saffron group-hover:to-saffron/70 transition-colors"
+              style={{ height: `${Math.max(h, 3)}%` }} />
+            <div className="text-[9px] text-subtle truncate w-full text-center">{b.bucket_start.slice(5)}</div>
           </div>
         );
       })}
     </div>
   );
 }
+
+function RankedBars({ items }: { items: { label: string; value: number; sub?: string }[] }) {
+  const max = Math.max(1, ...items.map((i) => i.value));
+  return (
+    <ol className="space-y-2.5">
+      {items.map((it, i) => (
+        <li key={it.label} className="text-sm">
+          <div className="flex items-center justify-between">
+            <span className="flex items-center gap-2 min-w-0">
+              <span className="text-subtle w-4 text-right tabular-nums">{i + 1}</span>
+              <span className="truncate text-ink">{it.label}</span>
+              {it.sub && <span className="chip truncate max-w-[10rem]">{it.sub}</span>}
+            </span>
+            <span className="tabular-nums font-medium">{it.value}</span>
+          </div>
+          <div className="mt-1 ml-6 h-1.5 rounded-full bg-surface-2 overflow-hidden">
+            <div className="h-full rounded-full bg-brand-500" style={{ width: `${(it.value / max) * 100}%` }} />
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+const ChartSkeleton = () => (
+  <div className="flex items-end gap-1.5 h-40">
+    {Array.from({ length: 14 }).map((_, i) => (
+      <div key={i} className="skeleton flex-1 rounded-t-md" style={{ height: `${20 + ((i * 37) % 70)}%` }} />
+    ))}
+  </div>
+);
+const ListSkeleton = () => (
+  <div className="space-y-3">{Array.from({ length: 6 }).map((_, i) => <div key={i} className="skeleton h-4 w-full" />)}</div>
+);

@@ -11,38 +11,39 @@
   --brand-100: 197 202 233;
   --brand-500: 40 53 147;   /* #283593 */
   --brand-600: 26 35 126;   /* #1a237e */
-  --brand-700: 0 0 128;     /* #000080 */
+  --brand-700: 13 20 90;    /* deep navy */
 
   /* neutral surfaces & text — clean "flag white" paper */
-  --surface: 247 248 250;   /* page background */
-  --surface-2: 238 241 245;
+  --surface: 244 246 250;   /* app background */
+  --surface-2: 236 239 245;
   --card: 255 255 255;      /* card background */
-  --ink: 17 24 39;          /* primary text */
-  --muted: 90 103 122;      /* secondary text */
-  --subtle: 148 163 184;    /* faint text */
-  --line: 224 228 235;      /* borders */
+  --ink: 16 22 40;          /* primary text */
+  --muted: 90 100 122;      /* secondary text */
+  --subtle: 148 160 182;    /* faint text */
+  --line: 226 231 240;      /* borders */
 
   /* flag accents */
   --saffron: 255 153 51;    /* #FF9933 */
   --flag-green: 19 136 8;   /* #138808 */
 
+  --ring: var(--brand-500);
   color-scheme: light;
 }
 
 .dark {
-  --brand-50: 15 23 42;
-  --brand-100: 199 210 254;
+  --brand-50: 30 41 66;
+  --brand-100: 191 205 255;
   --brand-500: 129 140 248; /* lighter indigo for contrast on dark */
-  --brand-600: 99 102 241;
-  --brand-700: 23 30 68;    /* deep navy header */
+  --brand-600: 129 140 248;
+  --brand-700: 17 24 52;    /* deep navy sidebar */
 
-  --surface: 15 23 42;      /* slate-900 */
-  --surface-2: 30 41 59;    /* slate-800 */
-  --card: 30 41 59;         /* slate-800 */
-  --ink: 226 232 240;       /* slate-200 */
-  --muted: 148 163 184;     /* slate-400 */
-  --subtle: 100 116 139;    /* slate-500 */
-  --line: 51 65 85;         /* slate-700 */
+  --surface: 10 15 28;      /* near-black navy */
+  --surface-2: 22 30 48;
+  --card: 20 27 45;         /* card */
+  --ink: 226 232 244;
+  --muted: 148 163 190;
+  --subtle: 100 116 145;
+  --line: 39 48 71;
 
   --saffron: 255 167 78;
   --flag-green: 74 176 74;
@@ -50,19 +51,94 @@
   color-scheme: dark;
 }
 
-body {
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background-color: rgb(var(--surface));
-  color: rgb(var(--ink));
+* {
+  border-color: rgb(var(--line));
 }
 
-/* Tricolour accent underline — true flag colours regardless of theme. */
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-color: rgb(var(--surface));
+  color: rgb(var(--ink));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tricolour accent — true flag colours regardless of theme. */
 .flag-stripe {
   height: 3px;
-  background: linear-gradient(
-    to right,
-    #ff9933 0 33.33%,
-    #ffffff 33.33% 66.66%,
-    #138808 66.66% 100%
-  );
+  background: linear-gradient(to right, #ff9933 0 33.33%, #ffffff 33.33% 66.66%, #138808 66.66% 100%);
 }
+
+@layer components {
+  /* --- surfaces --- */
+  .card {
+    @apply bg-card rounded-xl border border-line;
+    box-shadow: 0 1px 2px rgb(16 22 40 / 0.04), 0 1px 3px rgb(16 22 40 / 0.06);
+  }
+  .card-pad { @apply p-5; }
+  .card-hover { @apply transition hover:-translate-y-0.5; }
+  .card-hover:hover { box-shadow: 0 6px 20px rgb(16 22 40 / 0.10); }
+
+  /* --- buttons --- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium
+           transition disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary { @apply bg-brand-600 text-white hover:bg-brand-700 shadow-sm; }
+  .btn-ghost   { @apply text-ink hover:bg-surface-2; }
+  .btn-outline { @apply border border-line text-ink hover:bg-surface-2; }
+  .btn-sm      { @apply px-2.5 py-1.5 text-xs rounded-md; }
+
+  /* --- inputs --- */
+  .input {
+    @apply w-full rounded-lg border border-line bg-card px-3 py-2 text-sm text-ink
+           placeholder:text-subtle transition
+           focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500;
+  }
+
+  /* --- badges / chips --- */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-md bg-surface-2 px-2 py-0.5 text-xs text-muted;
+  }
+
+  /* --- stat tile --- */
+  .stat { @apply card card-pad; }
+  .stat-label { @apply text-xs font-medium uppercase tracking-wide text-subtle; }
+  .stat-value { @apply mt-1 text-2xl font-semibold text-ink tabular-nums; }
+
+  /* --- data table --- */
+  .table { @apply w-full text-sm; }
+  .table thead th {
+    @apply text-left font-medium text-subtle uppercase tracking-wide text-xs px-4 py-2.5;
+  }
+  .table tbody td { @apply px-4 py-3 text-ink; }
+  .table tbody tr { @apply border-t border-line; }
+  .table tbody tr:hover { @apply bg-surface-2/60; }
+
+  /* --- sidebar nav --- */
+  .nav-link {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-brand-100/80
+           transition hover:text-white hover:bg-white/10;
+  }
+  .nav-link-active { @apply text-white bg-white/15; }
+
+  /* --- skeleton shimmer --- */
+  .skeleton {
+    @apply rounded-md bg-surface-2;
+    background-image: linear-gradient(90deg, transparent, rgb(var(--line) / 0.7), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* smoother page transitions */
+.fade-in { animation: fadeIn 0.25s ease both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }

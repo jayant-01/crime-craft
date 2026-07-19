@@ -13,24 +13,6 @@ export default function LoginPage() {
 
   if (user) return <Navigate to="/" replace />;
 
-  // Production: hand off to the Catalyst-hosted login page.
-  if (catalystMode) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-brand-50">
-        <div className="bg-card shadow rounded-lg p-8 w-full max-w-sm space-y-4 text-center">
-          <h1 className="text-xl font-semibold text-brand-700">Crime Craft</h1>
-          <p className="text-sm text-muted">Sign in with your KSP account to continue.</p>
-          <button
-            onClick={() => redirectToCatalystLogin()}
-            className="w-full rounded bg-brand-600 text-white py-2 font-medium hover:bg-brand-700"
-          >
-            Sign in
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
@@ -46,44 +28,62 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-brand-50">
-      <form onSubmit={onSubmit} className="bg-card shadow rounded-lg p-8 w-full max-w-sm space-y-4">
-        <div>
-          <h1 className="text-xl font-semibold text-brand-700">Crime Craft</h1>
-          <p className="text-sm text-muted">Sign in to continue.</p>
+    <div className="min-h-screen grid md:grid-cols-2">
+      {/* brand panel */}
+      <div className="hidden md:flex flex-col justify-between bg-brand-700 text-white p-10">
+        <div className="flex items-center gap-2">
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-white/10 text-lg">🛡️</span>
+          <span className="font-semibold">Crime Craft</span>
         </div>
-        <label className="block text-sm">
-          <span className="text-ink">Username</span>
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            autoFocus
-            className="mt-1 w-full rounded border-line border px-2 py-1.5"
-          />
-        </label>
-        <label className="block text-sm">
-          <span className="text-ink">Password</span>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="mt-1 w-full rounded border-line border px-2 py-1.5"
-          />
-        </label>
-        {error && <div className="text-sm text-rose-600">{error}</div>}
-        <button
-          disabled={submitting}
-          className="w-full rounded bg-brand-600 text-white py-1.5 font-medium hover:bg-brand-700 disabled:opacity-50"
-        >
-          {submitting ? "Signing in…" : "Sign in"}
-        </button>
-        <p className="text-xs text-subtle leading-snug">
-          Local-dev login stub. Try <code>officer_priya</code>, <code>admin_jayant</code>, or any other
-          username — role is inferred from the prefix.
-        </p>
-      </form>
+        <div>
+          <h1 className="text-3xl font-semibold leading-tight">Intelligent case insights<br />for Karnataka State Police</h1>
+          <p className="mt-3 max-w-md text-brand-100/80">
+            Chat, analytics, criminal-network mapping and recidivism scoring — role-aware and audit-logged.
+          </p>
+        </div>
+        <div className="flag-stripe w-40 rounded" />
+      </div>
+
+      {/* form panel */}
+      <div className="flex items-center justify-center bg-surface p-6">
+        <div className="card card-pad w-full max-w-sm fade-in">
+          <div className="mb-6 md:hidden flex items-center gap-2">
+            <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-600 text-white text-lg">🛡️</span>
+            <span className="font-semibold text-ink">Crime Craft</span>
+          </div>
+          <h2 className="text-lg font-semibold text-ink">Sign in</h2>
+          <p className="mt-1 text-sm text-muted">
+            {catalystMode ? "Continue with your KSP account." : "Local demo — role is inferred from the username prefix."}
+          </p>
+
+          {catalystMode ? (
+            <button onClick={() => redirectToCatalystLogin()} className="btn btn-primary w-full mt-6">
+              Sign in with KSP account
+            </button>
+          ) : (
+            <form onSubmit={onSubmit} className="mt-6 space-y-4">
+              <label className="block">
+                <span className="text-xs font-medium text-muted">Username</span>
+                <input value={username} onChange={(e) => setUsername(e.target.value)} required autoFocus
+                  placeholder="senior_jayant" className="input mt-1" />
+              </label>
+              <label className="block">
+                <span className="text-xs font-medium text-muted">Password</span>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required
+                  placeholder="any value" className="input mt-1" />
+              </label>
+              {error && <div className="text-sm text-rose-600">{error}</div>}
+              <button disabled={submitting} className="btn btn-primary w-full">
+                {submitting ? "Signing in…" : "Sign in"}
+              </button>
+              <p className="text-xs text-subtle leading-snug">
+                Try <code className="chip">senior_jayant</code>, <code className="chip">officer_priya</code>, or
+                <code className="chip">admin_ravi</code>.
+              </p>
+            </form>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

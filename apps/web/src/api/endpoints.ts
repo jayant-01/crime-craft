@@ -7,7 +7,9 @@ import type {
   ConversationSummary,
   HotspotsResponse,
   LoginResponse,
+  MapResponse,
   NetworkResponse,
+  PersonDossier,
   RecidivismRequest,
   RecidivismResponse,
   TopLocalitiesResponse,
@@ -108,6 +110,18 @@ export const networkApi = {
   },
   forSuspect(name: string, depth = 1): Promise<NetworkResponse> {
     return api.get(`/network/suspect/${encodeURIComponent(name)}?depth=${depth}`);
+  },
+};
+
+export const mapApi = {
+  points(): Promise<MapResponse> {
+    return api.get("/analytics/map");
+  },
+};
+
+export const personApi = {
+  dossier(name: string): Promise<PersonDossier> {
+    return api.get(`/person/${encodeURIComponent(name)}`);
   },
 };
 

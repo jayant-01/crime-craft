@@ -4,3 +4,6 @@ node_modules/
 .DS_Store
 package-lock.json
 # dist IS committed — the backend serves it (single-domain deploy)
+
+# tsc -b build cache
+*.tsbuildinfo

@@ -30,6 +30,12 @@ from .network import (
     NetworkResponse,
     NodeKind,
 )
+from .insights import (
+    DossierCase,
+    MapPoint,
+    MapResponse,
+    PersonDossier,
+)
 
 __all__ = [
     "User",
@@ -61,4 +67,8 @@ __all__ = [
     "NetworkNode",
     "NetworkResponse",
     "NodeKind",
+    "DossierCase",
+    "MapPoint",
+    "MapResponse",
+    "PersonDossier",
 ]

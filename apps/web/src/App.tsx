@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import LoginPage from "./pages/LoginPage";
@@ -7,8 +8,12 @@ import ChatPage from "./pages/ChatPage";
 import DashboardPage from "./pages/DashboardPage";
 import NetworkPage from "./pages/NetworkPage";
 import RecidivismPage from "./pages/RecidivismPage";
+import PersonDossierPage from "./pages/PersonDossierPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useAuth } from "./auth/AuthContext";
+
+// Heavy (maplibre) — load only when the map is opened.
+const CrimeMapPage = lazy(() => import("./pages/CrimeMapPage"));
 
 export default function App() {
   const { loading } = useAuth();
@@ -41,6 +46,32 @@ export default function App() {
           element={
             <ProtectedRoute roles={["officer", "senior_officer", "admin"]}>
               <NetworkPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/map"
+          element={
+            <ProtectedRoute roles={["officer", "senior_officer", "admin"]}>
+              <Suspense fallback={<div className="text-muted">Loading map…</div>}>
+                <CrimeMapPage />
+              </Suspense>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/person"
+          element={
+            <ProtectedRoute roles={["officer", "senior_officer", "admin"]}>
+              <PersonDossierPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/person/:name"
+          element={
+            <ProtectedRoute roles={["officer", "senior_officer", "admin"]}>
+              <PersonDossierPage />
             </ProtectedRoute>
           }
         />
