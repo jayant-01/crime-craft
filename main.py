@@ -204,7 +204,15 @@ def chat(
     see OPEN + SENSITIVE. Every call is audit-logged.
     """
     request.state.user = user
-    return rag_ask(req, user)
+    try:
+        return rag_ask(req, user)
+    except HTTPException:
+        raise
+    except Exception as e:  # noqa: BLE001 — surface the real cause instead of an opaque 500
+        # Log the full traceback for prod debugging, and return the reason to the
+        # client so failures (e.g. LLM provider errors) are visible in the UI.
+        logging.getLogger("chat").exception("chat request failed")
+        raise HTTPException(status_code=502, detail=f"chat failed: {type(e).__name__}: {e}") from e
 
 
 @api.post("/conversations", response_model=Conversation)
