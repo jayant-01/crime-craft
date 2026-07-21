@@ -6,7 +6,10 @@
 		"APP_ENV": "production",
 		"USE_CATALYST": "true",
 		"USE_CATALYST_DATASTORE": "false",
-		"JWT_SECRET": "kExXKLttwCWuD-kjahTGzWc16yu_d_GLC1o3jUNd9ZF92850coMWnJY3FkrTg_3Au6_G1PHh-e3qX3Vpf89_qg"
+		"JWT_SECRET": "kExXKLttwCWuD-kjahTGzWc16yu_d_GLC1o3jUNd9ZF92850coMWnJY3FkrTg_3Au6_G1PHh-e3qX3Vpf89_qg",
+		"LLM_PROVIDER": "openrouter",
+		"LLM_MODEL_ID": "deepseek/deepseek-chat-v3-0324:free",
+		"LLM_API_KEY": ""
 	},
 	"memory": 512,
 	"scripts": {}
