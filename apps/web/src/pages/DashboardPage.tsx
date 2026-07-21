@@ -87,14 +87,18 @@ function TrendChart({ data }: { data: TrendsResponse }) {
   if (data.buckets.length === 0) return <p className="text-sm text-subtle">No data yet.</p>;
   const max = Math.max(...data.buckets.map((b) => b.count));
   return (
-    <div className="flex items-end gap-1.5 h-40">
+    <div className="flex gap-1.5 h-40">
       {data.buckets.map((b) => {
         const h = max ? (b.count / max) * 100 : 0;
         return (
-          <div key={b.bucket_start} className="group flex-1 flex flex-col items-center justify-end gap-1" title={`${b.bucket_start}: ${b.count}`}>
-            <span className="text-[10px] text-subtle opacity-0 group-hover:opacity-100 transition tabular-nums">{b.count}</span>
-            <div className="w-full rounded-t-md bg-gradient-to-t from-brand-500 to-brand-500/60 group-hover:from-saffron group-hover:to-saffron/70 transition-colors"
-              style={{ height: `${Math.max(h, 3)}%` }} />
+          <div key={b.bucket_start} className="group flex-1 flex flex-col gap-1" title={`${b.bucket_start}: ${b.count}`}>
+            {/* flex-1 gives this track a definite height, so the bar's % height resolves */}
+            <div className="relative w-full flex-1 flex items-end">
+              <div className="relative w-full rounded-t-md bg-gradient-to-t from-brand-500 to-brand-500/60 group-hover:from-saffron group-hover:to-saffron/70 transition-colors"
+                style={{ height: `${Math.max(h, 3)}%` }}>
+                <span className="absolute -top-4 inset-x-0 text-center text-[10px] text-subtle opacity-0 group-hover:opacity-100 transition tabular-nums">{b.count}</span>
+              </div>
+            </div>
             <div className="text-[9px] text-subtle truncate w-full text-center">{b.bucket_start.slice(5)}</div>
           </div>
         );

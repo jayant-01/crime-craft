@@ -41,6 +41,8 @@ class Settings(BaseSettings):
     # `stub` → in-memory store + deterministic embeddings + templated LLM reply (offline dev/tests)
     # `live` → Qdrant + sentence-transformers BGE-M3 + Anthropic Claude
     rag_provider: str = "stub"
+    # anthropic | openrouter | (else → StubLLM). openrouter works even with
+    # rag_provider="stub" so the chatbot gives real answers over demo data.
     llm_provider: str = "anthropic"
     llm_api_key: str = ""
     llm_model_id: str = "claude-sonnet-4-6"

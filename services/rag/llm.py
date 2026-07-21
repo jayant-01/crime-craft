@@ -1,13 +1,15 @@
 """LLM providers.
 
-Two implementations:
+Three implementations:
   - StubLLM: deterministic templated reply that quotes the first retrieved
     chunk and cites its case_id. Lets us test the orchestrator + citation
     extraction without an API key.
   - AnthropicLLM: Claude Sonnet 4.6 via the official SDK, with prompt
     caching on the system block and adaptive thinking.
+  - OpenRouterLLM: any model on OpenRouter's OpenAI-compatible API (including
+    the free `:free` tiers). Uses httpx directly — no extra dependency.
 
-Both return a plain string. Citation extraction is the orchestrator's job.
+All return a plain string. Citation extraction is the orchestrator's job.
 """
 
 from __future__ import annotations
@@ -110,13 +112,90 @@ class AnthropicLLM:
         return ""
 
 
+class OpenRouterLLM:
+    """Any OpenRouter model via its OpenAI-compatible chat-completions API.
+
+    OpenRouter exposes many models — including free tiers whose ids end in
+    `:free` (e.g. `meta-llama/llama-3.3-70b-instruct:free`). Set
+    LLM_PROVIDER=openrouter, LLM_API_KEY=<your key>, and optionally
+    LLM_MODEL_ID=<any openrouter model id>. We call the REST endpoint with
+    httpx (already a runtime dependency) so no vendor SDK is needed.
+    """
+
+    API_URL = "https://openrouter.ai/api/v1/chat/completions"
+    # Used when LLM_MODEL_ID is unset or still points at a Claude id.
+    DEFAULT_MODEL = "meta-llama/llama-3.3-70b-instruct:free"
+    MAX_TOKENS = 1024
+    TIMEOUT_S = 60.0
+
+    @property
+    def model_id(self) -> str:
+        m = (_settings.llm_model_id or "").strip()
+        # The settings default is a Claude id; fall back to a free model unless
+        # the operator has pointed LLM_MODEL_ID at a real OpenRouter model.
+        if not m or m.startswith("claude"):
+            return self.DEFAULT_MODEL
+        return m
+
+    def chat(self, system: str, user: str) -> str:
+        import httpx
+
+        if not _settings.llm_api_key:
+            raise RuntimeError("LLM_API_KEY (OpenRouter) not configured")
+
+        headers = {
+            "Authorization": f"Bearer {_settings.llm_api_key}",
+            "Content-Type": "application/json",
+            # Optional attribution headers OpenRouter uses for its rankings.
+            "HTTP-Referer": "https://crime-craft.local",
+            "X-Title": _settings.app_name,
+        }
+        payload = {
+            "model": self.model_id,
+            "max_tokens": self.MAX_TOKENS,
+            "temperature": 0.2,  # grounded Q&A — keep it factual, low variance
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ],
+        }
+
+        resp = httpx.post(self.API_URL, headers=headers, json=payload, timeout=self.TIMEOUT_S)
+        if resp.status_code != 200:
+            # OpenRouter returns a JSON error body; surface it for debugging.
+            raise RuntimeError(f"OpenRouter HTTP {resp.status_code}: {resp.text[:500]}")
+
+        data = resp.json()
+        if data.get("usage"):
+            u = data["usage"]
+            log.info(
+                "openrouter model=%s prompt=%s completion=%s total=%s",
+                self.model_id,
+                u.get("prompt_tokens"),
+                u.get("completion_tokens"),
+                u.get("total_tokens"),
+            )
+        try:
+            return data["choices"][0]["message"]["content"] or ""
+        except (KeyError, IndexError, TypeError) as exc:
+            raise RuntimeError(f"OpenRouter: unexpected response shape: {data}") from exc
+
+
 _provider: LLMProvider | None = None
 
 
 def get_llm() -> LLMProvider:
     global _provider
     if _provider is None:
-        _provider = AnthropicLLM() if _settings.rag_provider == "live" else StubLLM()
+        provider = (_settings.llm_provider or "").lower()
+        if provider == "openrouter" and _settings.llm_api_key:
+            # OpenRouter can generate real answers over the offline demo
+            # retrieval — no need for the full RAG_PROVIDER=live stack.
+            _provider = OpenRouterLLM()
+        elif provider == "anthropic" and _settings.rag_provider == "live":
+            _provider = AnthropicLLM()
+        else:
+            _provider = StubLLM()
     return _provider
 
 
