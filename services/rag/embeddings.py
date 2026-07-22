@@ -1,10 +1,11 @@
 """Embedding providers.
 
 Two implementations behind one Protocol:
-  - StubEmbedder: deterministic hash → 64-d vector. Same text → same vector.
-    Lets the whole RAG pipeline run offline with no model download.
-    Does NOT give meaningful semantic similarity — tests should not assert
-    that "theft" retrieves "robbery" from a stub.
+  - StubEmbedder: deterministic LEXICAL bag-of-words hashing. No model
+    download. Texts that share words get a high cosine similarity, so
+    keyword / locality / case-id queries actually retrieve the right cases.
+    It is NOT semantic (won't map "theft"→"robbery"), but it's good enough
+    for offline dev and for demos where BGE-M3 + Qdrant aren't available.
   - LocalEmbedder: sentence-transformers + BGE-M3 (multilingual,
     English/Hindi/Kannada). Lazy-imports the dep so dev installs don't pay
     the ~600MB model download until they need it.
@@ -13,7 +14,8 @@ Two implementations behind one Protocol:
 from __future__ import annotations
 
 import hashlib
-import struct
+import math
+import re
 from typing import Protocol
 
 from config import get_settings
@@ -28,9 +30,16 @@ class Embedder(Protocol):
 
 
 class StubEmbedder:
-    """Deterministic 64-d vectors from SHA-256(text). Pipeline-only, not semantic."""
+    """Deterministic lexical bag-of-words hashing embedder (no model download).
 
-    DIM = 64
+    Each token (unicode word chars, lowercased) is hashed into a fixed-dim
+    vector with a signed value; texts sharing tokens get a high cosine. This
+    makes queries like "thefts in HSR Layout" or "FIR-2025-1001" retrieve the
+    matching case summaries, unlike a whole-text hash (which is random noise).
+    """
+
+    DIM = 512
+    _TOKEN_RE = re.compile(r"\w+", re.UNICODE)  # matches Latin + Devanagari + Kannada
 
     @property
     def dim(self) -> int:
@@ -40,20 +49,16 @@ class StubEmbedder:
         return [self._embed_one(t) for t in texts]
 
     def _embed_one(self, text: str) -> list[float]:
-        digest = hashlib.sha256(text.encode("utf-8")).digest()
-        # 64 bytes / 4 bytes per float = 16 floats; tile to reach DIM.
-        floats: list[float] = []
-        while len(floats) < self.DIM:
-            for i in range(0, len(digest), 4):
-                f = struct.unpack("f", digest[i : i + 4])[0]
-                # Normalize roughly into [-1, 1].
-                if not (f == f and abs(f) < 1e30):  # NaN / inf guard
-                    f = 0.0
-                floats.append(max(-1.0, min(1.0, f / 1e30)))
-                if len(floats) >= self.DIM:
-                    break
-            digest = hashlib.sha256(digest).digest()
-        return floats
+        vec = [0.0] * self.DIM
+        for tok in self._TOKEN_RE.findall(text.lower()):
+            h = int.from_bytes(hashlib.md5(tok.encode("utf-8")).digest()[:8], "big")
+            idx = h % self.DIM
+            sign = 1.0 if (h >> 12) & 1 else -1.0  # signed hashing cancels collisions
+            vec[idx] += sign
+        norm = math.sqrt(sum(v * v for v in vec))
+        if norm > 0.0:
+            vec = [v / norm for v in vec]
+        return vec
 
 
 class LocalEmbedder:

@@ -30,19 +30,33 @@ export default function ChatPage() {
   }, [messages]);
 
   async function newConversation() {
-    const conv = await conversationsApi.create();
-    setConversationId(conv.id);
-    setMessages([]);
-    setConversations((prev) => [
-      { id: conv.id, title: null, created_at: conv.created_at, updated_at: conv.updated_at, turn_count: 0 },
-      ...prev,
-    ]);
+    try {
+      const conv = await conversationsApi.create();
+      setConversationId(conv.id);
+      setMessages([]);
+      setConversations((prev) => [
+        { id: conv.id, title: null, created_at: conv.created_at, updated_at: conv.updated_at, turn_count: 0 },
+        ...prev,
+      ]);
+    } catch (err) {
+      setMessages([{ role: "assistant", content: `Could not start a new conversation: ${err instanceof Error ? err.message : "unknown error"}` }]);
+    }
   }
 
   async function openConversation(id: string) {
-    const conv = await conversationsApi.get(id);
-    setConversationId(conv.id);
-    setMessages(conv.turns);
+    try {
+      const conv = await conversationsApi.get(id);
+      setConversationId(conv.id);
+      setMessages(conv.turns);
+    } catch (err) {
+      setMessages([{ role: "assistant", content: `Could not open this conversation: ${err instanceof Error ? err.message : "unknown error"}` }]);
+    }
+  }
+
+  // Re-pull the sidebar so the server-set title (from the first message) and
+  // turn counts show, instead of a stale "Untitled".
+  function refreshConversations() {
+    conversationsApi.list().then(setConversations).catch(() => undefined);
   }
 
   async function send() {
@@ -69,6 +83,8 @@ export default function ChatPage() {
       if (res.conversation_id && !conversationId) {
         setConversationId(res.conversation_id);
       }
+      // update the sidebar so this conversation shows its real title, not "Untitled"
+      if (conversationId || res.conversation_id) refreshConversations();
     } catch (err) {
       setMessages((prev) => [
         ...prev,
