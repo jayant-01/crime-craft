@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 from typing import Any, Protocol
 
 from models import ChatTurn, Conversation, ConversationSummary
-from services.catalyst_client import get_catalyst, is_enabled as catalyst_enabled
+from services.catalyst_client import get_catalyst, datastore_enabled
 
 
 class ConversationRepository(Protocol):
@@ -220,7 +220,12 @@ _repo: ConversationRepository | None = None
 def conversation_repo() -> ConversationRepository:
     global _repo
     if _repo is None:
-        _repo = CatalystConversationRepo() if catalyst_enabled() else InMemoryConversationRepo()
+        # Conversations are part of the DATA layer, so they follow the datastore
+        # toggle (like cases/audit) — NOT catalyst_enabled. Otherwise, with
+        # USE_CATALYST=true + USE_CATALYST_DATASTORE=false, we'd try to write to a
+        # Catalyst `Conversations` table that isn't provisioned and every
+        # POST /conversations would fail.
+        _repo = CatalystConversationRepo() if datastore_enabled() else InMemoryConversationRepo()
     return _repo
 
 
